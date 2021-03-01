@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/01 18:46:22 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/01 23:45:29 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 # define MINISHELL_H
 # include <stdio.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include "./libft/libft.h"
 
+# define OPEN_MAX 256
+# define BUFFER_SIZE 1
 
 
 typedef struct      s_scmd
@@ -31,6 +36,20 @@ typedef struct      s_cmds
 	t_scmd 			*comand;
 }                   t_cmds;
 
+int			        get_next_line(const int fd, char **line);
+char		        *ft_strjoin(char const *s1, char const *s2);
+size_t		        ft_strlen(const char *s);
+int			        is_line(char *str);
+int		            get_next_line(const int fd, char **line);
+t_cmds		        *parse_cmd(char **cmd, t_cmds *last);
+t_scmd		        *newsimplecmd(char *cmd, t_scmd *previous);
+t_scmd		        *lstlast_smplcmds(t_scmd *lst);
+void		        add_back_smplcmds(t_scmd **alst, t_scmd *new);
+void		        lstclear_smplcmds(t_scmd **lst, void (*del)(void *));
+t_cmds		        *newcomands(t_scmd *cmd, t_cmds *previous);
+t_cmds		        *lstlast_cmds(t_cmds *lst);
+void		        add_back_cmds(t_cmds **alst, t_cmds *new);
+void		        lstclear_cmds(t_cmds **lst, void (*del)(void *));
 
 
 #endif
