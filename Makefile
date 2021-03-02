@@ -9,6 +9,8 @@ get_next_line_utils.c \
 cmds_gestor.c \
 scmd_gestor.c \
 parsing.c \
+splitcmd.c \
+splitterdot.c
 
 OBJ		=	$(SRCS:.c=.o)
 

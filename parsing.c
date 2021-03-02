@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 00:40:12 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/02 19:14:23 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		iterator(t_scmd *lst)
 		lstiter = lst;
 		while (lstiter != NULL)
 		{
-			printf("%s-",lstiter->cmd);
+			printf("%s-", lstiter->cmd);
 			lstiter = lstiter->next;
 		}
 	}
@@ -49,22 +49,34 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *last)
 
 	*cmd = ft_strtrim(*cmd, "\n");
 	*cmd = ft_strtrim(*cmd, " ");
-	cmdarr = ft_split(*cmd, ';');
+	cmdarr = ft_splitter(*cmd, ';');
+	i = 0;
+	while (cmdarr[i])
+	{
+		cmdarr[i] = ft_strtrim(cmdarr[i], " ");
+		i++;
+	}
 	k = -1;
 	while (cmdarr[++k])
 	{
-		arr = ft_split_cmd(cmdarr[k], ' ');
+		arr = ft_split_cmd(cmdarr[k], "<>|");
 		comand = newsimplecmd(arr[0], 0);
 		last = newcomands(comand, last);
-		tmp = comand;
 		i = 1;
 		while (arr[i])
-			tmp = create_scmd_lst(&comand, tmp, i++, arr);
+		{
+			tmp = create_scmd_lst(&comand, tmp, i, arr);
+			i++;
+		}
+		free(arr);
 		newlast = newcomands(comand, last);
 		add_back_cmds(&last, newlast);
 		free(last);
 		last = newlast;
 		iterator(comand);
+		free(cmdarr[k]);
 	}
+	free(cmdarr);
+	free(tmp);
 	return (newlast);
 }
