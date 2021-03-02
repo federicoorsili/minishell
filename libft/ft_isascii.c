@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 10:52:25 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 10:52:28 by aduregon         ###   ########.fr       */
+/*   Updated: 2021/03/02 21:14:28 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		ft_isascii(int c)
 {
-	return ((unsigned char)c >= 0 && (unsigned char)c <= 127);
+	return ((unsigned char)c <= 127);
 }

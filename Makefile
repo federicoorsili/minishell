@@ -10,7 +10,8 @@ cmds_gestor.c \
 scmd_gestor.c \
 parsing.c \
 splitcmd.c \
-splitterdot.c
+splitterdot.c \
+lstprinter.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

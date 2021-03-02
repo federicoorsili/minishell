@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 19:14:23 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/03 00:18:31 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,38 @@ t_scmd	*create_scmd_lst(t_scmd **start, t_scmd *last, int i, char **arr)
 	return (tmp);
 }
 
-void		iterator(t_scmd *lst)
+t_cmds	*create_cmds_lst(t_cmds **start, t_cmds *last, t_scmd *comands)
 {
-	t_scmd *lstiter;
+	t_cmds *tmp;
+
+	tmp = newcomands(comands, last);
+	add_back_cmds(start, tmp);
+	return (tmp);
+}
+
+t_cmds		*iterator2(t_cmds *lst)
+{
+	t_cmds *lstiter;
 
 	if (lst != NULL)
 	{
 		lstiter = lst;
 		while (lstiter != NULL)
 		{
-			printf("%s-", lstiter->cmd);
-			lstiter = lstiter->next;
+			if (lstiter->next)
+				lstiter = lstiter->next;
+			else
+				return (lstiter);
 		}
 	}
-	printf("\n");
+	return (0);
 }
 
-t_cmds		*parse_cmd(char **cmd, t_cmds *last)
+t_cmds		*parse_cmd(char **cmd, t_cmds *cmdslst)
 {
 	char	**arr;
 	char	**cmdarr;
-	t_cmds	*newlast;
+	t_cmds	*tmplast;
 	t_scmd	*comand;
 	t_scmd	*tmp;
 	int		i;
@@ -61,7 +72,7 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *last)
 	{
 		arr = ft_split_cmd(cmdarr[k], "<>|");
 		comand = newsimplecmd(arr[0], 0);
-		last = newcomands(comand, last);
+		tmplast = create_cmds_lst(&cmdslst, iterator2(cmdslst), comand);
 		i = 1;
 		while (arr[i])
 		{
@@ -69,14 +80,9 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *last)
 			i++;
 		}
 		free(arr);
-		newlast = newcomands(comand, last);
-		add_back_cmds(&last, newlast);
-		free(last);
-		last = newlast;
-		iterator(comand);
-		free(cmdarr[k]);
 	}
+	tmplast = cmdslst;
+	printercmds(tmplast);
 	free(cmdarr);
-	free(tmp);
-	return (newlast);
+	return (cmdslst);
 }

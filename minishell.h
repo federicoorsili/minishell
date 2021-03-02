@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 19:17:48 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/02 23:05:56 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ typedef struct		s_cmds
 	t_scmd			*comand;
 }					t_cmds;
 
+typedef struct      s_h
+{
+    t_cmds          *line;
+    struct s_h      *next;
+    struct s_h      *prev;
+};
+
 int					get_next_line(const int fd, char **line);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
@@ -70,5 +77,7 @@ void				add_back_cmds(t_cmds **alst, t_cmds *new);
 void				lstclear_cmds(t_cmds **lst, void (*del)(void *));
 char				**ft_split_cmd(char *str, char *charset);
 char				**ft_splitter(char const *s, char c);
+int			        apix_gest(const char *s, char c, int *i, int *sw, char apx);
+void		        printercmds(t_cmds *lst);
 
 #endif
