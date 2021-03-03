@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 22:15:15 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/03 23:36:58 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		scroller(const char *s, char c, int *i, int *sw, char apx)
 		if (s[k] == '\'' || s[k] == '"')
 		{
 			apx = s[k];
+			*sw *= -1;
 			apix_gest(s, c, &k, &*sw, apx);
 			*i = k;
 			break ;

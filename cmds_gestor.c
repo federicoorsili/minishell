@@ -6,13 +6,13 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 23:02:47 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 15:03:27 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/03 22:25:09 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_cmds		*newcomands(t_scmd *cmd, t_cmds *previous)
+t_cmds		*newcomands(t_scmd **cmd, t_cmds *previous)
 {
 	t_cmds *element;
 

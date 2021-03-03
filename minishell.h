@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 23:05:56 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/03 22:30:25 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ typedef struct		s_cmds
 {
 	struct s_cmds	*prev;
 	struct s_cmds	*next;
-	struct s_cmds	*line;
-	t_scmd			*comand;
+	t_scmd			**comand;
 }					t_cmds;
 
 int					get_next_line(const int fd, char **line);
@@ -65,7 +64,7 @@ t_scmd				*newsimplecmd(char *cmd, t_scmd *previous);
 t_scmd				*lstlast_smplcmds(t_scmd *lst);
 void				add_back_smplcmds(t_scmd **alst, t_scmd *new);
 void				lstclear_smplcmds(t_scmd **lst, void (*del)(void *));
-t_cmds				*newcomands(t_scmd *cmd, t_cmds *previous);
+t_cmds				*newcomands(t_scmd **cmd, t_cmds *previous);
 t_cmds				*lstlast_cmds(t_cmds *lst);
 void				add_back_cmds(t_cmds **alst, t_cmds *new);
 void				lstclear_cmds(t_cmds **lst, void (*del)(void *));

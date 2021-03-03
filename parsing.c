@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/03 00:18:31 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/03 23:30:35 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,16 @@ t_scmd	*create_scmd_lst(t_scmd **start, t_scmd *last, int i, char **arr)
 	return (tmp);
 }
 
-t_cmds	*create_cmds_lst(t_cmds **start, t_cmds *last, t_scmd *comands)
+t_scmd	*close_scmd_lst(t_scmd **start, t_scmd *last)
+{
+	t_scmd *tmp;
+
+	tmp = newsimplecmd(0, last);
+	add_back_smplcmds(start, tmp);
+	return (tmp);
+}
+
+t_cmds	*create_cmds_lst(t_cmds **start, t_cmds *last, t_scmd **comands)
 {
 	t_cmds *tmp;
 
@@ -53,7 +62,7 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *cmdslst)
 	char	**arr;
 	char	**cmdarr;
 	t_cmds	*tmplast;
-	t_scmd	*comand;
+	t_scmd	**comand;
 	t_scmd	*tmp;
 	int		i;
 	int		k;
@@ -67,22 +76,23 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *cmdslst)
 		cmdarr[i] = ft_strtrim(cmdarr[i], " ");
 		i++;
 	}
-	k = -1;
-	while (cmdarr[++k])
+	if (!(comand = malloc((i + 1) * sizeof(t_scmd))))
+		return (0);
+	k = 0;
+	while (cmdarr[k])
 	{
 		arr = ft_split_cmd(cmdarr[k], "<>|");
-		comand = newsimplecmd(arr[0], 0);
-		tmplast = create_cmds_lst(&cmdslst, iterator2(cmdslst), comand);
+		comand[k] = newsimplecmd(arr[0], 0);
 		i = 1;
 		while (arr[i])
 		{
-			tmp = create_scmd_lst(&comand, tmp, i, arr);
+			tmp = create_scmd_lst(&comand[k], tmp, i, arr);
 			i++;
 		}
 		free(arr);
+		k++;
 	}
-	tmplast = cmdslst;
-	printercmds(tmplast);
+	tmplast = create_cmds_lst(&cmdslst, iterator2(cmdslst), comand);
 	free(cmdarr);
-	return (cmdslst);
+	return (tmplast);
 }

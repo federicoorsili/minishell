@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 22:51:02 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/03 23:19:09 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ t_cmds	init_cmd(t_cmds last)
 {
 	last.prev = 0;
 	last.next = 0;
-	last.comand = 0;
-	last.line = 0;
+	last.comand[0] = 0;
 	return (last);
 }
 
@@ -42,11 +41,10 @@ int		main_loop(t_cmds *esterna)
 	c = 0;
 	while (1)
 	{
-		*tmp = init_cmd(*tmp);
 		ft_putstr(FCYAN"sgiovo> "NONE);
 		get_next_line(0, &cmd);
-		tmp = parse_cmd(&cmd, &*tmp);
-
+		esterna = parse_cmd(&cmd, &*esterna);
+		printercmds(esterna);
 		free(cmd);
 		ft_putstr("\n");
 		c = 0;
