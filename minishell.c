@@ -24,17 +24,29 @@ void	ft_putstr(char *s)
 	}
 }
 
-int		main_loop(t_cmds *last)
+t_cmds	init_cmd(t_cmds last)
+{
+	last.prev = 0;
+	last.next = 0;
+	last.comand = 0;
+	last.line = 0;
+	return (last);
+}
+
+int		main_loop(t_cmds *esterna)
 {
 	char	c;
 	char	*cmd;
+	t_cmds	*tmp;
 
 	c = 0;
 	while (1)
 	{
+		*tmp = init_cmd(*tmp);
 		ft_putstr(FCYAN"sgiovo> "NONE);
 		get_next_line(0, &cmd);
-		last = parse_cmd(&cmd, &*last);
+		tmp = parse_cmd(&cmd, &*tmp);
+
 		free(cmd);
 		ft_putstr("\n");
 		c = 0;
@@ -43,11 +55,8 @@ int		main_loop(t_cmds *last)
 
 int		main(void)
 {
-	t_cmds	last;
-
-	last.prev = 0;
-	last.next = 0;
-	last.comand = 0;
-	main_loop(&last);
+	t_cmds  esterna;
+	esterna = init_cmd(esterna);
+	main_loop(&esterna);
 	return (0);
 }

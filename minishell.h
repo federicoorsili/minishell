@@ -51,15 +51,9 @@ typedef struct		s_cmds
 {
 	struct s_cmds	*prev;
 	struct s_cmds	*next;
+	struct s_cmds	*line;
 	t_scmd			*comand;
 }					t_cmds;
-
-typedef struct      s_h
-{
-    t_cmds          *line;
-    struct s_h      *next;
-    struct s_h      *prev;
-};
 
 int					get_next_line(const int fd, char **line);
 char				*ft_strjoin(char const *s1, char const *s2);
