@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 10:58:00 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 10:58:02 by aduregon         ###   ########.fr       */
+/*   Updated: 2021/03/04 16:30:27 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(char *haystack, char *needle, size_t len)
 {
 	size_t index;
 	size_t find;
@@ -27,10 +27,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		while (haystack[index + find] == needle[find] && index + find < len)
 		{
 			if (find == ft_strlen(needle) - 1)
-				return ((char *)haystack + index);
+				return (&haystack[index + find + 1]);
 			find++;
 		}
 		index++;
 	}
-	return (NULL);
+	return ("s");
 }

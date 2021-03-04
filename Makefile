@@ -12,6 +12,7 @@ parsing.c \
 splitcmd.c \
 splitterdot.c \
 lstprinter.c \
+smista.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

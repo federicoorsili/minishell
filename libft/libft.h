@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:56:40 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 17:56:42 by aduregon         ###   ########.fr       */
+/*   Updated: 2021/03/04 16:28:53 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				ft_toupper(int c);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
-char			*ft_strnstr(const char *haystack, const char *needle,
+char			*ft_strnstr(char *haystack, char *needle,
 							size_t len);
 int				ft_atoi(const char *str);
 void			*ft_calloc(size_t count, size_t size);

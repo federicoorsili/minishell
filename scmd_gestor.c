@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 23:05:51 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 15:02:01 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/04 17:28:50 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,29 @@ t_scmd		*lstlast_smplcmds(t_scmd *lst)
 		}
 	}
 	return (NULL);
+}
+
+int		lstcounter_smplcmds(t_scmd *lst)
+{
+	t_scmd	*elem;
+	int		i;
+
+	i = 0;
+	elem = lst;
+	if (elem != NULL)
+	{
+		while (elem != NULL)
+		{
+			if (elem->next == NULL)
+			{
+				i++;
+				return (i);
+			}
+			elem = elem->next;
+			i++;
+		}
+	}
+	return (i);
 }
 
 void		add_back_smplcmds(t_scmd **alst, t_scmd *new)

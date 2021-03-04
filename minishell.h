@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/04 13:27:13 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/04 19:11:19 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define D_FGREEN    "\033[6m"
 # define FWHITE      "\033[7m"
 # define BBLACK      "40m"
-# define BRED        "41m"
+# define BRED        "\e[41m"
 # define BGREEN      "42m"
 # define BYELLOW     "43m"
 # define BBLUE       "44m"
@@ -37,8 +37,8 @@
 # define D_BGREEN    "46m"
 # define BWHITE      "47m"
 # define FCYAN       "\x1b[36m"
-
 # define NONE        "\033[0m"
+# define FT_PATH_MAX 4096
 
 typedef struct		s_scmd
 {
@@ -53,6 +53,13 @@ typedef struct		s_cmds
 	struct s_cmds	*next;
 	t_scmd			**comand;
 }					t_cmds;
+
+typedef	struct		s_h
+{
+	char			***env;
+	char			**out;
+	char			**path;
+}					t_h;
 
 int					get_next_line(const int fd, char **line);
 char				*ft_strjoin(char const *s1, char const *s2);
@@ -70,7 +77,10 @@ void				add_back_cmds(t_cmds **alst, t_cmds *new);
 void				lstclear_cmds(t_cmds **lst, void (*del)(void *));
 char				**ft_split_cmd(char *str, char *charset);
 char				**ft_splitter(char const *s, char c);
-int			        apix_gest(const char *s, char c, int *i, int *sw, char apx);
-void		        printercmds(t_cmds *lst);
+int					apix_gest(const char *s, char c, int *i, int *sw, char apx);
+void				printercmds(t_cmds *lst);
+int					lstcounter_smplcmds(t_scmd *lst);
+int					smister(t_cmds *esterna, t_h *h);
+char				**src_path(char **tmp);
 
 #endif
