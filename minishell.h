@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/03 22:30:25 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/04 13:27:13 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 
 # define OPEN_MAX 256
 # define BUFFER_SIZE 1
-# define FBLACK      "\033[30;"
-# define FRED        "\033[31;"
-# define FGREEN      "\033[32;"
-# define FYELLOW     "\033[33;"
-# define FBLUE       "\033[34;"
-# define FPURPLE     "\033[35;"
-# define D_FGREEN    "\033[6;"
-# define FWHITE      "\033[7;"
+# define FBLACK      "\033[30m"
+# define FRED        "\033[31m"
+# define FGREEN      "\033[32m"
+# define FYELLOW     "\033[33m"
+# define FBLUE       "\033[34m"
+# define FPURPLE     "\033[35m"
+# define D_FGREEN    "\033[6m"
+# define FWHITE      "\033[7m"
 # define BBLACK      "40m"
 # define BRED        "41m"
 # define BGREEN      "42m"

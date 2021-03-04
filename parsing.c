@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/03 23:30:35 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/04 13:31:19 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *cmdslst)
 		cmdarr[i] = ft_strtrim(cmdarr[i], " ");
 		i++;
 	}
-	if (!(comand = malloc((i + 1) * sizeof(t_scmd))))
+	if (!(comand = malloc((i + 1) * sizeof(t_scmd *))))
 		return (0);
 	k = 0;
 	while (cmdarr[k])
@@ -92,6 +92,7 @@ t_cmds		*parse_cmd(char **cmd, t_cmds *cmdslst)
 		free(arr);
 		k++;
 	}
+	comand[k] = 0;
 	tmplast = create_cmds_lst(&cmdslst, iterator2(cmdslst), comand);
 	free(cmdarr);
 	return (tmplast);

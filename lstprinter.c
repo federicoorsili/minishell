@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 22:42:11 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/03 23:23:49 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/04 13:34:07 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,20 @@ void		printerscmd(t_scmd *lst)
 	int		i;
 
 	i = 0;
-	printf("[ ");
+	printf(FRED"[ "NONE);
 	if (lst != NULL)
 	{
 		lstiter = lst;
 		while (lstiter != NULL)
 		{
-			if (lstiter->next)
-				printf("%s->", lstiter->cmd);
-			else
-				printf("%s", lstiter->cmd);
+			printf(FGREEN"("NONE);
+			printf(FYELLOW"%s"NONE, lstiter->cmd);
+			printf(FGREEN")"NONE);
 			lstiter = lstiter->next;
 			i++;
 		}
 	}
-	printf(" ]");
+	printf(FRED" ]"NONE);
 }
 
 void		printercmds(t_cmds *lst)
