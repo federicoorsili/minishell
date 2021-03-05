@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/05 13:08:45 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/05 18:11:48 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,37 +75,6 @@ char	**src_path(char **tmp)
 	return (out);
 }
 
-void	smistaman(char *s, t_h *h)
-{
-	int		len;
-	char	*cmd;
-	char	**argv;
-	char	***tmp;
-	int		i;
-	int		pid;
-
-	s = ft_strtrim(s, " ");
-	//len = ft_strlen(s);
-	//printf("%s\n", s);
-	//if (ft_strnstr_md(s, "env", len) && (int)len == (int)ft_strlen("env"))
-	//	print_env(h);
-	argv = ft_split(s, ' ');
-	i = 0;
-	pid = fork();
-	if (pid == 0)
-	{
-		while (h->path[i])
-		{
-			cmd = ft_strjoin(h->path[i], argv[0]);
-			execve(cmd, argv, *tmp);
-			i++;
-		}
-		exit(0);
-	}
-	else
-		wait(NULL);
-}
-
 char	**sort_list(t_scmd *cmd)
 {
 	int		i;
@@ -145,9 +114,10 @@ int		smister(t_cmds *esterna, t_h *h)
 			tmpcmd = sort_list(esterna->comand[i]);
 			while (tmpcmd[k])
 			{
-				smistaman(tmpcmd[k], h);
+				gestor_cmd(tmpcmd, k, h);
 				k++;
 			}
+			free_arr(tmpcmd);
 		}
 		i++;
 	}

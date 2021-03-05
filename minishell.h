@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/05 12:49:35 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/05 18:02:05 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,13 @@ typedef	struct		s_h
 	char			***env;
 	char			**out;
 	char			**path;
+	char			*usr;
+	int				pipe[1200][2];
+	int				npipes;
 }					t_h;
 
+int					arr_len(char **arr);
+void				ft_putstr(char *s);
 int					get_next_line(const int fd, char **line);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
@@ -82,5 +87,11 @@ void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
 int					smister(t_cmds *esterna, t_h *h);
 char				**src_path(char **tmp);
+void				ft_syscall(char *s, t_h *h, int pip[1200], int k);
+char				**free_arr(char **arr);
+char				*src_usr(char **tmp);
+void				put_usrname(t_h *h);
+void				reset_pipe(t_h *h);
+void				gestor_cmd(char **tmpcmd, int k, t_h *h);
 
 #endif

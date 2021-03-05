@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/05 13:03:38 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/05 18:11:30 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,18 @@ t_cmds	init_cmd(t_cmds last)
 
 int		main_loop(t_cmds *esterna, t_h *h)
 {
-	char	c;
 	char	*cmd;
 	char	*pat;
 	t_cmds	*tmp;
-	char	***patata;
 
-	c = 0;
-	patata = h->env;
-	h->path = src_path(*patata);
+	h->path = src_path(*(h->env));
+	h->usr = src_usr(*(h->env));
 	if (!(pat = malloc(FT_PATH_MAX * sizeof(char))))
 		return (0);
 	while (1)
 	{
 		pat = getcwd(pat,FT_PATH_MAX );
-		ft_putstr(FCYAN"sgiovo >"FRED);
+		put_usrname(h);
 		ft_putstr(pat);
 		ft_putstr("> "NONE);
 		get_next_line(0, &cmd);
@@ -57,8 +54,6 @@ int		main_loop(t_cmds *esterna, t_h *h)
 		//printercmds(esterna);
 		smister(esterna, h);
 		free(cmd);
-		ft_putstr("\n");
-		c = 0;
 	}
 }
 
