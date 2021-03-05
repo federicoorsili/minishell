@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/04 19:30:29 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/05 13:08:45 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,53 +82,28 @@ void	smistaman(char *s, t_h *h)
 	char	**argv;
 	char	***tmp;
 	int		i;
+	int		pid;
 
 	s = ft_strtrim(s, " ");
-	len = ft_strlen(s);
-	printf("%s\n", s);
-	if (ft_strnstr_md(s, "env", len) && (int)len == (int)ft_strlen("env"))
-		print_env(h);
+	//len = ft_strlen(s);
+	//printf("%s\n", s);
+	//if (ft_strnstr_md(s, "env", len) && (int)len == (int)ft_strlen("env"))
+	//	print_env(h);
 	argv = ft_split(s, ' ');
 	i = 0;
-	while (h->path[i])
+	pid = fork();
+	if (pid == 0)
 	{
-		cmd = ft_strjoin(h->path[i], argv[0]);
-		printf("%s\n", cmd);
-		execve(cmd, argv, *tmp);
-		i++;
-	}
-}
-
-char	**sort_list2(t_scmd *cmd, char **matrix)
-{
-	int		i;
-	int		k;
-	char	*tmp;
-
-	i = 0;
-	while (matrix[i])
-	{
-		if (matrix[i][0] == '<')
+		while (h->path[i])
 		{
-			if (i == 0)
-			{
-				i++;
-				break ;
-			}
-			tmp = matrix[k - 1];
-			matrix[k - 1] = matrix[i + 1];
-			matrix[k + 1] = tmp;
-			matrix[k][0] = '|';
+			cmd = ft_strjoin(h->path[i], argv[0]);
+			execve(cmd, argv, *tmp);
+			i++;
 		}
-		i++;
+		exit(0);
 	}
-	i = 0;
-	while (matrix[i])
-	{
-		printf("%s\n", matrix[i]);
-		i++;
-	}
-	return (matrix);
+	else
+		wait(NULL);
 }
 
 char	**sort_list(t_scmd *cmd)

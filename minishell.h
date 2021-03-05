@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/04 19:11:19 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/05 12:49:35 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void				add_back_cmds(t_cmds **alst, t_cmds *new);
 void				lstclear_cmds(t_cmds **lst, void (*del)(void *));
 char				**ft_split_cmd(char *str, char *charset);
 char				**ft_splitter(char const *s, char c);
-int					apix_gest(const char *s, char c, int *i, int *sw, char apx);
+int					apix_gest(const char *s, char c, int *i, int *sw, char *apx);
 void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
 int					smister(t_cmds *esterna, t_h *h);
