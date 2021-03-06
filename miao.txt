@@ -1,12 +1,1 @@
-cmds_gestor.c
-cmds_gestor.o
-minishell
-minishell.c
-minishell.h
-minishell.o
-scmd_gestor.c
-scmd_gestor.o
-smista.c
-smista.o
-splitcmd.c
-splitcmd.o
+36
