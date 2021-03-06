@@ -15,6 +15,8 @@ lstprinter.c \
 smista.c \
 utils.c \
 utils2.c \
+pidutils.c \
+redirutils.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

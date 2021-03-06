@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/05 18:02:05 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/06 11:16:36 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <fcntl.h>
 # include "./libft/libft.h"
 
 # define OPEN_MAX 256
@@ -62,6 +65,9 @@ typedef	struct		s_h
 	char			*usr;
 	int				pipe[1200][2];
 	int				npipes;
+	int				nredir;
+	int				fdred[1200];
+	char			bufred[1000000];
 }					t_h;
 
 int					arr_len(char **arr);
@@ -87,11 +93,20 @@ void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
 int					smister(t_cmds *esterna, t_h *h);
 char				**src_path(char **tmp);
-void				ft_syscall(char *s, t_h *h, int pip[1200], int k);
+int					ft_syscall(char **s, t_h *h, int k);
 char				**free_arr(char **arr);
 char				*src_usr(char **tmp);
 void				put_usrname(t_h *h);
 void				reset_pipe(t_h *h);
 void				gestor_cmd(char **tmpcmd, int k, t_h *h);
+void				open_pipes(t_h *h, int k);
+void				close_pipeson(t_h *h, int k);
+void				close_allfather(t_h *h, int k);
+void				exec_cmd(t_h *h, int i, char *cmd, char **argv);
+void				count_pipes(t_h *h, int k, char **tmpcmd);
+void				count_redirection(t_h *h, int k, char **tmpcmd);
+void				open_redirection(t_h *h, int k);
+int					close_redirection(t_h *h, int k, char **tmpcmd);
+
 
 #endif

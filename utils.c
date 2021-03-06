@@ -6,67 +6,36 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/05 18:46:40 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/06 10:54:19 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_syscall(char *s, t_h *h, int pip[1200], int k)
+int		ft_syscall(char **s, t_h *h, int k)
 {
 	char	**argv;
 	char	*cmd;
 	int		i;
 	int		pid;
 
-	s = ft_strtrim(s, " ");
-	argv = ft_split(s, ' ');
+	s[k] = ft_strtrim(s[k], " ");
+	argv = ft_split(s[k], ' ');
 	i = 0;
 	pid = fork();
 	if (pid == 0)
 	{
-		if (h->npipes == 1 || h->npipes == 3)
-		{
-			close(h->pipe[k][0]);
-			dup2(h->pipe[k][1], 1);
-			printf("ooooooo\n");
-			if (h->npipes == 3)
-			{
-				close(h->pipe[k - 2][1]);
-				dup2(h->pipe[k - 2][0], 0);
-			}
-		}
-		if (h->npipes == 2)
-		{
-			close(h->pipe[k - 2][1]);
-			dup2(h->pipe[k - 2][0], 0);
-		}
-		while (h->path[i])
-		{
-			cmd = ft_strjoin(h->path[i], argv[0]);
-			execve(cmd, argv, *(h->env));
-			i++;
-		}
-		if (h->npipes == 1)
-			close(h->pipe[k][1]);
-		if (h->npipes == 3)
-		{
-			close(h->pipe[k][1]);
-			close(h->pipe[k - 2][0]);
-		}
-		if (h->npipes == 2)
-			close(h->pipe[k - 2][0]);
+		open_pipes(h, k);
+		open_redirection(h, k);
+		exec_cmd(h, k, cmd, argv);
+		close_redirection(h, k, s);
+		close_pipeson(h, k);
 		exit(0);
 	}
-	else
-	{
-		if (h->npipes == 2 || h->npipes == 3)
-		{
-			close(h->pipe[k - 2][0]);
-			close(h->pipe[k - 2][1]);
-		}
-		wait(NULL);
-	}
+	close_allfather(h, k);
+	k = close_redirection(h, k, s);
+	wait(NULL);
+	return (k);
 }
 
 char	**free_arr(char **arr)
