@@ -10,6 +10,7 @@ cmds_gestor.c \
 scmd_gestor.c \
 parsing.c \
 splitcmd.c \
+splitcmd2.c \
 splitterdot.c \
 lstprinter.c \
 smista.c \
@@ -17,6 +18,7 @@ utils.c \
 utils2.c \
 pidutils.c \
 redirutils.c \
+double_redir.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

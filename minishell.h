@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/06 11:16:36 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/07 22:21:28 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef	struct		s_h
 	int				pipe[1200][2];
 	int				npipes;
 	int				nredir;
+	int				ndoubler;
 	int				fdred[1200];
 	char			bufred[1000000];
 }					t_h;
@@ -107,6 +108,14 @@ void				count_pipes(t_h *h, int k, char **tmpcmd);
 void				count_redirection(t_h *h, int k, char **tmpcmd);
 void				open_redirection(t_h *h, int k);
 int					close_redirection(t_h *h, int k, char **tmpcmd);
+void				write_file(t_h *h, int k, char *buf);
+void				read_file(t_h *h, int k);
+int					is_in_charset(char *charset, char to_find);
+char				**auxiliary_splitter(char *str, char **arr, char *charset);
+int					main_loop(t_cmds *esterna, t_h *h);
+void				count_double_redir(t_h *h, int k, char **tmpcmd);
+void				open_double_redir(t_h *h, int k);
+int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
 
 
 #endif

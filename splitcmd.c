@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 00:40:29 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 11:47:01 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/07 21:55:48 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,47 +87,6 @@ char	**ft_build_tab(char *str, char *charset)
 	if (!(strs = (char **)malloc(sizeof(char *) * (nb_str + 1))))
 		return (0);
 	return (strs);
-}
-
-char	**auxiliary_splitter(char *str, char **arr, char *charset)
-{
-	char **out;
-	int		i;
-	int		k;
-	int		j;
-	int		z;
-
-	out = malloc((arr_len(arr)) * sizeof (char *));
-	i = 0;
-	j = 0;
-	z = 0;
-	if (str[z] && is_in_charset(charset, str[z]))
-	{
-		out[j] = malloc(3);
-		out[j][0] = str[z];
-		out[j][1] = 0;
-		z++;
-		j++;
-	}
-	while (arr[i])
-	{
-		z += ft_strlen(arr[i]);
-		out[j] = ft_strdup(arr[i]);
-		j++;
-		if (str[z] && is_in_charset(charset, str[z]))
-		{
-			out[j] = malloc(3);
-			out[j][0] = str[z];
-			out[j][1] = 0;
-			z++;
-			j++;
-		}
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	out[j] = 0;
-	return (out);
 }
 
 char	**ft_split_cmd(char *str, char *charset)

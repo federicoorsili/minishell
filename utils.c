@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/06 10:54:19 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/07 22:26:39 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@ int		ft_syscall(char **s, t_h *h, int k)
 	{
 		open_pipes(h, k);
 		open_redirection(h, k);
+		open_double_redir(h, k);
 		exec_cmd(h, k, cmd, argv);
+		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
 		exit(0);
 	}
 	close_allfather(h, k);
-	k = close_redirection(h, k, s);
+	close_doubel_redir(h, k, s);
+	close_redirection(h, k, s);
 	wait(NULL);
 	return (k);
 }
