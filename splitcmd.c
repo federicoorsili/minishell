@@ -6,170 +6,150 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 00:40:29 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/02 14:49:35 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/07 11:47:01 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int		check_char(char *s, char c)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int i;
+	unsigned int		i;
 
 	i = 0;
-	while (s[i])
-		if (c == s[i++])
-			return (0);
-	return (1);
-}
-
-int		wordcount(char *str, char *charset)
-{
-	int i;
-	int start;
-	int words;
-
-	i = 0;
-	words = 0;
-	start = 0;
-	while (str[i])
+	while (src[i] && i < n)
 	{
-		if (check_char(charset, str[i]))
-		{
-			if (start == 0)
-			{
-				words++;
-				start++;
-			}
-		}
-		else if (!check_char(charset, str[i]) && start != 0)
-			start = 0;
+		dest[i] = src[i];
 		i++;
 	}
-	return (words);
-}
-
-void	finder(char *str, char *charset, int *indexarr, int *lenghtarr)
-{
-	int k;
-	int start;
-	int i;
-
-	k = 0;
-	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		if (check_char(charset, str[i]) && start == 0)
-		{
-			indexarr[k] = i;
-			lenghtarr[k] += 1;
-			start = 1;
-		}
-		else if (check_char(charset, str[i]) && start != 0)
-			lenghtarr[k] += 1;
-		else if (!check_char(charset, str[i]) && start != 0)
-		{
-			start = 0;
-			k++;
-		}
+		dest[i] = '\0';
 		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }
 
-char	**solver(char *str, int *lenghtarr, int *indexarr, int lenght)
+int		is_in_charset(char *charset, char to_find)
+{
+	int i;
+
+	i = 0;
+	while (charset[i])
+	{
+		if (to_find == charset[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_get_next_str(char **pos_in_str, char *charset, int *next_str_len)
 {
 	int		i;
-	int		k;
-	char	**newarr;
-	int		n;
+	char	*str_start;
 
-	newarr = (char**)malloc(sizeof(char*) * lenght + 1);
+	*next_str_len = 0;
+	str_start = 0;
 	i = 0;
-	while (i < lenght)
+	while ((*pos_in_str)[i])
 	{
-		k = 0;
-		newarr[i] = (char*)malloc((sizeof(char) * lenghtarr[i]) + 2);
-		while (k < lenghtarr[i])
+		if (is_in_charset(charset, (*pos_in_str)[i]) && str_start != 0)
 		{
-			n = indexarr[i] + k;
-			newarr[i][k] = str[n];
-			k++;
+			*pos_in_str = str_start + *next_str_len;
+			return (str_start);
 		}
-		while ((str[indexarr[i] + k]) && (str[indexarr[i] + k] == '|' ||
-		str[indexarr[i] + k] == '<' || str[indexarr[i] + k] == '>'))
-		{
-			newarr[i][k] = str[indexarr[i] + k];
-			k++;
-		}
-		newarr[i][k] = '\0';
+		else if (!is_in_charset(charset, (*pos_in_str)[i]) && str_start == 0)
+			str_start = &(*pos_in_str)[i];
+		if (!is_in_charset(charset, (*pos_in_str)[i]))
+			*next_str_len = *next_str_len + 1;
 		i++;
 	}
-	newarr[i] = 0;
-	return (newarr);
+	*pos_in_str = str_start + *next_str_len;
+	if (*next_str_len == 0)
+		return (0);
+	return (str_start);
 }
 
-char	**splitter(char **arr)
+char	**ft_build_tab(char *str, char *charset)
 {
-	int		i[2];
+	int		nb_str;
+	char	**strs;
+	int		next_str_len;
+	char	*pos_in_str;
+
+	nb_str = 0;
+	next_str_len = 0;
+	pos_in_str = str;
+	while (ft_get_next_str(&pos_in_str, charset, &next_str_len))
+		nb_str++;
+	if (!(strs = (char **)malloc(sizeof(char *) * (nb_str + 1))))
+		return (0);
+	return (strs);
+}
+
+char	**auxiliary_splitter(char *str, char **arr, char *charset)
+{
+	char **out;
+	int		i;
 	int		k;
 	int		j;
-	int		len;
-	char	**out;
+	int		z;
 
-	i[0] = 0;
-	while (arr[i[0]])
-		i[0]++;
-	if (!(out = malloc(sizeof(char *) * ((i[0] + 1) * 2))))
-		return (0);
-	len = i[0];
-	i[0] = 0;
-	i[1] = 0;
-	while (arr[i[0]])
+	out = malloc((arr_len(arr)) * sizeof (char *));
+	i = 0;
+	j = 0;
+	z = 0;
+	if (str[z] && is_in_charset(charset, str[z]))
 	{
-		k = 0;
-		j = 0;
-		while (arr[i[0]][k])
+		out[j] = malloc(3);
+		out[j][0] = str[z];
+		out[j][1] = 0;
+		z++;
+		j++;
+	}
+	while (arr[i])
+	{
+		z += ft_strlen(arr[i]);
+		out[j] = ft_strdup(arr[i]);
+		j++;
+		if (str[z] && is_in_charset(charset, str[z]))
 		{
-			if ((arr[i[0]][k] == '|' || arr[i[0]][k] == '>' ||
-				arr[i[0]][k] == '<'))
-				break ;
-			k++;
+			out[j] = malloc(3);
+			out[j][0] = str[z];
+			out[j][1] = 0;
+			z++;
 			j++;
 		}
-		out[i[1]] = ft_substr(arr[i[0]], 0, j);
-		i[1]++;
-		if (arr[i[0]][j] != 0)
-		{
-			out[i[1]] = ft_substr(arr[i[0]], j, ft_strlen(arr[i[0]]));
-			i[1]++;
-		}
-		free(arr[i[0]]);
-		i[0]++;
+		free(arr[i]);
+		i++;
 	}
-	out[i[1]] = 0;
 	free(arr);
+	out[j] = 0;
 	return (out);
 }
 
 char	**ft_split_cmd(char *str, char *charset)
 {
-	int		*indexarr;
-	int		*lenghtarr;
-	char	**arr;
-	int		lenght;
+	char	**strs;
+	int		next_str_len;
+	char	*next_str;
+	char	*pos_in_str;
 	int		i;
 
+	if (!(strs = ft_build_tab(str, charset)))
+		return (0);
 	i = 0;
-	lenght = wordcount(str, charset);
-	indexarr = malloc(sizeof(int*) * lenght);
-	lenghtarr = malloc(sizeof(int*) * lenght);
-	while (i < lenght)
+	pos_in_str = str;
+	while ((next_str = ft_get_next_str(&pos_in_str, charset, &next_str_len)))
 	{
-		indexarr[i] = 0;
-		lenghtarr[i++] = 0;
+		if (!(strs[i] = (char *)malloc(sizeof(char) * next_str_len + 1)))
+			return (0);
+		ft_strncpy(strs[i], next_str, next_str_len);
+		i++;
 	}
-	i = 0;
-	finder(str, charset, indexarr, lenghtarr);
-	arr = solver(str, lenghtarr, indexarr, lenght);
-	return (splitter(arr));
+	strs[i] = 0;
+	strs = auxiliary_splitter(str, strs, charset);
+	return (strs);
 }
