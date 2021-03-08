@@ -6,94 +6,57 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 22:49:32 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:21:31 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_scmd	*create_scmd_lst(t_scmd **start, t_scmd *last, int i, char **arr)
+void		save_str(int fd, char *str)
 {
-	t_scmd *tmp;
+	int i;
 
-	tmp = newsimplecmd(arr[i], last);
-	add_back_smplcmds(start, tmp);
-	return (tmp);
-}
-
-t_scmd	*close_scmd_lst(t_scmd **start, t_scmd *last)
-{
-	t_scmd *tmp;
-
-	tmp = newsimplecmd(0, last);
-	add_back_smplcmds(start, tmp);
-	return (tmp);
-}
-
-t_cmds	*create_cmds_lst(t_cmds **start, t_cmds *last, t_scmd **comands)
-{
-	t_cmds *tmp;
-
-	tmp = newcomands(comands, last);
-	add_back_cmds(start, tmp);
-	return (tmp);
-}
-
-t_cmds		*iterator2(t_cmds *lst)
-{
-	t_cmds *lstiter;
-
-	if (lst != NULL)
+	i = 0;
+	while (str[i])
 	{
-		lstiter = lst;
-		while (lstiter != NULL)
-		{
-			if (lstiter->next)
-				lstiter = lstiter->next;
-			else
-				return (lstiter);
-		}
+		write(fd, &str[i], 1);
+		i++;
 	}
-	return (0);
+	close(fd);
 }
 
-t_cmds		*parse_cmd(char **cmd, t_cmds *cmdslst)
+int		parse_cmd(char **cmd, t_h *h)
 {
 	char	**arr;
 	char	**cmdarr;
-	t_cmds	*tmplast;
-	t_scmd	**comand;
-	t_scmd	*tmp;
 	int		i;
 	int		k;
+	int		fd;
 
-	*cmd = ft_strtrim(*cmd, "\n");
-	*cmd = ft_strtrim(*cmd, " ");
+	fd = open(".history", O_RDWR | O_APPEND);
+	save_str(fd, *cmd);
 	cmdarr = ft_splitter(*cmd, ';');
-	i = 0;
-	while (cmdarr[i])
-	{
-		cmdarr[i] = ft_strtrim(cmdarr[i], " ");
-		i++;
-	}
-	if (!(comand = malloc((i + 1) * sizeof(t_scmd *))))
-		return (0);
 	k = 0;
 	while (cmdarr[k])
 	{
 		arr = ft_split_cmd(cmdarr[k], "<>|");
-		comand[k] = newsimplecmd(arr[0], 0);
-		i = 1;
+		i = 0;
 		while (arr[i])
 		{
-			tmp = create_scmd_lst(&comand[k], tmp, i, arr);
+			arr[i] = ft_strtrim(arr[i], " ");
+			arr[i] = ft_strtrim(arr[i], "\n");
+			//printf("(%s)", arr[i]);
 			i++;
 		}
-		free(arr);
+		//printf("\n");
+		i = 0;
+		while (arr[i])
+		{
+			gestor_cmd(arr, i, h);
+			i++;
+		}
 		k++;
 	}
-	comand[k] = 0;
-	tmplast = create_cmds_lst(&cmdslst, iterator2(cmdslst), comand);
 	free(cmdarr);
-	return (tmplast);
+	return (0);
 }

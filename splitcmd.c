@@ -6,109 +6,113 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 00:40:29 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 21:55:48 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 13:07:12 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int			ft_is_sep(char c, char *charset)
 {
-	unsigned int		i;
+	int		i;
 
 	i = 0;
-	while (src[i] && i < n)
+	while (charset[i] != 0)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int		is_in_charset(char *charset, char to_find)
-{
-	int i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (to_find == charset[i])
+		if (charset[i] == c)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-char	*ft_get_next_str(char **pos_in_str, char *charset, int *next_str_len)
+int			ft_strlen_split(char *str, char *charset, int mod)
+{
+	int i;
+
+	if (!mod)
+	{
+		i = 0;
+		while (str[i] != 0 && ft_is_sep(str[i], charset) == 0)
+			i++;
+		return (i);
+	}
+	else
+	{
+		i = 0;
+		while (str[i] != 0 && ft_is_sep(str[i], charset) == 1)
+			i++;
+		return (i);
+	}
+}
+
+int			ft_cw(char *str, char *charset)
 {
 	int		i;
-	char	*str_start;
+	int		count;
 
-	*next_str_len = 0;
-	str_start = 0;
 	i = 0;
-	while ((*pos_in_str)[i])
+	count = 0;
+	while (str[i] != 0)
 	{
-		if (is_in_charset(charset, (*pos_in_str)[i]) && str_start != 0)
+		if (ft_is_sep(str[i], charset))
 		{
-			*pos_in_str = str_start + *next_str_len;
-			return (str_start);
+			i += ft_strlen_split(&str[i], charset, 1);
+			count++;
 		}
-		else if (!is_in_charset(charset, (*pos_in_str)[i]) && str_start == 0)
-			str_start = &(*pos_in_str)[i];
-		if (!is_in_charset(charset, (*pos_in_str)[i]))
-			*next_str_len = *next_str_len + 1;
-		i++;
+		else if (str[i])
+		{
+			i += ft_strlen_split(&str[i], charset, 0);
+			count++;
+		}
 	}
-	*pos_in_str = str_start + *next_str_len;
-	if (*next_str_len == 0)
-		return (0);
-	return (str_start);
+	return (count);
 }
 
-char	**ft_build_tab(char *str, char *charset)
+void		ft_insert_word(char *dest, char *src, int size)
 {
-	int		nb_str;
-	char	**strs;
-	int		next_str_len;
-	char	*pos_in_str;
-
-	nb_str = 0;
-	next_str_len = 0;
-	pos_in_str = str;
-	while (ft_get_next_str(&pos_in_str, charset, &next_str_len))
-		nb_str++;
-	if (!(strs = (char **)malloc(sizeof(char *) * (nb_str + 1))))
-		return (0);
-	return (strs);
-}
-
-char	**ft_split_cmd(char *str, char *charset)
-{
-	char	**strs;
-	int		next_str_len;
-	char	*next_str;
-	char	*pos_in_str;
 	int		i;
 
-	if (!(strs = ft_build_tab(str, charset)))
-		return (0);
 	i = 0;
-	pos_in_str = str;
-	while ((next_str = ft_get_next_str(&pos_in_str, charset, &next_str_len)))
+	while (i < size)
 	{
-		if (!(strs[i] = (char *)malloc(sizeof(char) * next_str_len + 1)))
-			return (0);
-		ft_strncpy(strs[i], next_str, next_str_len);
+		dest[i] = src[i];
 		i++;
 	}
-	strs[i] = 0;
-	strs = auxiliary_splitter(str, strs, charset);
-	return (strs);
+	dest[i] = 0;
+}
+
+char		**ft_split_cmd(char *str, char *charset)
+{
+	char	**m;
+	int		i;
+	int		w_i;
+
+	i = 0;
+	w_i = 0;
+	if ((m = (char **)malloc(((ft_cw(str, charset) + 1)) * sizeof(char *))) == 0)
+		return (0);
+	while (str[i])
+	{
+		if (ft_is_sep(str[i], charset))
+		{
+			if ((m[w_i] = (char *)malloc((ft_strlen_split(&str[i], charset, 1) + 1) *
+				sizeof(char))) == 0)
+				return (0);
+			ft_insert_word(m[w_i], &str[i], ft_strlen_split(&str[i], charset, 1));
+			i += ft_strlen_split(&str[i], charset, 1);
+			w_i++;
+		}
+		else
+		{
+			if ((m[w_i] = (char *)malloc((ft_strlen_split(&str[i], charset, 0) + 1) *
+				sizeof(char))) == 0)
+				return (0);
+			ft_insert_word(m[w_i], &str[i], ft_strlen_split(&str[i], charset, 0));
+			i += ft_strlen_split(&str[i], charset, 0);
+			w_i++;
+		}
+	}
+	m[w_i] = 0;
+	return (m);
 }

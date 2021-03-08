@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 22:26:39 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 18:44:58 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 		open_pipes(h, k);
 		open_redirection(h, k);
 		open_double_redir(h, k);
-		exec_cmd(h, k, cmd, argv);
+		exec_cmd(h, 0, cmd, argv);
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
@@ -74,9 +74,13 @@ char	*src_usr(char **tmp)
 	return (out[1]);
 }
 
-void	put_usrname(t_h *h)
+void	put_usrname(char *str)
 {
+	char	directory[FT_PATH_MAX];
+
 	ft_putstr(FCYAN);
-	ft_putstr(h->usr);
+	ft_putstr(str);
 	ft_putstr("> "FRED);
+	ft_putstr(getcwd(directory, FT_PATH_MAX));
+	ft_putstr("> "NONE);
 }

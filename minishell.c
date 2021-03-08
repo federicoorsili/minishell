@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 22:49:43 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 16:59:03 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,37 +33,28 @@ t_cmds	init_cmd(t_cmds last)
 	return (last);
 }
 
-int		main_loop(t_cmds *esterna, t_h *h)
+int		main_loop(t_h *h)
 {
 	char	*cmd;
-	char	*pat;
-	t_cmds	*tmp;
 
 	h->path = src_path(*(h->env));
 	h->usr = src_usr(*(h->env));
-	if (!(pat = malloc(FT_PATH_MAX * sizeof(char))))
-		return (0);
 	while (1)
 	{
-		pat = getcwd(pat,FT_PATH_MAX );
-		put_usrname(h);
-		ft_putstr(pat);
-		ft_putstr("> "NONE);
+		put_usrname(h->usr);
 		get_next_line(0, &cmd);
-		esterna = parse_cmd(&cmd, &*esterna);
+		parse_cmd(&cmd, h);
 		//printercmds(esterna);
-		smister(esterna, h);
+		//smister(esterna, h);
 		free(cmd);
 	}
 }
 
 int		main(int argc, char **argv, char **env)
 {
-	t_cmds  esterna;
 	t_h		h;
 
-	h.env =  &env;
-	esterna = init_cmd(esterna);
-	main_loop(&esterna, &h);
+	h.env = &env;
+	main_loop(&h);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/05 12:55:57 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 17:15:22 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@ void		backslash(int *sw, int i, const char *s, char *apx)
 
 	k = i - 1;
 	count = 0;
-	if (*apx)
-		*apx = s[i];
-	else
-		*apx = 0;
+	*apx = s[i];
 	while (s[k] == '\\')
 	{
 		count++;
 		k--;
 	}
-	if ((count % 2) != 0)
+	if ((count % 2) == 0)
+	{
 		*sw *= -1;
+	}
 }
 
 int     ft_count(const char *s, char c)
@@ -45,19 +44,17 @@ int     ft_count(const char *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (((s[i] == '\'' && s[i - 1] != '\\') ||
-			(s[i] == '\"' && s[i - 1] != '\\')) && !apx)
+		if (((s[i] == '\'' || s[i] == '"') && (i == 0 || s[i - 1] != '\\')) && !apx)
 		{
 			apx = s[i];
 			i++;
 			inside *= -1;
 		}
-		else if (((s[i] == '\'' && s[i - 1] == '\\') ||
-			(s[i] == '\"' && s[i - 1] == '\\')) && !apx)
+		else if (((s[i] == '\'' || s[i] == '"') && s[i - 1] == '\\') && !apx)
 			backslash(&inside, i, s, &apx);
-		if (s[i] == apx && s[i - 1] != '\\' && apx)
+		if (s[i] == apx && (i == 0 || s[i - 1] != '\\') && apx)
 			inside *= -1;
-		else if (s[i] == apx && s[i - 1] == '\\' && apx)
+		else if (s[i] == apx && (i == 0 || s[i - 1] == '\\') && apx)
 			backslash(&inside, i, s, &apx);
 		if (s[i] == c && inside > 0)
 			count++;
@@ -73,11 +70,11 @@ void		scroller(const char *s, char c, int *i, int *sw, char *apx)
 	k = *i;
 	while (s[k] != c && s[k])
 	{
-		if ((s[k] == '\'' && s[k - 1] != '\\') ||
-			(s[k] == '"' && s[k - 1] != '\\'))
+		if (((s[k] == '\'' || s[k] == '"') && (k == 0 || s[k - 1] != '\\')))
 		{
 			*apx = s[k];
 			*sw *= -1;
+			k++;
 			apix_gest(s, c, &k, &*sw, apx);
 			*i = k;
 			break ;
@@ -85,11 +82,13 @@ void		scroller(const char *s, char c, int *i, int *sw, char *apx)
 		else if ((s[k] == '\'' && s[k - 1] == '\\') ||
 			(s[k] == '"' && s[k - 1] == '\\'))
 		{
-			backslash(sw, *i, s, apx);
-			if (sw < 0)
+			backslash(&*sw, *i, s, apx);
+			if (*sw < 0)
 			{
+				k++;
 				apix_gest(s, c, &k, &*sw, apx);
 				*i = k;
+				printf("ciao2\n");
 				break ;
 			}
 		}
@@ -104,8 +103,7 @@ int			apix_gest(const char *s, char c, int *i, int *sw, char *apx)
 	int k;
 
 	k = *i;
-	n = k;
-	k++;
+	n = k - 1;
 	while (s[k])
 	{
 		if (s[k] == *apx && s[k - 1] != '\\')
@@ -144,16 +142,23 @@ char		**ft_splitter(const char *s, char c)
 		return (0);
 	while (s[i[0]])
 	{
-		if ((s[i[0]] == '\'' && s[i[0] - 1] != '\\') ||
-			(s[i[0]] == '"' && s[i[0] - 1] != '\\'))
+
+		if (s[i[0]] == '\'' || s[i[0]] == '"')
 		{
-			apx = s[i[0]];
-			sw *= -1;
+			if (i[0] == 0 || s[i[0] - 1] != '\\')
+			{
+				apx = s[i[0]];
+				sw *= -1;
+			}
+			else
+				backslash(&sw, i[0], s, &apx);
 		}
-		else if (s[i[0] - 1] == '\\' && (s[i[0]] == '\'' || s[i[0]] == '"'))
-			backslash(&sw, i[0], s, &apx);
 		if (sw < 0)
+		{
+			printf("ciao %d %c\n", sw, apx);
+			i[0]++;
 			n = apix_gest(s, c, &i[0], &sw, &apx);
+		}
 		else
 		{
 			n = i[0];

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 21:50:00 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 23:19:35 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 18:51:36 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 			&& ft_strncmp(tmpcmd[k], tmpcmd[k +2], ft_strlen(tmpcmd[k])))
 		{
 			h->ndoubler += 1;
-			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_APPEND);
+			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_APPEND, 0755);
 		}
 	}
 	if (k == 0 && tmpcmd[k][0] == '>' && tmpcmd[k][1] == '>' && !tmpcmd[k][2])
 	{
 		tmpcmd[k + 1] = ft_strtrim(tmpcmd[k + 1], " ");
-		h->fdred[k] = open(tmpcmd[k + 1], O_RDWR | O_CREAT | O_APPEND);
+		h->fdred[k] = open(tmpcmd[k + 1], O_RDWR | O_CREAT | O_APPEND, 0755);
 		close(h->fdred[k]);
 	}
 }

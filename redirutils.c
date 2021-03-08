@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 11:44:00 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 18:51:16 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		read_file(t_h *h, int k)
 	h->bufred[i] = 0;
 }
 
-void		count_redirection(t_h *h, int k, char **tmpcmd)
+void		      count_redirection(t_h *h, int k, char **tmpcmd)
 {
 	h->nredir = 0;
 	tmpcmd[k] = ft_strtrim(tmpcmd[k], " ");
@@ -59,7 +59,7 @@ void		count_redirection(t_h *h, int k, char **tmpcmd)
 				if (tmpcmd[k + 1][0] == '>' && !tmpcmd[k + 1][1])
 				{
 					close(h->fdred[k]);
-					h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_TRUNC);
+					h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_TRUNC, 0755);
 				}
 			close(h->fdred[k]);
 		}
@@ -70,13 +70,13 @@ void		count_redirection(t_h *h, int k, char **tmpcmd)
 		{
 			h->nredir += 1;
 			tmpcmd[k + 2] = ft_strtrim(tmpcmd[k + 2], " ");
-			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_TRUNC);
+			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_TRUNC, 0755);
 		}
 	}
 	if (k == 0 && tmpcmd[k][0] == '>' && !tmpcmd[k][1])
 	{
 		tmpcmd[k + 1] = ft_strtrim(tmpcmd[k + 1], " ");
-		h->fdred[k] = open(tmpcmd[k + 1], O_RDWR | O_CREAT | O_TRUNC);
+		h->fdred[k] = open(tmpcmd[k + 1], O_RDWR | O_CREAT | O_TRUNC, 0755);
 		close(h->fdred[k]);
 	}
 }

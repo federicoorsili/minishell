@@ -6,8 +6,6 @@ RM		=	rm -f
 SRCS	=	minishell.c \
 get_next_line.c \
 get_next_line_utils.c \
-cmds_gestor.c \
-scmd_gestor.c \
 parsing.c \
 splitcmd.c \
 splitcmd2.c \
@@ -19,6 +17,7 @@ utils2.c \
 pidutils.c \
 redirutils.c \
 double_redir.c \
+rev_redirection.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

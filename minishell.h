@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/07 22:21:28 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/08 19:12:05 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_cmds
 
 typedef	struct		s_h
 {
+	int				fdhistory;
 	char			***env;
 	char			**out;
 	char			**path;
@@ -67,6 +68,7 @@ typedef	struct		s_h
 	int				npipes;
 	int				nredir;
 	int				ndoubler;
+	char			revred[1000][1000];
 	int				fdred[1200];
 	char			bufred[1000000];
 }					t_h;
@@ -78,15 +80,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
 int					is_line(char *str);
 int					get_next_line(const int fd, char **line);
-t_cmds				*parse_cmd(char **cmd, t_cmds *last);
-t_scmd				*newsimplecmd(char *cmd, t_scmd *previous);
-t_scmd				*lstlast_smplcmds(t_scmd *lst);
-void				add_back_smplcmds(t_scmd **alst, t_scmd *new);
-void				lstclear_smplcmds(t_scmd **lst, void (*del)(void *));
-t_cmds				*newcomands(t_scmd **cmd, t_cmds *previous);
-t_cmds				*lstlast_cmds(t_cmds *lst);
-void				add_back_cmds(t_cmds **alst, t_cmds *new);
-void				lstclear_cmds(t_cmds **lst, void (*del)(void *));
+int					parse_cmd(char **cmd, t_h *h);
 char				**ft_split_cmd(char *str, char *charset);
 char				**ft_splitter(char const *s, char c);
 int					apix_gest(const char *s, char c, int *i, int *sw, char *apx);
@@ -97,7 +91,7 @@ char				**src_path(char **tmp);
 int					ft_syscall(char **s, t_h *h, int k);
 char				**free_arr(char **arr);
 char				*src_usr(char **tmp);
-void				put_usrname(t_h *h);
+void				put_usrname(char *str);
 void				reset_pipe(t_h *h);
 void				gestor_cmd(char **tmpcmd, int k, t_h *h);
 void				open_pipes(t_h *h, int k);
@@ -110,12 +104,11 @@ void				open_redirection(t_h *h, int k);
 int					close_redirection(t_h *h, int k, char **tmpcmd);
 void				write_file(t_h *h, int k, char *buf);
 void				read_file(t_h *h, int k);
-int					is_in_charset(char *charset, char to_find);
-char				**auxiliary_splitter(char *str, char **arr, char *charset);
-int					main_loop(t_cmds *esterna, t_h *h);
+int					main_loop(t_h *h);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
+void				count_revredir(t_h *h, int k, char **tmpcmd);
 
 
 #endif
