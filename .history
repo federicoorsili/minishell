@@ -231,3 +231,35 @@ echo ' \ \\\\\ \\ \ \\ \ \\ \  '
 echo " \\\ \\ \ "\\\"
 echo " \\\"  "
 echo "\\\\"  "
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt < ao.txt < miao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat ciao.txt
+cat ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat liao.txt
+cat < liao.txt
+cat liao.txt
+cat liao.txt
+cat liao.txt
+cat < liao.txt
+cat < liao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < liao.txt
+cat < liao.txt < ciao.txt < miao.txt
+cat < ciao.txt < miao.txt < liao.txt
+cat < ao.txt < ciao.txt
+cat < 
+cat <
+cat < ao.txt < ciao.txt
+cat < ciao.txt < miao.txt < liao.txt
+cat <

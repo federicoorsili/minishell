@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 12:17:31 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 14:29:20 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ typedef	struct		s_h
 	int				npipes;
 	int				nredir;
 	int				ndoubler;
-	char			revred[1000][1000];
+	int				revred;
 	int				fdred[1200];
 	char			bufred[1000000];
 }					t_h;
@@ -120,6 +120,6 @@ int					main_loop(t_h *h);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
-void				count_revredir(t_h *h, int k, char **tmpcmd);
+char				*count_revredir(t_h *h, int k, char **tmpcmd);
 
 #endif
