@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:55:12 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 15:23:06 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 16:06:48 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*count_revredir(t_h *h, int k, char **tmpcmd)
 
 	i = k;
 	h->revred = 0;
-	if (tmpcmd[k + 1])
+	if (tmpcmd[k + 1] && tmpcmd[k + 1][0] == '<')
 		k++;
 	else
 		return (tmpcmd[i]);

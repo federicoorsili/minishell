@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 15:20:32 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 19:24:20 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <fcntl.h>
+# include <ctype.h>
+# include <errno.h>
+# include <termios.h>
 # include "./libft/libft.h"
 
 # define OPEN_MAX 256
-# define BUFFER_SIZE 1
 # define FBLACK      "\033[30m"
 # define FRED        "\033[31m"
 # define FGREEN      "\033[32m"
@@ -31,14 +33,14 @@
 # define FPURPLE     "\033[35m"
 # define D_FGREEN    "\033[6m"
 # define FWHITE      "\033[7m"
-# define BBLACK      "40m"
+# define BBLACK      "\e[40m"
 # define BRED        "\e[41m"
-# define BGREEN      "42m"
-# define BYELLOW     "43m"
-# define BBLUE       "44m"
-# define BPURPLE     "45m"
-# define D_BGREEN    "46m"
-# define BWHITE      "47m"
+# define BGREEN      "\e[42m"
+# define BYELLOW     "\e[43m"
+# define BBLUE       "\e[44m"
+# define BPURPLE     "\e[45m"
+# define D_BGREEN    "\e[46m"
+# define BWHITE      "\e[47m"
 # define FCYAN       "\x1b[36m"
 # define NONE        "\033[0m"
 # define FT_PATH_MAX 4096
@@ -83,7 +85,16 @@ typedef	struct		s_h
 	int				revred;
 	int				fdred[1200];
 	char			bufred[1000000];
+	int				error;
+	int				cursor;
+	char			buffer[10000];
 }					t_h;
+
+struct	s_editorconfig {
+	struct termios	orig_termios;
+};
+
+struct s_editorconfig		e;
 
 int					arr_len(char **arr);
 void				ft_putstr(char *s);
@@ -103,7 +114,7 @@ char				**src_path(char **tmp);
 int					ft_syscall(char **s, t_h *h, int k);
 char				**free_arr(char **arr);
 char				*src_usr(char **tmp);
-void				put_usrname(char *str);
+void				put_usrname(char *str, t_h *h);
 void				reset_pipe(t_h *h);
 int					gestor_cmd(char **tmpcmd, int k, t_h *h);
 void				open_pipes(t_h *h, int k);
@@ -120,6 +131,8 @@ int					main_loop(t_h *h);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
+int					ourturn_father(t_h *h, int i, char *cmd, char **argv);
 char				*count_revredir(t_h *h, int k, char **tmpcmd);
+void				ft_read_line(t_h *h);
 
 #endif

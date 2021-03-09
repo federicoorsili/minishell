@@ -4,8 +4,6 @@ CC		=	gcc
 CFLAGS	=	
 RM		=	rm -f
 SRCS	=	minishell.c \
-get_next_line.c \
-get_next_line_utils.c \
 parsing.c \
 splitcmd.c \
 splitcmd2.c \
@@ -18,6 +16,9 @@ pidutils.c \
 redirutils.c \
 double_redir.c \
 rev_redirection.c \
+ourturn.c \
+ft_read_line.c \
+
 
 OBJ		=	$(SRCS:.c=.o)
 

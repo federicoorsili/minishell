@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 12:10:31 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 16:18:33 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int		ft_syscall(char **s, t_h *h, int k)
 	char	**argv;
 	char	*cmd;
 	int		i;
-	int		pid;
+	pid_t	pid;
 
 	s[k] = ft_strtrim(s[k], " ");
 	argv = ft_split(s[k], ' ');
 	i = 0;
+	if (ourturn_father(h, 0, argv[0], argv))
+		return (1);
 	pid = fork();
 	if (pid == 0)
 	{
@@ -37,7 +39,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
-	wait(NULL);
+	waitpid(pid, &h->error, 0);
 	return (k);
 }
 
@@ -74,13 +76,19 @@ char	*src_usr(char **tmp)
 	return (out[1]);
 }
 
-void	put_usrname(char *str)
+void	put_usrname(char *str, t_h *h)
 {
 	char	directory[FT_PATH_MAX];
 
+	if (h->error != 0)
+		ft_putstr(FRED"(x)");
+	else
+		ft_putstr(FGREEN"(v)");
+	ft_putstr(NONE);
 	ft_putstr(FCYAN);
 	ft_putstr(str);
-	ft_putstr("> "FRED);
+	ft_putstr(FPURPLE);
 	ft_putstr(getcwd(directory, FT_PATH_MAX));
 	ft_putstr("> "NONE);
+	h->error = 0;
 }

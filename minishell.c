@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 16:59:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 19:28:15 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ t_cmds	init_cmd(t_cmds last)
 int		main_loop(t_h *h)
 {
 	char	*cmd;
-
 	h->path = src_path(*(h->env));
 	h->usr = src_usr(*(h->env));
 	while (1)
 	{
-		put_usrname(h->usr);
-		get_next_line(0, &cmd);
+		put_usrname(h->usr, h);
+		ft_read_line(h);
+		cmd = ft_strdup(h->buffer);
 		parse_cmd(&cmd, h);
 		//printercmds(esterna);
 		//smister(esterna, h);
@@ -55,6 +55,9 @@ int		main(int argc, char **argv, char **env)
 	t_h		h;
 
 	h.env = &env;
+	h.error = 0;
+	h.cursor = 0;
+	ft_memset(&h.buffer, 0, 10000);
 	main_loop(&h);
 	return (0);
 }
