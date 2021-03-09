@@ -3,34 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 10:58:00 by aduregon          #+#    #+#             */
-/*   Updated: 2021/03/04 16:30:27 by forsili          ###   ########.fr       */
+/*   Created: 2021/01/13 11:55:47 by dmalori           #+#    #+#             */
+/*   Updated: 2021/01/18 09:44:25 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *haystack, char *needle, size_t len)
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t index;
-	size_t find;
+	size_t	i;
+	size_t	j;
+	size_t	temp;
 
-	index = 0;
-	find = 0;
-	if (needle[index] == 0)
-		return ((char *)haystack);
-	while (haystack[index] != 0 && index < len)
+	i = 0;
+	j = 0;
+	if (!(*needle))
+		return ((char *)(haystack));
+	while (i < len && haystack[i])
 	{
-		find = 0;
-		while (haystack[index + find] == needle[find] && index + find < len)
+		temp = i;
+		while (needle[j] == haystack[i] && needle[j] &&
+		haystack[i] && i < len)
 		{
-			if (find == ft_strlen(needle) - 1)
-				return (&haystack[index + find + 1]);
-			find++;
+			j++;
+			i++;
 		}
-		index++;
+		if (needle[j] == 0)
+			return ((char *)&haystack[temp]);
+		i = temp + 1;
+		j = 0;
 	}
-	return ("s");
+	return (NULL);
 }

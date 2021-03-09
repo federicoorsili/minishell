@@ -3,31 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 10:53:34 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 10:53:36 by aduregon         ###   ########.fr       */
+/*   Created: 2021/01/13 11:27:06 by dmalori           #+#    #+#             */
+/*   Updated: 2021/02/14 10:50:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t			index;
-	unsigned char	ch;
+	unsigned char	*p_dest;
+	unsigned char	*p_src;
+	unsigned char	p_c;
 
-	index = 0;
-	ch = c;
-	while (index < n)
+	p_dest = (unsigned char *)dest;
+	p_src = (unsigned char *)src;
+	p_c = (unsigned char)c;
+	while (n)
 	{
-		if (((unsigned char *)src)[index] == ch)
+		*p_dest = *p_src;
+		if (*p_src == p_c)
 		{
-			((unsigned char *)dst)[index] = ((unsigned char *)src)[index];
-			return (dst + index + 1);
+			*p_dest++ = *p_src;
+			return ((void *)p_dest);
 		}
-		((unsigned char *)dst)[index] = ((unsigned char *)src)[index];
-		index++;
+		p_dest++;
+		p_src++;
+		n--;
 	}
 	return (NULL);
 }

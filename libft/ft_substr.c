@@ -3,33 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 11:00:14 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 11:00:16 by aduregon         ###   ########.fr       */
+/*   Created: 2021/01/13 12:01:17 by dmalori           #+#    #+#             */
+/*   Updated: 2021/02/14 10:50:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char				*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*substr;
-	unsigned int	index;
-
 	if (!s)
 		return (NULL);
-	if (ft_strlen(s) <= start || !len)
-		return (ft_strdup(""));
-	if (!(substr = ft_calloc(len + 1, sizeof(char))))
-		return (NULL);
-	index = 0;
-	while (len > 0 && s[index + start] != 0)
+	if (start >= ft_strlen(s) || !len)
+		return (((char *)ft_calloc(1, sizeof(char))));
+	while (start && *s)
 	{
-		((unsigned char *)substr)[index] = ((unsigned char *)s)[start + index];
-		index++;
-		len--;
+		s++;
+		start--;
 	}
-	substr[index] = '\0';
-	return (substr);
+	return (ft_strndup(s, len));
 }

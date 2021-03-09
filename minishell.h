@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 19:12:05 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 12:17:31 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,18 @@
 # define FCYAN       "\x1b[36m"
 # define NONE        "\033[0m"
 # define FT_PATH_MAX 4096
+#define MAX_CMDS 100
+
+typedef struct	s_var_splitter
+{
+	int		bs;
+	int		i;
+	char	type_apice;
+	char	**matrix;
+	int		size;
+	int		start[MAX_CMDS];
+	int		stop[MAX_CMDS];
+}				t_var_splitter;
 
 typedef struct		s_scmd
 {
@@ -82,8 +94,8 @@ int					is_line(char *str);
 int					get_next_line(const int fd, char **line);
 int					parse_cmd(char **cmd, t_h *h);
 char				**ft_split_cmd(char *str, char *charset);
-char				**ft_splitter(char const *s, char c);
-int					apix_gest(const char *s, char c, int *i, int *sw, char *apx);
+char				**ft_splitter(char *str, char c);
+int					apix_gest(char *s, char c, int *i, int *sw, char *apx);
 void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
 int					smister(t_cmds *esterna, t_h *h);
@@ -106,9 +118,8 @@ void				write_file(t_h *h, int k, char *buf);
 void				read_file(t_h *h, int k);
 int					main_loop(t_h *h);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
-void				open_double_redir(t_h *h, int k);
+void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
 void				count_revredir(t_h *h, int k, char **tmpcmd);
-
 
 #endif

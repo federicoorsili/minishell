@@ -151,3 +151,83 @@ cat < ciao.txt
 rm miao.txt
 ls | grep mini
 ls > miao.txt ; cat miao.txt
+ls '\\\'  ' "
+ls '\\\'  '
+ls | grep mini > ciao.txt ; cat ciao.txt
+ls | grep mini
+ls | grep mini > ciao.txt ; cat ciao.txt
+ls | grep mini
+ls | grep mini > ciao.txt ; cat ciao.txt
+ls | grep mini > ciao.txt ; cat ciao.txt
+cat ciao.txt
+ciao; ciao
+ciao; ciao
+ciao; ciao
+ciao; ciao
+
+ciao; ciao
+
+
+
+
+ciao; ciao
+
+
+
+
+
+
+
+
+ciao; mamma
+ciao papa
+pappa; papa;
+pappa;
+pappa 
+ciao; aon
+clear
+ls | grep mini > ciao.txt ; cat ciao.txt
+>ciao.txt
+ls | grep mini > ciao.txt ; cat ciao.txt
+ls | grep mini | grep minishell.c > ciao.txt > miao.txt > liao.txt; cat liao.txt
+cat ciao.txt
+cat miao.txt
+ls; ls ; lss
+lss
+ls; cat ciao.txt; ls
+ls; cat liao.txt; ls
+ls | grep mini > ciao.txt >> miao.txt; cat ciao.txt
+cat miao.txt
+ls | grep mini > ciao.txt >> miao.txt >> liao.txt ; cat liao.txt
+cat miao.txt
+cat ciao.txt
+ls | grep mini > ciao.txt >> miao.txt >> liao.txt ; cat liao.txt
+cat ciao.txt
+cat miao.txt
+ls | grep mini > ciao.txt >> miao.txt >> liao.txt ; cat liao.txt
+clear
+echo ciao
+echo "[Cciao"[C
+test
+echo test test; test
+echo '''""''""'"""
+echo ' \\\' '
+echo '\\\\'
+echo ' \\\\'  '
+echo " \\\"  "
+echo ' \\\'   '
+echo "ciao"
+echo "mamma" "ciao"
+echo '   sdouvubasdvbarof84oaubv§ljkcknl;§kxc§xxc§dc"""""""    '
+echo " '''''''''''  "
+" \\\\\\\\\"\\\\"\\\""
+" \\\"  "
+echo "\\" "
+echo " \\\"   "
+echo " \\\"  \"   " \\
+\'  ' ciao '
+ls '\\\;' ; cat ciao.txt; ls; echo 'ls;;;'
+echo ' \ \\\\\ \\ \ \\ \ \\ \  '
+echo " \\\ \\ \ "\\\"
+echo " \\\"  "
+echo "\\\\"  "

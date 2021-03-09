@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 18:51:16 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 12:06:50 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void		write_file(t_h *h, int k, char *buf)
 	while (buf[i])
 	{
 		write(h->fdred[k], &buf[i], 1);
+		h->bufred[i] = 0;
 		i++;
 	}
 	write(h->fdred[k], 0, 1);
@@ -56,7 +57,7 @@ void		      count_redirection(t_h *h, int k, char **tmpcmd)
 			h->fdred[k] = open(tmpcmd[k], O_RDWR);
 			read_file(h, k);
 			if (k < (arr_len(tmpcmd) - 2))
-				if (tmpcmd[k + 1][0] == '>' && !tmpcmd[k + 1][1])
+				if (tmpcmd[k + 1][0] == '>')
 				{
 					close(h->fdred[k]);
 					h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_TRUNC, 0755);

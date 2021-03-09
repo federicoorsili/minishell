@@ -3,84 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 11:00:58 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 11:01:02 by aduregon         ###   ########.fr       */
+/*   Created: 2021/01/13 11:32:33 by dmalori           #+#    #+#             */
+/*   Updated: 2021/02/14 10:50:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int		count_word(char const *s, char c)
+static char		*ft_next(char **a, int *size, char c, int i)
 {
-	unsigned int	index;
-	unsigned int	num_word;
+	char	*start;
 
-	if (!s[0])
-		return (0);
-	index = 0;
-	num_word = 0;
-	while (s[index] && s[index] == c)
-		index++;
-	while (s[index])
+	*size = 0;
+	start = NULL;
+	while (a[0][i])
 	{
-		if (s[index] == c)
+		if (a[0][i] == c && start)
 		{
-			num_word++;
-			while (s[index] && s[index] == c)
-				index++;
-			continue ;
+			a[0] = start + *size;
+			return (start);
 		}
-		index++;
+		else if (a[0][i] != c && !start)
+			start = &a[0][i];
+		if (a[0][i] != c)
+			*size += 1;
+		i++;
 	}
-	if (s[index - 1] != c)
-		num_word++;
-	return (num_word);
+	a[0] = start + *size;
+	if (!(*size))
+		return (0);
+	return (start);
 }
 
-static void				next_word(char **word, unsigned int *word_len, char c)
+char			**ft_split(const char *s, char c)
 {
-	unsigned int	index;
+	int		size;
+	char	**m;
+	char	*n;
+	char	*a;
+	int		i;
 
-	*word += *word_len;
-	*word_len = 0;
-	index = 0;
-	while (**word && **word == c)
-		(*word)++;
-	while ((*word)[index])
-	{
-		if ((*word)[index] == c)
-			return ;
-		(*word_len)++;
-		index++;
-	}
-}
-
-char					**ft_split(char const *s, char c)
-{
-	char			**split;
-	char			*word;
-	unsigned int	word_len;
-	unsigned int	num_word;
-	unsigned int	index;
-
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	num_word = count_word(s, c);
-	if (!(split = (char **)malloc(sizeof(char *) * (num_word + 1))))
+	a = (char *)s;
+	i = 0;
+	while (ft_next(&a, &size, c, 0))
+		i++;
+	if (!(m = (char **)malloc((i + 1) * sizeof(char *))))
 		return (NULL);
-	index = 0;
-	word = (char *)s;
-	word_len = 0;
-	while (index < num_word)
+	i = 0;
+	a = (char *)s;
+	while ((n = ft_next(&a, &size, c, 0)))
 	{
-		next_word(&word, &word_len, c);
-		if (!(split[index] = (char *)malloc(sizeof(char) * (word_len + 1))))
+		if (!(m[i] = (char *)malloc((size + 1) * sizeof(char))))
 			return (NULL);
-		ft_strlcpy(split[index], word, word_len + 1);
-		index++;
+		ft_strncpy(m[i++], n, size, 0);
 	}
-	split[index] = NULL;
-	return (split);
+	m[i] = 0;
+	return (m);
 }
