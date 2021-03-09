@@ -3,53 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 11:01:21 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 11:01:23 by aduregon         ###   ########.fr       */
+/*   Created: 2021/01/13 10:24:16 by dmalori           #+#    #+#             */
+/*   Updated: 2021/02/14 10:50:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t		ft_nsize(int n)
+static int		ft_numberlen(long int n)
 {
-	size_t size;
+	int			i;
 
-	size = (n < 0 ? 1 : 0);
-	while (1)
+	i = 0;
+	if (n < 0)
+		i++;
+	if (n == 0)
+		i++;
+	while (n)
 	{
 		n /= 10;
-		size++;
-		if (n == 0)
-			break ;
+		i++;
 	}
-	return (size);
+	return (i);
 }
 
-char				*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	size_t	size;
-	char	*itoa;
-	long	number;
+	char		*p;
+	int			count;
+	int			negative;
+	long int	conversion;
 
-	number = n;
-	size = ft_nsize(n);
-	if (!(itoa = ft_calloc(size + 1, sizeof(char))))
+	conversion = (long int)n;
+	negative = conversion < 0 ? -1 : 1;
+	count = ft_numberlen(conversion);
+	if ((p = (char *)malloc((count + 1) * sizeof(char))) == NULL)
 		return (NULL);
-	if (number < 0)
+	conversion *= negative;
+	if (negative == -1)
+		p[0] = '-';
+	p[count] = 0;
+	while (conversion)
 	{
-		itoa[0] = '-';
-		number *= -1;
+		p[--count] = conversion % 10 + '0';
+		conversion /= 10;
 	}
-	itoa[size] = '\0';
-	while (1)
-	{
-		itoa[size - 1] = (number % 10) + 48;
-		number /= 10;
-		size--;
-		if (number == 0)
-			break ;
-	}
-	return (itoa);
+	if (n == 0)
+		p[0] = '0';
+	return (p);
 }

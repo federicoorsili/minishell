@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 10:52:03 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 10:52:05 by aduregon         ###   ########.fr       */
+/*   Created: 2021/01/13 10:23:53 by dmalori           #+#    #+#             */
+/*   Updated: 2021/02/14 10:50:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int			ft_isalpha(int c)
 {
-	return (((unsigned char)c >= 'A' && (unsigned char)c <= 'Z') ||
-			((unsigned char)c >= 'a' && (unsigned char)c <= 'z'));
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }

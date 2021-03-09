@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 11:00:29 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 11:00:32 by aduregon         ###   ########.fr       */
+/*   Created: 2021/01/13 11:41:43 by dmalori           #+#    #+#             */
+/*   Updated: 2021/02/14 10:50:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*strjoin;
-	size_t	dim_s1;
-	size_t	dim_s2;
+	char	*p;
+	char	*str;
 
-	dim_s1 = ft_strlen(s1);
-	dim_s2 = ft_strlen(s2);
-	if (!(strjoin = ft_calloc(dim_s1 + dim_s2 + 1, sizeof(char))))
+	if (!s1 || !s2)
 		return (NULL);
-	ft_memcpy(strjoin, s1, dim_s1);
-	ft_memcpy(strjoin + dim_s1, s2, dim_s2);
-	strjoin[dim_s1 + dim_s2] = '\0';
-	return (strjoin);
+	if ((p = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
+		return (NULL);
+	str = p;
+	while (*s1)
+		*p++ = *s1++;
+	while (*s2)
+		*p++ = *s2++;
+	*p = 0;
+	return (str);
 }

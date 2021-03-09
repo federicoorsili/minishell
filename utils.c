@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 15:00:28 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/09 15:25:42 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	{
 		open_pipes(h, k);
 		open_redirection(h, k);
-		open_double_redir(h, k);
+		open_double_redir(h, k, s);
 		exec_cmd(h, 0, cmd, argv);
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);

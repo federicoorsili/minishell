@@ -6,175 +6,104 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 17:15:22 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 12:22:49 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		backslash(int *sw, int i, const char *s, char *apx)
+static void		ft_init_var(t_var_splitter *var)
 {
-	int k;
-	int count;
+	var->bs = -1;
+	var->i = 0;
+	var->type_apice = -1;
+	var->matrix = NULL;
+	var->size = 0;
+	ft_memset(var->start, -1, MAX_CMDS);
+	ft_memset(var->stop, -1, MAX_CMDS);
+	var->start[0] = 0;
+}
 
-	k = i - 1;
-	count = 0;
-	*apx = s[i];
-	while (s[k] == '\\')
+static void		ft_loop_bs(char *str, t_var_splitter *var)
+{
+	while (str[var->i] == '\\' && var->type_apice != '\'')
 	{
-		count++;
-		k--;
+		var->bs *= -1;
+		var->i++;
+		ft_loop_bs(str, var);
+		return;
 	}
-	if ((count % 2) == 0)
+	if (var->bs == 1 && str[var->i])
 	{
-		*sw *= -1;
+		var->bs = -1;
+		var->i++;
+		ft_loop_bs(str, var);
+		return;
 	}
 }
 
-int     ft_count(const char *s, char c)
+static void		ft_loop_apici(char *str, t_var_splitter *var)
 {
-	int i;
-	int count;
-	int inside;
-	char	apx;
-
-	inside = 1;
-	apx = 0;
-	i = 0;
-	count = 0;
-	while (s[i])
+	if (var->type_apice == -1 && (str[var->i] == '\'' || str[var->i] == '\"'))
 	{
-		if (((s[i] == '\'' || s[i] == '"') && (i == 0 || s[i - 1] != '\\')) && !apx)
-		{
-			apx = s[i];
-			i++;
-			inside *= -1;
-		}
-		else if (((s[i] == '\'' || s[i] == '"') && s[i - 1] == '\\') && !apx)
-			backslash(&inside, i, s, &apx);
-		if (s[i] == apx && (i == 0 || s[i - 1] != '\\') && apx)
-			inside *= -1;
-		else if (s[i] == apx && (i == 0 || s[i - 1] == '\\') && apx)
-			backslash(&inside, i, s, &apx);
-		if (s[i] == c && inside > 0)
-			count++;
-		i++;
+		var->type_apice = str[var->i];
+		var->i++;
+		ft_loop_apici(str, var);
+		return;
 	}
-	return (count);
+	if (var->type_apice == '\"')
+		ft_loop_bs(str, var);
+	if (var->type_apice != -1 && str[var->i] == var->type_apice)
+	{
+		var->type_apice = -1;
+		var->i++;
+		ft_loop_apici(str, var);
+		return;
+	}
 }
 
-void		scroller(const char *s, char c, int *i, int *sw, char *apx)
+static int		ft_control_split(char *str, char c, t_var_splitter *var)
 {
-	int k;
-
-	k = *i;
-	while (s[k] != c && s[k])
+	if (str[var->i] == c && var->type_apice == -1)
 	{
-		if (((s[k] == '\'' || s[k] == '"') && (k == 0 || s[k - 1] != '\\')))
+		if (var->i == 0)
+			return (1);
+		var->stop[var->size] = var->i;
+		var->i++;
+		if (str[var->i] == c)
+			return (1);
+		if (str[var->i] != 0)
 		{
-			*apx = s[k];
-			*sw *= -1;
-			k++;
-			apix_gest(s, c, &k, &*sw, apx);
-			*i = k;
-			break ;
+			var->size++;
+			var->start[var->size] = var->i;
 		}
-		else if ((s[k] == '\'' && s[k - 1] == '\\') ||
-			(s[k] == '"' && s[k - 1] == '\\'))
-		{
-			backslash(&*sw, *i, s, apx);
-			if (*sw < 0)
-			{
-				k++;
-				apix_gest(s, c, &k, &*sw, apx);
-				*i = k;
-				printf("ciao2\n");
-				break ;
-			}
-		}
-		k++;
 	}
-	*i = k;
+	return (0);
 }
 
-int			apix_gest(const char *s, char c, int *i, int *sw, char *apx)
+char			**ft_splitter(char *str, char c)
 {
-	int n;
-	int k;
+	t_var_splitter var;
 
-	k = *i;
-	n = k - 1;
-	while (s[k])
+	ft_init_var(&var);
+	while (str[var.i])
 	{
-		if (s[k] == *apx && s[k - 1] != '\\')
-		{
-			*sw *= -1;
-			break ;
-		}
-		else if (s[k] == *apx && s[k - 1] == '\\')
-		{
-			backslash(sw, k, s, apx);
-			if (sw > 0)
-				break ;
-		}
-		k++;
+		ft_loop_bs(str, &var);
+		if (ft_control_split(str, c, &var))
+			printf("ERRORE 1\n");
+		ft_loop_apici(str, &var);
+		var.i++;
 	}
-	if (s[k])
-		k++;
-	scroller(s, c, &k, &*sw, apx);
-	*i = k;
-	return (n);
-}
-
-char		**ft_splitter(const char *s, char c)
-{
-	int			i[2];
-	int			n;
-	int			sw;
-	char		apx;
-	char		**out;
-
-	i[0] = 0;
-	n = ft_count(s, c) + 1;
-	sw = 1;
-	i[1] = 0;
-	if (!(out = malloc((n + 2) * sizeof(char *))))
-		return (0);
-	while (s[i[0]])
-	{
-
-		if (s[i[0]] == '\'' || s[i[0]] == '"')
-		{
-			if (i[0] == 0 || s[i[0] - 1] != '\\')
-			{
-				apx = s[i[0]];
-				sw *= -1;
-			}
-			else
-				backslash(&sw, i[0], s, &apx);
-		}
-		if (sw < 0)
-		{
-			printf("ciao %d %c\n", sw, apx);
-			i[0]++;
-			n = apix_gest(s, c, &i[0], &sw, &apx);
-		}
-		else
-		{
-			n = i[0];
-			scroller(s, c, &i[0], &sw, &apx);
-		}
-		out[i[1]] = ft_substr(s, n, i[0] - n);
-		i[1]++;
-		if (s[i[0]])
-			i[0]++;
-	}
-	out[i[1]] = 0;
-	if (sw < 0)
-	{
-		printf("ERROR: apix not closed\n");
-		//funzione di pulizia
-		exit(0);
-	}
-	return (out);
+	if (var.size == 0 && var.stop[0] == -1)
+		var.stop[0] = var.i;
+	if (var.type_apice != -1 || var.bs != -1)
+		printf("ERRORE 2\n");
+	if (!(var.matrix = malloc((var.size + 2) * sizeof(char *))))
+		return (NULL);
+	var.i = -1;
+	while (var.i++ < var.size)
+		var.matrix[var.i] = ft_substr(str, var.start[var.i],
+			(var.stop[var.i] - var.start[var.i]));
+	var.matrix[var.i] = 0;
+	return (var.matrix);
 }

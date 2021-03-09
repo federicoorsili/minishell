@@ -26,7 +26,7 @@ OBJ		=	$(SRCS:.c=.o)
 			$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)
-			make bonus -C ./libft
+			make -C ./libft
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 all		:	$(NAME)

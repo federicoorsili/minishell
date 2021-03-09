@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 17:21:31 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 15:21:11 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ int		parse_cmd(char **cmd, t_h *h)
 		i = 0;
 		while (arr[i])
 		{
-			gestor_cmd(arr, i, h);
-			i++;
+			i = gestor_cmd(arr, i, h);
+			if (arr[i])
+				i++;
 		}
 		k++;
 	}

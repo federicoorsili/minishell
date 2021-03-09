@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 14:59:09 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/09 15:29:59 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include "./libft/libft.h"
 
 # define OPEN_MAX 256
-# define BUFFER_SIZE 1
 # define FBLACK      "\033[30m"
 # define FRED        "\033[31m"
 # define FGREEN      "\033[32m"
@@ -42,6 +41,18 @@
 # define FCYAN       "\x1b[36m"
 # define NONE        "\033[0m"
 # define FT_PATH_MAX 4096
+#define MAX_CMDS 100
+
+typedef struct	s_var_splitter
+{
+	int		bs;
+	int		i;
+	char	type_apice;
+	char	**matrix;
+	int		size;
+	int		start[MAX_CMDS];
+	int		stop[MAX_CMDS];
+}				t_var_splitter;
 
 typedef struct		s_scmd
 {
@@ -68,7 +79,7 @@ typedef	struct		s_h
 	int				npipes;
 	int				nredir;
 	int				ndoubler;
-	char			revred[1000][1000];
+	int				revred;
 	int				fdred[1200];
 	char			bufred[1000000];
 	int				error;
@@ -83,8 +94,8 @@ int					is_line(char *str);
 int					get_next_line(const int fd, char **line);
 int					parse_cmd(char **cmd, t_h *h);
 char				**ft_split_cmd(char *str, char *charset);
-char				**ft_splitter(char const *s, char c);
-int					apix_gest(const char *s, char c, int *i, int *sw, char *apx);
+char				**ft_splitter(char *str, char c);
+int					apix_gest(char *s, char c, int *i, int *sw, char *apx);
 void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
 int					smister(t_cmds *esterna, t_h *h);
@@ -94,7 +105,7 @@ char				**free_arr(char **arr);
 char				*src_usr(char **tmp);
 void				put_usrname(char *str);
 void				reset_pipe(t_h *h);
-void				gestor_cmd(char **tmpcmd, int k, t_h *h);
+int					gestor_cmd(char **tmpcmd, int k, t_h *h);
 void				open_pipes(t_h *h, int k);
 void				close_pipeson(t_h *h, int k);
 void				close_allfather(t_h *h, int k);
@@ -107,9 +118,9 @@ void				write_file(t_h *h, int k, char *buf);
 void				read_file(t_h *h, int k);
 int					main_loop(t_h *h);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
-void				open_double_redir(t_h *h, int k);
+void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
-void				count_revredir(t_h *h, int k, char **tmpcmd);
 int					ourturn_father(t_h *h, int i, char *cmd, char **argv);
+char				*count_revredir(t_h *h, int k, char **tmpcmd);
 
 #endif
