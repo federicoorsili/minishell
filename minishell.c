@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 16:59:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 14:49:43 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ t_cmds	init_cmd(t_cmds last)
 int		main_loop(t_h *h)
 {
 	char	*cmd;
-
 	h->path = src_path(*(h->env));
 	h->usr = src_usr(*(h->env));
+
 	while (1)
-	{
+	{	
+
 		put_usrname(h->usr);
 		get_next_line(0, &cmd);
 		parse_cmd(&cmd, h);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 19:12:05 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 14:59:09 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef	struct		s_h
 	char			revred[1000][1000];
 	int				fdred[1200];
 	char			bufred[1000000];
+	int				error;
 }					t_h;
 
 int					arr_len(char **arr);
@@ -109,6 +110,6 @@ void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
 void				count_revredir(t_h *h, int k, char **tmpcmd);
-
+int					ourturn_father(t_h *h, int i, char *cmd, char **argv);
 
 #endif

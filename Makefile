@@ -18,6 +18,7 @@ pidutils.c \
 redirutils.c \
 double_redir.c \
 rev_redirection.c \
+ourturn.c
 
 OBJ		=	$(SRCS:.c=.o)
 

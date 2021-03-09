@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 18:44:58 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 15:00:28 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	s[k] = ft_strtrim(s[k], " ");
 	argv = ft_split(s[k], ' ');
 	i = 0;
+	ourturn_father(h, 0, argv[0], argv);
 	pid = fork();
 	if (pid == 0)
 	{

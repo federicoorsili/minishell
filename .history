@@ -151,3 +151,81 @@ cat < ciao.txt
 rm miao.txt
 ls | grep mini
 ls > miao.txt ; cat miao.txt
+ciao
+echo 
+echo ciao
+echo bella
+echo ciao
+cat fanculo
+cd ciao
+cd google
+cd ciao
+cd ..
+ls
+ls
+ls
+ls
+ls
+cd
+cd ciao
+ls
+cd 
+ciao
+ls
+ls
+ls
+ciao
+cd ciao
+cd come
+ciao
+cd
+cd
+ls
+cd eco
+cd
+cd
+cd
+cd
+cat me
+cd
+cd
+cd ciao
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd ciao
+cd ..
+ls
+cd ..
+ls
+cd ..
+cd ..
+cd ..
+cd ..
+pwd
+cd ..
+pwd
+ls
+cd
+ls
+cd
+cd
+cd ..
+cd libft
+cd
+cd 
+cd
+
+cd
+cd 
+cd
+cd
+cd 
+env
+cd
+cd
+cd .. Desktop
