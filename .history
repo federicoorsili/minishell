@@ -263,3 +263,16 @@ cat <
 cat < ao.txt < ciao.txt
 cat < ciao.txt < miao.txt < liao.txt
 cat <
+cat < minishell
+cat < ciao.txt
+cat < ciao.txt < maio.txt < liao.txt
+cat < ciao.txt < maio.txt < liao.txt
+cat < ciao.txt < miao.txt
+cat < ciao.txt < miao.txt < liao.txt
+cat < ciao.txt < maio.txt < liao.txt
+cat < ciao.txt < maio.txt < liao.txt
+cat < ciao.txt < maio.txt <
+cat < ciao.txt < maio.txt
+cat < ciao.txt < maio.txt < liao.txt
+cat < ciao.txt < miao.txt < liao.txt
+cat < ciao.txt < miao.txt < liao.txt

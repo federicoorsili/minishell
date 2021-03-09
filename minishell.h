@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 14:29:20 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/09 15:20:32 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char				**free_arr(char **arr);
 char				*src_usr(char **tmp);
 void				put_usrname(char *str);
 void				reset_pipe(t_h *h);
-void				gestor_cmd(char **tmpcmd, int k, t_h *h);
+int					gestor_cmd(char **tmpcmd, int k, t_h *h);
 void				open_pipes(t_h *h, int k);
 void				close_pipeson(t_h *h, int k);
 void				close_allfather(t_h *h, int k);

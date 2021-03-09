@@ -1,9 +1,0 @@
-minishell.c
-minishell
-minishell.c
-minishell.h
-minishell.o
-minishell
-minishell.c
-minishell.h
-minishell.o
