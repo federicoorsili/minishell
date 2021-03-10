@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/09 16:43:06 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/10 15:56:30 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		cd(char **argv, t_h *h)
 		argv[1] = ft_strdup("/Users/");
 		argv[1] = ft_strjoin(argv[1], h->usr);
 	}
-	return (chdir(argv[1]));
+	chdir(argv[1]);
+	return (errno);
 }
 
 int		ourturn_father(t_h *h, int i, char *cmd, char **argv)

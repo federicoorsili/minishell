@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 19:28:15 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/10 15:47:27 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ t_cmds	init_cmd(t_cmds last)
 	return (last);
 }
 
+int		signalaction = 0;
+
+void	handlesignal(int signal)
+{
+	if (signal == SIGINT)
+	{
+		signalaction = 1;
+	}
+}
+
 int		main_loop(t_h *h)
 {
 	char	*cmd;
@@ -40,6 +50,10 @@ int		main_loop(t_h *h)
 	h->usr = src_usr(*(h->env));
 	while (1)
 	{
+		if (signal(SIGINT, handlesignal) == SIG_ERR)
+			write(2, "Error catching signal C \r\n", 26);
+		if (signalaction == 1)
+			signalaction = 0;
 		put_usrname(h->usr, h);
 		ft_read_line(h);
 		cmd = ft_strdup(h->buffer);
@@ -53,6 +67,7 @@ int		main_loop(t_h *h)
 int		main(int argc, char **argv, char **env)
 {
 	t_h		h;
+	pid_t	pid;
 
 	h.env = &env;
 	h.error = 0;

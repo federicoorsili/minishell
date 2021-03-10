@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/10 14:22:33 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/10 16:16:46 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 		open_redirection(h, k);
 		open_double_redir(h, k, s);
 		exec_cmd(h, 0, cmd, argv);
+		printf("%d\n", errno);
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
@@ -39,7 +40,8 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
-	waitpid(pid, &h->error, 0);
+	wait(pid);
+	h->error = errno;
 	return (k);
 }
 
@@ -81,7 +83,10 @@ void	put_usrname(char *str, t_h *h)
 	char	directory[FT_PATH_MAX];
 
 	if (h->error != 0)
-		ft_putstr(FRED"(x)");
+	{
+		ft_putstr(FRED);
+		ft_printf("(x|%d)", h->error);
+	}
 	else
 		ft_putstr(FGREEN"(v)");
 	ft_putstr(NONE);
