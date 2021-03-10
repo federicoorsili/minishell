@@ -1,47 +1,48 @@
 NAME	=	minishell
-LIBFT	=	./libft/libft.a
 CC		=	gcc
-CFLAGS	=	
+FT_DIR	=	libft
+FT_LNK	=	-L ${FT_DIR} -lft
+#CFLAGS	=	-Wall -Wextra -Werror	
 RM		=	rm -f
 SRCS	=	minishell.c \
-parsing.c \
-splitcmd.c \
-splitcmd2.c \
-splitterdot.c \
-lstprinter.c \
-smista.c \
-utils.c \
-utils2.c \
-pidutils.c \
-redirutils.c \
-double_redir.c \
-rev_redirection.c \
-ourturn.c \
-ft_read_line.c \
-
+			parsing.c \
+			splitcmd.c \
+			splitcmd2.c \
+			splitterdot.c \
+			lstprinter.c \
+			smista.c \
+			utils.c \
+			utils2.c \
+			pidutils.c \
+			redirutils.c \
+			double_redir.c \
+			rev_redirection.c \
+			ourturn.c \
+			ft_read_line.c \
 
 OBJ		=	$(SRCS:.c=.o)
 
-%.o	:	%.c
+%.o 	:	%.c
 			$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)
-			make -C ./libft
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+			make -C ${FT_DIR}
+			$(CC) $(CFLAGS) -I $(FT_DIR) $(OBJ) $(FT_LNK) -o $(NAME) 
 
 all		:	$(NAME)
 
-bonus	:	all
-
 clean	:
-			make -C clean
+			$(RM) *.txt
 			$(RM) $(OBJ)
-			make clean -C ./libft
+			make clean -C $(FT_DIR)
 
 fclean	:	clean
 			$(RM) $(NAME)
-			make fclean -C ./libft
+			make fclean -C $(FT_DIR)
 
 re		:	fclean all
+		
+run		:	${NAME}
+			./${NAME}
 
-.PHONY	:	all bonus clean fclean re
+.PHONY		:	all clean fclean re run

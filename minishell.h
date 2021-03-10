@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 19:24:20 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/10 15:02:24 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <ctype.h>
 # include <errno.h>
 # include <termios.h>
+# include <signal.h>
 # include "./libft/libft.h"
 
 # define OPEN_MAX 256
