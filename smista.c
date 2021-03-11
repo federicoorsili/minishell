@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 18:23:04 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 19:03:43 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,12 @@ char	**src_path(char **tmp)
 	char	**out;
 
 	i = 0;
-	ft_printf("%p\n", tmp[i]);
 	while (tmp[i])
 	{
-		printf("***%s\n", tmp[i]);
 		if (!ft_strncmp(tmp[i], "PATH=", 5))
 			break ;
 		i++;
 	}
-	ft_printf("CIAO\n");
 	out = ft_split(tmp[i], '=');
 	out = ft_split(out[1], ':');
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/11 18:56:42 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 19:20:44 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,16 @@ int		ourturn_father(t_h *h, int i, char *cmd, char **argv)
 		h->error = ft_print_env(h);
 		return (1);
 	}
-	else
-	{
-		
-		return (0);
-	}
-	/*
+	
+	
 	if (argv[0][0] != '=' && ft_strnstr(argv[0], "=", ft_strlen(argv[0])))
 	{
 		int i;	
 		i = 0;
-		while (argv[i])
+		while (argv[i] && argv[i][0] != '=' && ft_strnstr(argv[i], "=", ft_strlen(argv[i])))
 			printf("DEVO AGGIUNGERE QUESTO A ENV :%s\n", argv[i++]);
 		return (0);
 	}
-	*/
+	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 18:28:03 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 19:03:04 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		main_loop(t_h *h)
 {
 	char	*cmd;
 	h->path = src_path(*h->env);
-	printf("EXIT\n");
 	h->usr = src_usr(*h->env);
 
 	while (1)
