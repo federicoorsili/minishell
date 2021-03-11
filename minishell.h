@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/10 15:06:47 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:39:06 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ typedef	struct		s_h
 	int				error;
 	int				cursor;
 	char			buffer[10000];
+	int				v_cursor;
+	int				v_last_cursor;
+	char			**history;
 }					t_h;
 
 struct	s_editorconfig {
@@ -135,5 +138,8 @@ int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
 int					ourturn_father(t_h *h, int i, char *cmd, char **argv);
 char				*count_revredir(t_h *h, int k, char **tmpcmd);
 void				ft_read_line(t_h *h);
+void				ft_read_history_up(t_h *h);
+void				ft_read_history_down(t_h *h);
+void				ft_convert_history(t_h *h);
 
 #endif

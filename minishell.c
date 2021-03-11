@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/10 15:47:27 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:40:08 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int		main(int argc, char **argv, char **env)
 	h.env = &env;
 	h.error = 0;
 	h.cursor = 0;
+	h.v_cursor = 0;
+	ft_convert_history(&h);
 	ft_memset(&h.buffer, 0, 10000);
 	main_loop(&h);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/10 16:16:46 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:45:39 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
-	wait(pid);
+	wait(&pid);
 	h->error = errno;
 	return (k);
 }
