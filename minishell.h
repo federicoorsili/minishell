@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/10 15:02:24 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/10 15:26:55 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <errno.h>
 # include <termios.h>
 # include <signal.h>
+# include <sys/stat.h>
 # include "./libft/libft.h"
 
 # define OPEN_MAX 256
@@ -45,7 +46,7 @@
 # define FCYAN       "\x1b[36m"
 # define NONE        "\033[0m"
 # define FT_PATH_MAX 4096
-#define MAX_CMDS 100
+# define MAX_CMDS 100
 
 typedef struct	s_var_splitter
 {
