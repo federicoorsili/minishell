@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 13:48:56 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 14:40:38 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,12 @@ void	close_allfather(t_h *h, int k)
 }
 void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 {
+	int err;
+
 	while (h->path[i])
 	{
 		cmd = ft_strjoin(h->path[i], argv[0]);
-		execve(cmd, argv, *(h->env));
+		err = execve(cmd, argv, *(h->env));
 		i++;
 	}
 }

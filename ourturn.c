@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/11 14:38:12 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 14:42:14 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_get_pwd(t_h *h)
 
 	errno = 0;
 	getcwd(path, FT_PATH_MAX);
-	printf("%s\n", path, errno);
+	printf("%s\n", path);
 	return (errno);
 }
 
@@ -49,4 +49,3 @@ int		ourturn_father(t_h *h, int i, char *cmd, char **argv)
 	}
 	return (0);
 }
-

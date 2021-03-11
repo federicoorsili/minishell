@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/10 13:15:38 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/10 15:14:52 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		parse_cmd(char **cmd, t_h *h)
 	int		k;
 	int		fd;
 
-	fd = open(".history", O_RDWR | O_APPEND);
+	fd = open(".history", O_RDWR | O_APPEND | O_CREAT, 0755);
 	save_str(fd, *cmd);
 	cmdarr = ft_splitter(*cmd, ';');
 	k = 0;
