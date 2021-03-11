@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 14:44:16 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/11 16:23:54 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,28 @@ static void	swap_buffer(t_h *h, int c, int i)
 	}
 }
 
-static void	swap_buffer_del(t_h *h, int c, int i)
+static void	swap_buffer_del(t_h *h, int i)
 {
-	int temp;
-
-	h->cursor--;
-	temp = h->buffer[i + 1];
-	h->buffer[i] = ' ';
-	write(1, &c, 1);
-	if (h->buffer[i + 1])
-		swap_buffer(h, temp, i + 1);
-	if (h->buffer[i + 1] == 0)
+	while (h->buffer[i])
 	{
-		write(1, &temp, 1);
-		h->buffer[i + 1] = temp;
-		while (i >= h->cursor)
-		{
-			write(1, "\b", 1);
-			i--;
-		}
-		h->cursor++;
+		h->buffer[i - 1] = h->buffer[i];
+		//write(1, &h->buffer[i], 1);
+		i++;
 	}
+	h->buffer[i - 1] = 0;
+	h->cursor--;
+	i = h->cursor;
+	write(1, "\b", 1);
+	while (h->buffer[i])
+	{
+		write(1, &h->buffer[i], 1);
+		i++;
+	}
+	h->buffer[i] = 0;
+	write(1, " ", 1);
+	while (i-- != h->cursor)
+		write(1, "\b", 1);
+	write(1, "\b", 1);	
 }
 
 void	ft_read_line(t_h *h)
@@ -113,18 +114,18 @@ void	ft_read_line(t_h *h)
 		}
 		else if (temp == 127 && h->cursor > 0)
 		{
-			//if (h->buffer[h->cursor] == 0)
-			//{
+			if (h->buffer[h->cursor] == 0)
+			{
 				h->cursor--;
 				h->buffer[h->cursor] = 0;
 				write(1, "\b", 1);
 				write(1, " ", 1);
 				write(1, "\b", 1);
-			//}
-			//else
-			//{
-				//swap_buffer_del(h, h->buffer[h->cursor], h->cursor);
-			//}
+			}
+			else
+			{
+				swap_buffer_del(h, h->cursor);
+			}
 		}
 		else if (temp == 4479771 && h->cursor > 0)
 		{
@@ -161,10 +162,10 @@ void	ft_read_line(t_h *h)
 		{
 			ft_read_history_down(h);	
 		}
-		else if (temp != 0)
-		{
-			//GESTIONE BACK
-			printf("%d\r\n", temp);
-		}
+		//DEBUG
+		//else if (temp != 0)
+		//{
+		//	printf("%d\r\n", temp);
+		//}
 	}
 }
