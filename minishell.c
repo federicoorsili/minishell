@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 14:40:08 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/11 18:28:03 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ void	handlesignal(int signal)
 int		main_loop(t_h *h)
 {
 	char	*cmd;
-	h->path = src_path(*(h->env));
-	h->usr = src_usr(*(h->env));
+	h->path = src_path(*h->env);
+	printf("EXIT\n");
+	h->usr = src_usr(*h->env);
+
 	while (1)
 	{
 		if (signal(SIGINT, handlesignal) == SIG_ERR)
@@ -69,12 +71,12 @@ int		main(int argc, char **argv, char **env)
 	t_h		h;
 	pid_t	pid;
 
-	h.env = &env;
+	ft_memset(&h, 0, sizeof(t_h));
+	h.env = crt_env(&env, &h);
 	h.error = 0;
 	h.cursor = 0;
 	h.v_cursor = 0;
 	ft_convert_history(&h);
-	ft_memset(&h.buffer, 0, 10000);
 	main_loop(&h);
 	return (0);
 }

@@ -20,6 +20,7 @@ SRCS	=	minishell.c \
 			ourturn.c \
 			ft_read_line.c \
 			ft_read_history.c \
+			env_manager.c
 
 OBJ		=	$(SRCS:.c=.o)
 

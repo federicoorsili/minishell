@@ -6,8 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 14:39:06 by forsili          ###   ########.fr       */
->>>>>>> f3ec53f912b2dab12b6445ff66134e2ed0c164f4
+/*   Updated: 2021/03/11 18:20:44 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +142,6 @@ void				ft_read_line(t_h *h);
 void				ft_read_history_up(t_h *h);
 void				ft_read_history_down(t_h *h);
 void				ft_convert_history(t_h *h);
+char				***crt_env(char ***env, t_h *h);
 
 #endif
