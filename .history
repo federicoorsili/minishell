@@ -217,3 +217,28 @@ echo "$USER"
 ciao=echo
 $ciao amici
 elena=5; echo $elena
+'echo' '$user'
+'echo' '$user'
+'echo' '$user'
+'echo' '$user'         
+'echo' '$user'         
+'echo' '$user'         
+'ls';'ls -a'
+ls
+'ls'
+'ls' ; 'ls'
+'ls';'ls'
+'ls' ;'ls'
+'ls'; 'ls'
+'ls' ; 'ls'
+'ls' 'ls'
+'ls'  'ls'
+'ls'      'ls'
+'ls''ls'
+'ls' 'ls'
+'ls'  'ls'
+'ls'   'ls'
+'ls';'ls'
+'ls' ;'ls'
+'ls'; 'ls'
+'ls';  'ls'
