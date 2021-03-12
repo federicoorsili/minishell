@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 01:15:10 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 13:01:25 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ int		ft_syscall(char **s, t_h *h, int k)
 	pid_t	pid;
 
 	s[k] = ft_strtrim(s[k], " ");
-	argv = ft_split(s[k], ' ');
+	argv = ft_splitter(s[k], ' ');
 	i = 0;
-	argv = expand_var(h, argv);
+	argv = trim_apx(argv);
+	//argv = expand_var(h, argv);
 	if (ourturn_father(h, argv[0], argv))
 		return (1);
 	pid = fork();

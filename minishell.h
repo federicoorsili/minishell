@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 12:20:06 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:29:23 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,6 @@ int					ft_export(t_h *h);
 int					declarated(char **env, char *argv);
 char				*src_home(char **tmp);
 char				**expand_var(t_h *h, char **argv);
+char				**trim_apx(char **argv);
 
 #endif

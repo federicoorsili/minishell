@@ -162,3 +162,58 @@ pappa
 zdfljbnzdfvljbdnfv
 zdfljbnzdfvljbdnfv
 ppa
+c=90909
+echo '    $c'
+c=90909
+echo '    $c'
+c=90909
+echo "$c"
+c=90909
+echo '    $c'
+echo "$c"
+elena
+c=90909
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$culo"
+c=3456
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo "$c"
+echo '$USER'
+echo ""$USER"
+echo "$USER"
+'echo'' "$USER"
+'echo' "$USER"
+     'echo' "$USER"
+     echo "$USER"
+ciao=echo
+$ciao amici
+elena=5; echo $elena

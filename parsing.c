@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 12:22:25 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 14:40:11 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@ void		save_str(t_h *h, char *str)
 	h->v_cursor = ++h->v_last_cursor;
 }
 
-char	*trim_apx(char *str)
+char	**trim_apx(char **argv)
 {
-	int sw;
+	int i;
 
-	sw = 0;
-	if (str[0] == '\'')
-		str = ft_strtrim(str, "\'");
-	else if (str[0] == '"')
-		str = ft_strtrim(str, "\"");
-	return (str);
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i][0] == '\'')
+			argv[i] = ft_strtrim(argv[i], "\'");
+		else if (argv[i][0] == '"')
+			argv[i] = ft_strtrim(argv[i], "\"");
+		i++;
+	}
+	return (argv);
 }
 
 int		parse_cmd(char **cmd, t_h *h)
@@ -65,7 +69,6 @@ int		parse_cmd(char **cmd, t_h *h)
 		{
 			arr[i] = ft_strtrim(arr[i], " ");
 			arr[i] = ft_strtrim(arr[i], "\n");
-			arr[i] = trim_apx(arr[i]);
 			//printf("(%s)", arr[i]);
 			i++;
 		}
