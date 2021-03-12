@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 01:12:00 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:20:06 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef	struct		s_h
 	char			**out;
 	char			**path;
 	char			**history;
+	char			*history_path;
 	char			*usr;
 	int				fdhistory;
 	int				pipe[1200][2];

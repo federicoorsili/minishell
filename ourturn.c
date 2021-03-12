@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/12 01:15:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:15:35 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 			printf("%s\n", h->tmp_env[i]);
 			i++;
 		}
-		
 		return (1);
 	}
 	if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("export"))

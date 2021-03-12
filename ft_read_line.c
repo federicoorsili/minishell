@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 11:24:23 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:17:21 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static void	swap_buffer_del(t_h *h, int i)
 	write(1, " ", 1);
 	while (i-- != h->cursor)
 		write(1, "\b", 1);
-	write(1, "\b", 1);	
+	write(1, "\b", 1);
 }
 
 void	ft_read_line(t_h *h)

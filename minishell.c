@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 00:05:17 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:21:42 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	handlesignal(int signal)
 int		main_loop(t_h *h)
 {
 	char	*cmd;
-	
+
 	h->path = src_path(h->our_env);
 	while (1)
 	{
@@ -75,6 +75,9 @@ int		main(int argc, char **argv, char **env)
 	h.error = 0;
 	h.cursor = 0;
 	h.v_cursor = 0;
+	h.history_path = malloc(FT_PATH_MAX + 7);
+	h.history_path = getcwd(h.history_path, FT_PATH_MAX);
+	h.history_path = ft_strjoin(h.history_path, "/.history");
 	h.tmp_env = ft_calloc(500, sizeof(char *));
 	ft_convert_history(&h);
 	main_loop(&h);

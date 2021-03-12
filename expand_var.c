@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 01:18:51 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:08:35 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ char		*maker(t_h *h, char *src)
 	}
 	if (!sw)
 	{
-		while(h->our_env[i][k] && h->our_env[i][k] != '=')
+		while (h->our_env[i][k] && h->our_env[i][k] != '=')
 			k++;
-		return (ft_substr(h->our_env[i], k + 1,	ft_strlen(h->our_env[i])));
+		return (ft_substr(h->our_env[i], k + 1, ft_strlen(h->our_env[i])));
 	}
-	while(h->tmp_env[i][k] && h->tmp_env[i][k] != '=')
+	while (h->tmp_env[i][k] && h->tmp_env[i][k] != '=')
 		k++;
-	return (ft_substr(h->tmp_env[i], k + 1,	ft_strlen(h->tmp_env[i])));
+	return (ft_substr(h->tmp_env[i], k + 1, ft_strlen(h->tmp_env[i])));
 	//GESTIRE ASSENZA DI VARIABILE
 }
 
@@ -89,7 +89,11 @@ char		**expand_var(t_h *h, char **argv)
 		while (argv[i][k])
 		{
 			if (argv[i][k] == '\'')
-				while (argv[i][k++] != '\'');
+			{
+				k++;
+				while (argv[i][k] != '\'')
+					k++;
+			}
 			if (argv[i][k] == '$')
 			{
 				argv[i] = expand(h, argv[i], k);
