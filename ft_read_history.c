@@ -28,7 +28,11 @@ void ft_read_history_up(t_h *h)
 	{
 		free(h->history[h->v_cursor]);
 		h->history[h->v_cursor] = ft_strdup(h->buffer);
-
+		while(h->buffer[h->cursor])
+		{
+			write(1, " ", 1);
+			h->cursor++;
+		}
 		while (h->cursor > 0)
 		{
 			h->cursor--;
@@ -59,6 +63,11 @@ void ft_read_history_down(t_h *h)
 	{
 		free(h->history[h->v_cursor]);
 		h->history[h->v_cursor] = ft_strdup(h->buffer);
+		while(h->buffer[h->cursor])
+		{
+			write(1, " ", 1);
+			h->cursor++;
+		}
 		while (h->cursor > 0)
 		{
 			h->cursor--;
