@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 11:20:48 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/12 11:24:23 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,18 @@ void	ft_read_line(t_h *h)
 			h->cursor = 0;
 			h->v_cursor = h->v_last_cursor;
 			return ;
+		}
+		//CTR-D
+		else if (temp == 4)
+		{
+			disablerawmod();
+			//FUNZIONE EXIT
+			exit(0);
+		}
+		//CTR-D
+		else if (temp == 28)
+		{
+			//??
 		}
 		//DEBUG
 		else if (temp != 0)
