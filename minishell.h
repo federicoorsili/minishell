@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 12:29:23 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 16:05:45 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # include <sys/stat.h>
 # include "./libft/libft.h"
 
-# define OPEN_MAX 256
 # define FBLACK      "\033[30m"
 # define FRED        "\033[31m"
 # define FGREEN      "\033[32m"
@@ -47,6 +46,9 @@
 # define NONE        "\033[0m"
 # define FT_PATH_MAX 4096
 # define MAX_CMDS 100
+# define MAX_BUFFER 10000
+# define MAX_FRED 1000000
+# define MAX_FD 1200
 
 typedef struct	s_var_splitter
 {
@@ -83,16 +85,16 @@ typedef	struct		s_h
 	char			*history_path;
 	char			*usr;
 	int				fdhistory;
-	int				pipe[1200][2];
+	int				pipe[MAX_FD][2];
 	int				npipes;
 	int				nredir;
 	int				ndoubler;
 	int				revred;
-	int				fdred[1200];
-	char			bufred[1000000];
+	int				fdred[MAX_FD];
+	char			bufred[MAX_FRED];
 	int				error;
 	int				cursor;
-	char			buffer[10000];
+	char			buffer[MAX_BUFFER];
 	int				v_cursor;
 	int				v_last_cursor;
 }					t_h;

@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 12:50:04 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/12 16:02:59 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_read_line(t_h *h)
 	int index;
 	int temp;
 
-	ft_memset(&h->buffer, 0, 10000);
+	ft_memset(&h->buffer, 0, MAX_BUFFER);
 	enablerawmod();
 	while (1)
 	{
