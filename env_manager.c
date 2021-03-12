@@ -3,28 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   env_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:50:12 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/11 18:27:15 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 23:14:05 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	***crt_env(char ***env, t_h *h)
+void	crt_env(char **env, t_h *h)
 {
 	int		i;
-	char	***ourenv;
+	int		k;
 
 	i = 0;
-	ourenv = ft_calloc(1, sizeof(char **));
-	ourenv[0] = ft_calloc(500, sizeof(char *));
-	while (env[0][i])
+	h->our_env = ft_calloc(500, sizeof(char *));
+	while (env[i])
 	{
-		ourenv[0][i] = env[0][i];
+		k = 0;
+		if (!(h->our_env[i] = malloc(ft_strlen(env[i]))))
+			return ;
+		while(env[i][k])
+		{
+			h->our_env[i][k] = env[i][k];
+			k++;
+		}
+		h->our_env[i][k] = 0;
 		i++;
 	}
-	ourenv[0][i] = 0;
-	return (ourenv);
+	h->our_env[i] = 0;
 }

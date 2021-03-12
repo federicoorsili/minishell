@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 18:20:44 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/12 01:12:00 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,13 @@ typedef struct		s_cmds
 
 typedef	struct		s_h
 {
-	int				fdhistory;
-	char			***env;
+	char			**our_env;
+	char			**tmp_env;
 	char			**out;
 	char			**path;
+	char			**history;
 	char			*usr;
+	int				fdhistory;
 	int				pipe[1200][2];
 	int				npipes;
 	int				nredir;
@@ -92,7 +94,6 @@ typedef	struct		s_h
 	char			buffer[10000];
 	int				v_cursor;
 	int				v_last_cursor;
-	char			**history;
 }					t_h;
 
 struct	s_editorconfig {
@@ -136,12 +137,16 @@ int					main_loop(t_h *h);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
-int					ourturn_father(t_h *h, int i, char *cmd, char **argv);
+int					ourturn_father(t_h *h, char *cmd, char **argv);
 char				*count_revredir(t_h *h, int k, char **tmpcmd);
 void				ft_read_line(t_h *h);
 void				ft_read_history_up(t_h *h);
 void				ft_read_history_down(t_h *h);
 void				ft_convert_history(t_h *h);
-char				***crt_env(char ***env, t_h *h);
+void				crt_env(char **env, t_h *h);
+int					ft_export(t_h *h);
+int					declarated(char **env, char *argv);
+char				*src_home(char **tmp);
+char				**expand_var(t_h *h, char **argv);
 
 #endif

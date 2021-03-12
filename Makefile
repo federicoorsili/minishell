@@ -18,9 +18,11 @@ SRCS	=	minishell.c \
 			double_redir.c \
 			rev_redirection.c \
 			ourturn.c \
+			ourturn2.c \
 			ft_read_line.c \
 			ft_read_history.c \
-			env_manager.c
+			env_manager.c \
+			expand_var.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

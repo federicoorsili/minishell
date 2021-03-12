@@ -2,3 +2,7 @@ ls
 cd libft
 cd libft
 cd ..
+c=..
+cd $c
+c=..
+cd $c

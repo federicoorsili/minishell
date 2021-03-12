@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/11 19:20:44 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/12 01:15:03 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int		cd(char **argv, t_h *h)
 {
 	if (!argv[1])
-	{
-		argv[1] = ft_strdup("/Users/");
-		argv[1] = ft_strjoin(argv[1], h->usr);
-	}
+		argv[1] = src_home(h->our_env);
 	errno = 0;
 	chdir(argv[1]);
 	return (errno);
@@ -41,18 +38,17 @@ int		ft_print_env(t_h *h)
 	char	**envmtrx;
 
 	i = 0;
-	envmtrx = *h->env;
+	envmtrx = h->our_env;
 	while (envmtrx[i])
 		ft_printf("%s\n", envmtrx[i++]);
 	return (0);
 }
 
-int		ourturn_father(t_h *h, int i, char *cmd, char **argv)
+int		ourturn_father(t_h *h, char *cmd, char **argv)
 {
-
+	int i;	
 	//if tutti hanno =
 	//else if = piscia
-
 	if ((ft_strncmp(argv[0], "cd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("cd"))
 	{
 		h->error = cd(argv, h);
@@ -68,16 +64,32 @@ int		ourturn_father(t_h *h, int i, char *cmd, char **argv)
 		h->error = ft_print_env(h);
 		return (1);
 	}
-	
-	
 	if (argv[0][0] != '=' && ft_strnstr(argv[0], "=", ft_strlen(argv[0])))
 	{
-		int i;	
 		i = 0;
 		while (argv[i] && argv[i][0] != '=' && ft_strnstr(argv[i], "=", ft_strlen(argv[i])))
-			printf("DEVO AGGIUNGERE QUESTO A ENV :%s\n", argv[i++]);
+		{
+			h->tmp_env[declarated(h->tmp_env, argv[i])] = ft_strdup(argv[i]);
+			i++;
+		}
+		//printf("DEVO AGGIUNGERE QUESTO A ENV :%s\n", argv[i++]);
 		return (0);
 	}
-	
+	if ((ft_strncmp(argv[0], "stat", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("stat"))
+	{
+		i = 0;
+		while (h->tmp_env[i])
+		{
+			printf("%s\n", h->tmp_env[i]);
+			i++;
+		}
+		
+		return (1);
+	}
+	if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("export"))
+	{
+		h->error = ft_export(h);
+		return (1);
+	}
 	return (0);
 }

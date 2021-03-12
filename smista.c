@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smista.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 19:03:43 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 22:43:40 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int		ft_strnstr_md(char *haystack, char *needle, int len)
 void	print_env(t_h *h)
 {
 	int		i;
-	char	***tmp;
+	char	**tmp;
 
-	tmp = h->env;
+	tmp = h->our_env;
 	i = 0;
 	while (tmp[i])
 	{
-		printf("%s\n", *tmp[i]);
+		printf("%s\n", tmp[i]);
 		i++;
 	}
 }

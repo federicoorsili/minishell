@@ -41,3 +41,105 @@ ciao=cucu  ciao=tetto ls
 ciao=cucu  ciao=tetto ls
 ciao=cucu  ciao=tetto; ls
 ciao=cucu  ciao=tetto ls
+ciao=ciao
+env
+ls
+env
+ls
+env
+cd ..
+ciao=ciao
+0000
+stat
+ciao=ciao
+stat
+ciao=ciao
+stat
+ciao=ciao ama=0 eco=3
+stat
+ciao=3
+stat
+eco=notte
+stat
+c=2
+c=5
+stat
+export
+env
+paolino=federici
+export
+env
+cicio=56
+export
+env
+c=banana
+stat
+export
+stat
+c=56
+export
+stat
+c=2
+export
+stat
+c=3
+export
+stat
+env
+USER=fungo
+export
+env
+LOGNAME=fungo
+export
+env
+LOGNAME=CICCIO_BELLO33
+export
+env
+LOGNAME=uajio39
+export
+HOME=/Users/federico/Desktop/minishell
+export
+cd
+HOME=/home/federico/Desktop
+export
+cd
+env
+cd
+cd
+env
+cd
+cd
+env
+cd
+CD
+cd
+c=33
+c=/libft
+cd $c
+c=libft
+c=libft
+cd $c
+c=libft
+cd $c
+c=libft
+cd $c
+cd $c
+c=libft
+cd $c
+cd $c
+c=ciao.txt
+cd ..
+cd ..
+c=ciao.txt
+cd ..
+c=libft
+c=33
+c=33
+c=33
+c=33
+cd ..
+cd ..
+c=6578965789765709867089
+export
+ls
+env

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pidutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 18:04:05 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/11 22:40:42 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 	while (h->path[i])
 	{
 		cmd = ft_strjoin(h->path[i], argv[0]);
-		err = execve(cmd, argv, *h->env);
+		err = execve(cmd, argv, h->our_env);
 		i++;
 	}
 }

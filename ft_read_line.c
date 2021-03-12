@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 16:23:54 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/11 23:02:54 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void	ft_read_line(t_h *h)
 		else if (temp == 27)
 		{
 			disablerawmod();
+			write(1, "\n", 1);
 			exit(0);
 		}
 		else if (temp == 13)
