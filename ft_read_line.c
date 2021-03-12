@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 12:17:21 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 12:50:04 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,9 +191,9 @@ void	ft_read_line(t_h *h)
 			//??
 		}
 		//DEBUG
-		else if (temp != 0)
-		{
-			printf("%d\r\n", temp);
-		}
+		//else if (temp != 0)
+		//{
+		//	printf("%d\r\n", temp);
+		//}
 	}
 }
