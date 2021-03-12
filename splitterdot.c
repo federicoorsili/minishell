@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   splitterdot.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 14:17:13 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/12 15:37:53 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ char			**ft_splitter(char *str, char c)
 	ft_init_var(&var);
 	while (str[var.i])
 	{
+		ft_loop_apici(str, &var);
 		ft_loop_bs(str, &var);
 		if (ft_control_split(str, c, &var))
 			printf("ERRORE 1\n");
-		ft_loop_apici(str, &var);
 		var.i++;
 	}
 	if (var.size == 0 && var.stop[0] == -1)
