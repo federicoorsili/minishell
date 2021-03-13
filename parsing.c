@@ -28,6 +28,7 @@ void		save_str(t_h *h, char *str)
 	}
 	write(fd, "\n", 1);
 	close(fd);
+	free(h->history[h->v_last_cursor]);
 	h->history[h->v_last_cursor] = ft_strdup(str);
 	h->v_cursor = ++h->v_last_cursor;
 }
@@ -41,17 +42,9 @@ char	**trim_apx(char **argv)
 	while (argv[i])
 	{
 		if (argv[i][0] == '\'')
-		{
-			str = argv[i];
-			argv[i] = ft_strtrim(argv[i], "\'");
-			free(str);
-		}
+			argv[i] = ft_strtrim(&argv[i], "\'", 1);
 		else if (argv[i][0] == '"')
-		{
-			str = argv[i];
-			argv[i] = ft_strtrim(argv[i], "\"");
-			free(str);
-		}
+			argv[i] = ft_strtrim(&argv[i], "\"", 1);
 		i++;
 	}
 	return (argv);
@@ -75,12 +68,7 @@ int		parse_cmd(char **cmd, t_h *h)
 		arr = expand_var(h, arr);
 		while (arr[i])
 		{
-			tmpstr = arr[i];
-			arr[i] = ft_strtrim(tmpstr, " \n");
-			free(tmpstr);
-			//tmpstr = arr[i];
-			//arr[i] = ft_strtrim(arr[i], " ");
-			//free(tmpstr);
+			arr[i] = ft_strtrim(&arr[i], " \n", 1);
 			////printf("(%s)", arr[i]);
 			i++;
 		}

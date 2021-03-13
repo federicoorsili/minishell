@@ -19,9 +19,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	int		i;
 	pid_t	pid;
 
-	cmd = s[k];
-	s[k] = ft_strtrim(cmd, " ");
-	free(cmd);
+	s[k] = ft_strtrim(&s[k], " ", 1);
 	argv = ft_splitter(s[k], ' ');
 	i = 0;
 	argv = trim_apx(argv);

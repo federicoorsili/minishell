@@ -46,7 +46,7 @@ char	*count_revredir(t_h *h, int k, char **tmpcmd)
 		return (tmpcmd[i]);
 	while (tmpcmd[k] && tmpcmd[k][0] == '<' && !tmpcmd[k][1])
 	{
-		tmpcmd[k + 1] = ft_strtrim(tmpcmd[k + 1], " ");
+		tmpcmd[k + 1] = ft_strtrim(&tmpcmd[k + 1], " ", 1);
 		fd = open(tmpcmd[k + 1], O_RDONLY, 0755);
 		close(fd);
 		if (fd < 0)

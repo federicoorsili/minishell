@@ -71,17 +71,16 @@ void		      count_redirection(t_h *h, int k, char **tmpcmd)
 		if (tmpcmd[k + 1][0] == '>' && !tmpcmd[k + 1][1])
 		{
 			h->nredir += 1;
-			tmpcmd[k + 2] = ft_strtrim(tmpcmd[k + 2], " ");
+			tmpcmd[k + 2] = ft_strtrim(&tmpcmd[k + 2], " ", 1);
 			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_TRUNC, 0755);
 		}
 	}
 	if (k == 0 && tmpcmd[k][0] == '>' && !tmpcmd[k][1])
 	{
-		tmpcmd[k + 1] = ft_strtrim(tmpcmd[k + 1], " ");
+		tmpcmd[k + 1] = ft_strtrim(&tmpcmd[k + 1], " ", 1);
 		h->fdred[k] = open(tmpcmd[k + 1], O_RDWR | O_CREAT | O_TRUNC, 0755);
 		close(h->fdred[k]);
 	}
-	//free(tmpcmd[k]);
 }
 
 void		open_redirection(t_h *h, int k)

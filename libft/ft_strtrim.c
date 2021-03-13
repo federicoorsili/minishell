@@ -12,11 +12,13 @@
 
 #include "libft.h"
 
-char			*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char **str, char const *set, int mod)
 {
 	int			len;
 	char		*p;
+	char		*s1;
 
+	s1 = *str;
 	if (!s1 || !set)
 		return (NULL);
 	while (*s1 && ft_iscontain(*s1, set))
@@ -29,5 +31,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	if ((p = ft_strndup(s1, len)) == NULL)
 		return (NULL);
 	p[len] = 0;
+	if (mod)
+		free(*str);
 	return (p);
 }

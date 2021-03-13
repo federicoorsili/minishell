@@ -48,7 +48,6 @@ int		main_loop(t_h *h)
 	char	*cmd;
 
 	h->path = src_path(h->our_env);
-		printf("sd\n");
 	while (1)
 	{
 		if (signal(SIGINT, handlesignal) == SIG_ERR)

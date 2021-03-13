@@ -15,7 +15,7 @@
 void		count_double_redir(t_h *h, int k, char **tmpcmd)
 {
 	h->ndoubler = 0;
-	tmpcmd[k] = ft_strtrim(tmpcmd[k], " ");
+	tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
 	if (k != 0 && tmpcmd[k - 1][0] == '>' && tmpcmd[k - 1][1] == '>' && !tmpcmd[k - 1][2])
 	{
 		h->ndoubler += 2;
@@ -26,8 +26,8 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 	}
 	if (k < (arr_len(tmpcmd) - 2))
 	{
-		tmpcmd[k + 2] = ft_strtrim(tmpcmd[k + 2], " ");
-		tmpcmd[k] = ft_strtrim(tmpcmd[k], " ");
+		tmpcmd[k + 2] = ft_strtrim(&tmpcmd[k + 2], " ", 1);
+		tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
 		if (tmpcmd[k + 1][0] == '>' && tmpcmd[k + 1][1] == '>' && !tmpcmd[k + 1][2]
 			&& ft_strncmp(tmpcmd[k], tmpcmd[k +2], ft_strlen(tmpcmd[k])))
 		{
@@ -37,7 +37,7 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 	}
 	if (k == 0 && tmpcmd[k][0] == '>' && tmpcmd[k][1] == '>' && !tmpcmd[k][2])
 	{
-		tmpcmd[k + 1] = ft_strtrim(tmpcmd[k + 1], " ");
+		tmpcmd[k + 1] = ft_strtrim(&tmpcmd[k + 1], " ", 1);
 		h->fdred[k] = open(tmpcmd[k + 1], O_RDWR | O_CREAT | O_APPEND, 0755);
 		close(h->fdred[k]);
 	}
