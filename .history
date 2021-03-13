@@ -242,3 +242,49 @@ ls
 'ls' ;'ls'
 'ls'; 'ls'
 'ls';  'ls'
+./minishell
+$c=libft
+c=libft
+ls
+cd
+ls
+ls
+lssl
+ls
+ls
+ls
+ls
+'ls' '$c'
+c=libft
+cd '$c'
+cd "$c"
+c=..
+cd "$c"
+cd "$c"
+ehco '      $c'   " $c   |"
+ehco '      $c'   " $c  "
+echo '      $c'   " $c  "
+echo '      $c'   " $c  |"
+echo '      $c'   " $c  |"
+echo '      $c'   " $c  |"
+echo '      $c'   " $c  >"
+echo '      $c'   " $c  s"
+echo '"$c"'
+./minishell
+echo '      $c'   " $c  s" > ciao.txt; cat ciao.txt
+echo '      $c'   " $c  s" > ciao.txt
+echo '      $c'   " $c  s" > ciao.txt; cat ciao.txt
+pwd
+echo $PWD
+LS
+ls
+echo $OLDPWD
+env
+echo $LOGNAME
+ls
+ls
+ls
+cd ..
+ls
+ls
+ciao
