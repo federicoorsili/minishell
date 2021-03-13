@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 20:11:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 22:22:42 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int		ft_syscall(char **s, t_h *h, int k)
 	int		i;
 	pid_t	pid;
 
-	s[k] = ft_strtrim(s[k], " ");
+	cmd = s[k];
+	s[k] = ft_strtrim(cmd, " ");
+	free(cmd);
 	argv = ft_splitter(s[k], ' ');
 	i = 0;
 	argv = trim_apx(argv);
@@ -43,6 +45,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
 	wait(&pid);
+	free_arr(argv, arr_len(argv));
 	h->error = errno;
 	return (k);
 }
@@ -57,16 +60,18 @@ char	**free_arr(char **arr, int len)
 		free(arr[i]);
 		i++;
 	}
+	free(arr);
 	return (arr);
 }
 
-char	*src_usr(char **tmp)
+void	src_usr(char **tmp, t_h *h)
 {
 	int		i;
 	int		k;
 	char	**out;
 
 	i = 0;
+	free(h->usr);
 	while (tmp[i])
 	{
 		if (!ft_strncmp(tmp[i], "LOGNAME=", 8))
@@ -74,8 +79,8 @@ char	*src_usr(char **tmp)
 		i++;
 	}
 	out = ft_split(tmp[i], '=');
-	free(out[0]);
-	return (out[1]);
+	h->usr = ft_strdup(out[1]);
+	free_arr(out, arr_len(out));
 }
 
 void	put_usrname(char *str, t_h *h)

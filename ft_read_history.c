@@ -13,7 +13,7 @@ void ft_convert_history(t_h *h)
 		h->history[h->v_cursor] = line;
 		h->v_cursor++;
 	}
-
+	free(line);
 	h->v_last_cursor = h->v_cursor;
 	close(fd);
 }

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 20:19:45 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 21:43:03 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,14 @@ int		main_loop(t_h *h)
 	char	*cmd;
 
 	h->path = src_path(h->our_env);
+		printf("sd\n");
 	while (1)
 	{
 		if (signal(SIGINT, handlesignal) == SIG_ERR)
 			write(2, "Error catching signal C \r\n", 26);
 		if (signalaction == 1)
 			signalaction = 0;
-		h->usr = src_usr(h->our_env);
+		src_usr(h->our_env, h);
 		put_usrname(h->usr, h);
 		ft_read_line(h);
 		cmd = ft_strdup(h->buffer);

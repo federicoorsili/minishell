@@ -288,3 +288,61 @@ cd ..
 ls
 ls
 ciao
+ls
+cd
+ls
+cd ..
+exit
+ls
+cd
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd ; ls
+ls
+cd ; ls
+ls
+ls
+echo ' ciao > ciao '
+echo ' ciao  ciao '
+ls
+ls
+ls
+ls
+ls
+ls > ciao.txt
+cat ciao.txt
+ls | grep mini
+cat < ciao.txt
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+cd
+k
+ls
+ls
+ls
+ls
+ls
+ls  
+ls
+ls
+ls
+ls
+cd ..
+ls
+ls
+ls
+ls
+ls
+ls
+ls

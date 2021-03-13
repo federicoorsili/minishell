@@ -53,12 +53,6 @@ run		:	${NAME}
 v		:	${NAME}
 			valgrind --leak-check=full \
 			--show-leak-kinds=all \
-			--dsymutil=yes \
-			--trace-children=yes \
-			--track-fds=yes \
-			--track-origins=yes \
-			--verbose \
-			--verbose \
 			--log-file=./valgrind-out.txt \
 			./${NAME} && cat ./valgrind-out.txt
 

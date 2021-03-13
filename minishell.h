@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 20:00:13 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 21:29:49 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int					smister(t_cmds *esterna, t_h *h);
 char				**src_path(char **tmp);
 int					ft_syscall(char **s, t_h *h, int k);
 char				**free_arr(char **arr, int len);
-char				*src_usr(char **tmp);
+void				src_usr(char **tmp, t_h *h);
 void				put_usrname(char *str, t_h *h);
 void				reset_pipe(t_h *h);
 int					gestor_cmd(char **tmpcmd, int k, t_h *h);
