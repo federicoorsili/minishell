@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 14:53:53 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 20:11:03 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int		ft_syscall(char **s, t_h *h, int k)
 	pid_t	pid;
 
 	s[k] = ft_strtrim(s[k], " ");
-	printf("%s\n", s[k]);
 	argv = ft_splitter(s[k], ' ');
 	i = 0;
 	argv = trim_apx(argv);
-	printf("%s\n", argv[0]);
 	//argv = expand_var(h, argv);
 	if (ourturn_father(h, argv[0], argv))
 		return (1);
@@ -49,18 +47,16 @@ int		ft_syscall(char **s, t_h *h, int k)
 	return (k);
 }
 
-char	**free_arr(char **arr)
+char	**free_arr(char **arr, int len)
 {
 	int i;
-	int k;
 
 	i = 0;
-	while (arr[i])
+	while (i < len)
 	{
 		free(arr[i]);
 		i++;
 	}
-	free(arr);
 	return (arr);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 16:05:45 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/13 20:00:13 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 # define MAX_BUFFER 10000
 # define MAX_FRED 1000000
 # define MAX_FD 1200
+# define ENV_SIZE 500
 
 typedef struct	s_var_splitter
 {
@@ -79,7 +80,6 @@ typedef	struct		s_h
 {
 	char			**our_env;
 	char			**tmp_env;
-	char			**out;
 	char			**path;
 	char			**history;
 	char			*history_path;
@@ -121,7 +121,7 @@ int					lstcounter_smplcmds(t_scmd *lst);
 int					smister(t_cmds *esterna, t_h *h);
 char				**src_path(char **tmp);
 int					ft_syscall(char **s, t_h *h, int k);
-char				**free_arr(char **arr);
+char				**free_arr(char **arr, int len);
 char				*src_usr(char **tmp);
 void				put_usrname(char *str, t_h *h);
 void				reset_pipe(t_h *h);
@@ -152,5 +152,6 @@ int					declarated(char **env, char *argv);
 char				*src_home(char **tmp);
 char				**expand_var(t_h *h, char **argv);
 char				**trim_apx(char **argv);
+void				free_exit(t_h *h);
 
 #endif

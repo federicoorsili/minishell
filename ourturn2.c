@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 23:29:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 00:25:12 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 20:09:58 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ int		ft_export(t_h *h)
 		free(h->tmp_env[i]);
 		i++;
 	}
-	free(h->tmp_env);
+	while (i < ENV_SIZE)
+	{
+		free(h->tmp_env[i]);
+		i++;
+	}
 	h->tmp_env = ft_calloc(500, sizeof(char *));
 	return (0);
 }

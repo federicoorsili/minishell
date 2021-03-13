@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   splitterdot.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 15:37:53 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/13 19:35:03 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		ft_init_var(t_var_splitter *var)
 char			**ft_splitter(char *str, char c)
 {
 	//DEBUG
-	printf("%sENTER SPLITTER '%c'%s\n", FGREEN, c, NONE);
+	//printf("%sENTER SPLITTER '%c'%s\n", FGREEN, c, NONE);
 	// STOP DEBUG
 
 	t_var_splitter var;
@@ -79,9 +79,9 @@ char			**ft_splitter(char *str, char c)
 	var.matrix[var.i] = 0;
 	
 	//DEBUG
-	for (int i = 0; var.matrix[i]; i++)
-		printf("%s%d = %.2d/%.2d || _%s_%s\n", FYELLOW,i, var.start[i], var.stop[i], var.matrix[i], NONE);
-	printf("%sEXIT SPLITTER%s\n", FRED, NONE);
+	//for (int i = 0; var.matrix[i]; i++)
+		//printf("%s%d = %.2d/%.2d || _%s_%s\n", FYELLOW,i, var.start[i], var.stop[i], var.matrix[i], NONE);
+	//printf("%sEXIT SPLITTER%s\n", FRED, NONE);
 	//STOP DEBUG
 
 	return (var.matrix);

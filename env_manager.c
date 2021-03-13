@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:50:12 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/11 23:14:05 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 19:59:56 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	crt_env(char **env, t_h *h)
 	int		k;
 
 	i = 0;
-	h->our_env = ft_calloc(500, sizeof(char *));
+	h->our_env = ft_calloc(ENV_SIZE, sizeof(char *));
 	while (env[i])
 	{
 		k = 0;

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/12 14:43:24 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/13 20:18:40 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ char		*expand(t_h *h, char *s, int k)
 		out = ft_strdup(tmp1);
 	free(tmp1);
 	free(expanded);
+	tmp1 = out;
 	out = ft_strjoin(out, tmp2);
+	free(tmp1);
 	free(tmp2);
 	return (out);
 }
