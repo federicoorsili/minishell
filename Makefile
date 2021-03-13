@@ -1,5 +1,5 @@
 NAME	=	minishell
-CC		=	gcc
+CC		=	gcc -pedantic -g
 FT_DIR	=	libft
 FT_LNK	=	-L ${FT_DIR} -lft
 #CFLAGS	=	-Wall -Wextra -Werror	
@@ -46,8 +46,20 @@ fclean	:	clean
 			make fclean -C $(FT_DIR)
 
 re		:	fclean all
-		
+
 run		:	${NAME}
 			./${NAME}
+
+v		:	${NAME}
+			valgrind --leak-check=full \
+			--show-leak-kinds=all \
+			--dsymutil=yes \
+			--trace-children=yes \
+			--track-fds=yes \
+			--track-origins=yes \
+			--verbose \
+			--verbose \
+			--log-file=./valgrind-out.txt \
+			./${NAME} && cat ./valgrind-out.txt
 
 .PHONY		:	all clean fclean re run
