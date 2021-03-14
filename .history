@@ -836,3 +836,9 @@ cd ..
 echo $PWD
 cd ..
 pwd
+cat
+cat
+cat
+ciao
+\cat
+cat

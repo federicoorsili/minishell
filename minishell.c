@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 12:14:06 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/14 12:54:07 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		signalaction = 0;
 
 void	handlesignal(int signal)
 {
-	if (signal == SIGINT)
+	if (signal == SIGINT || signal == SIGQUIT)
 	{
 		signalaction = 1;
 	}
@@ -51,6 +51,8 @@ int		main_loop(t_h *h)
 	{
 		h->path = src_path(h->our_env);
 		if (signal(SIGINT, handlesignal) == SIG_ERR)
+			write(2, "Error catching signal C \r\n", 26);
+		if (signal(SIGQUIT, handlesignal) == SIG_ERR)
 			write(2, "Error catching signal C \r\n", 26);
 		if (signalaction == 1)
 			signalaction = 0;
