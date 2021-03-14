@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/12 12:15:35 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 12:35:08 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_get_pwd(t_h *h)
 	int		error;
 
 	errno = 0;
+
 	getcwd(path, FT_PATH_MAX);
 	printf("%s\n", path);
 	return (errno);
@@ -46,7 +47,8 @@ int		ft_print_env(t_h *h)
 
 int		ourturn_father(t_h *h, char *cmd, char **argv)
 {
-	int i;	
+	int i;
+	char	*tmp;	
 	//if tutti hanno =
 	//else if = piscia
 	if ((ft_strncmp(argv[0], "cd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("cd"))

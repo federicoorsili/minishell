@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 21:43:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 12:14:06 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int		main_loop(t_h *h)
 {
 	char	*cmd;
 
-	h->path = src_path(h->our_env);
 	while (1)
 	{
+		h->path = src_path(h->our_env);
 		if (signal(SIGINT, handlesignal) == SIG_ERR)
 			write(2, "Error catching signal C \r\n", 26);
 		if (signalaction == 1)
@@ -62,6 +62,7 @@ int		main_loop(t_h *h)
 		//printercmds(esterna);
 		//smister(esterna, h);
 		free(cmd);
+		free_arr(h->path, arr_len(h->path));
 	}
 }
 

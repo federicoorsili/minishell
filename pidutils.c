@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pidutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/11 22:40:42 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 12:11:58 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 		err = execve(cmd, argv, h->our_env);
 		i++;
 	}
+	cmd = argv[0];
+	err = execve(cmd, argv, h->our_env);
 }
 
 void	count_pipes(t_h *h, int k, char **tmpcmd)

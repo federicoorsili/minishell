@@ -406,3 +406,433 @@ asd
 ls
 ls
 ls | grep mini
+test
+ciao
+ls
+ls
+ls
+ciapo
+ls
+grep
+ls | grep mini
+cat Makaefile
+cat Makefile
+qweqweqwe
+ciao
+ls | grep mini
+ls
+ls | grep mini
+cat 
+test
+/bin/ls
+./bin/ls
+bash bin/ls
+cd bin
+/bin/ls
+/bin/ls
+/bin/ls mini
+/bin/ls
+ls
+/bin/ls
+echo
+echo ciao
+echo -n ciao
+echo -n "ciao"
+echo -n "ciao mamma"
+echo "ciao mamma"
+echo "ciao mamma"
+echo ciao mamma
+exit
+ls
+echo $?
+echo $?
+ls; cat Makefile
+ls; cat Makefile;
+env
+ciao=12
+env
+expoty
+export
+env
+unset ciao
+env
+unset
+unset ciao
+env
+unset ciao=12
+env
+echo $ciao
+echo "    $ciao"
+echo "    $ciao"
+echo "    $ciao"
+echo "    $ciao"
+echo "    $ciao"
+ciao=12
+echo "    $ciao"
+cd .
+ls
+cd .
+ls
+ls
+ls
+ls
+cd .
+ls
+cd ..
+ls
+ls
+ls
+ls
+/bin/ls
+ciao.txt << ls
+ciao.txt << ls
+ls << ls
+*/*
+*/*
+echo */*
+tet
+test
+test; ciao mamma
+ciao mamma; come stai/
+ciao mamma; come stai/
+ciao mamma; come stai/
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt;ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+leaks minishell
+test 1; 234 tt; ls ls; ls
+leaks minishell
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+test 1; 234 tt; ls ls; ls
+leaks minishell
+ciao mamma come stai?
+ciao mamma;come stai?
+ciao mamma come stai?; op po po
+ciao mamma come stai?; op po po
+ciao mamma come stai?; op po po
+ciao mamma come stai?; op po po
+ciao mamma come stai?; op po po
+ciao mamma come stai?; op po po
+ciao           mamma            ; come va
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 mini;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft;
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft
+ls                 libft; ls
+ls                 libft; ls grep mini
+ls libft .vscode
+ls ;;;;; ciao
+ls ;;;;; ciao
+ls libft .vscode
+ls ;;;;;                 ciao
+ls ciao
+ls libft
+ls ;
+ls libft ;
+ls libft ;
+ls libft ;
+ls libft 
+ls libft
+ls libft;
+ls libft;        
+ls libft;        ciao
+123456789
+1234567890
+1234567890 test
+da paura
+test 1
+ciao mamma
+test
+ls
+ls          libft
+ls          libft;
+\
+ciao''
+ciao'
+make run\\
+ls\\
+ls \\
+ls \
+ls "
+ls \"
+'ls'
+'l''s'
+'ls'
+'ls' 'libft
+'ls' 'libft'
+ls
+ls \\
+ciao
+ciao
+ciao mamma
+hello moto
+ls moto
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls libft
+echo ciao
+echo -n ciao
+echo "          ciao"
+echo "          $ciao"
+ciao=12
+echo "          $ciao"
+echo '          $ciao'
+export
+echo "          $ciao"
+unset ciao
+echo "          $ciao"
+$ciao
+echo $ciao
+ls minishell
+echo $?
+ls minishell; echo $ciao
+minishell
+ls
+ls ciao
+ls Makefile
+ls "libft"
+'ls' "libft"
+'ls Makefile'
+"ls Makefile"
+make run
+./minishell
+echo
+echo ''
+\
+ ciao \\
+ ciao \
+ ciao ''
+ ciao '
+ ciao "
+" ciao
+\" ciao
+\' ciao
+ ciao \'
+\'
+echo \'
+echo '
+env
+ciao=12
+env
+export
+env
+pippo=1
+export pippo
+env
+x=1
+y=2
+env
+export x
+env
+pippo=30
+env
+export
+env
+cd ..
+ls
+/bin/ls
+cd minishell
+ls
+/bin/ls
+cd pippo
+ls
+cd .
+ls
+cd .
+ls
+cd ..
+ls
+pwd
+cd minishell
+pwd
+cd ..
+echo $PWD
+cd ..
+pwd
