@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 22:22:42 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 11:30:50 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	pid_t	pid;
 
 	s[k] = ft_strtrim(&s[k], " ", 1);
-	argv = ft_splitter(s[k], ' ');
+	argv = ft_splitter(s[k], " ");
 	i = 0;
 	argv = trim_apx(argv);
 	//argv = expand_var(h, argv);

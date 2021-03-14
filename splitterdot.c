@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   splitterdot.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 19:35:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 11:31:20 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static void		ft_init_var(t_var_splitter *var)
 	var->start[0] = 0;
 }
 
-char			**ft_splitter(char *str, char c)
+char			**ft_splitter(char *str, char *c)
 {
 	//DEBUG
-	//printf("%sENTER SPLITTER '%c'%s\n", FGREEN, c, NONE);
+	//printf("%sENTER SPLITTER '%s'%s\n", FGREEN, c, NONE);
 	// STOP DEBUG
 
 	t_var_splitter var;
@@ -55,20 +55,21 @@ char			**ft_splitter(char *str, char c)
 			var.type_apice = -1;
 			var.i++;
 		}
-		else if (str[var.i] == c && var.type_apice == -1)
+		else if (ft_iscontain(str[var.i], c) && var.type_apice == -1)
 		{
 			var.stop[var.size] = var.i++;
-			while (str[var.i] == c && c == ' ')
+			while (str[var.i] == ' ')
 				var.i++;
-			var.start[++var.size] = var.i;
+			if (str[var.i])
+				var.start[++var.size] = var.i;
 		}
 		else
 			var.i++;
 	}
-	var.stop[var.size] = var.i;
+	//var.stop[var.size] = var.i;
 	if (var.type_apice != -1 || var.bs != -1)
 		printf("ERRORE\n");
-	if (!(var.matrix = malloc((var.size + 1) * sizeof(char *))))
+	if (!(var.matrix = malloc((var.size + 2) * sizeof(char *))))
 		return (NULL);
 	var.i = 0;
 	while (var.i <= var.size)
@@ -76,11 +77,11 @@ char			**ft_splitter(char *str, char c)
 		var.matrix[var.i] = ft_substr(str, var.start[var.i],(var.stop[var.i] - var.start[var.i]));
 		var.i++;
 	}
-	var.matrix[var.i] = 0;
+	var.matrix[var.i] = NULL;
 	
 	//DEBUG
-	//for (int i = 0; var.matrix[i]; i++)
-		//printf("%s%d = %.2d/%.2d || _%s_%s\n", FYELLOW,i, var.start[i], var.stop[i], var.matrix[i], NONE);
+	for (int i = 0; var.matrix[i]; i++)
+	//	printf("%s%d = %.2d/%.2d || _%s_%s\n", FYELLOW,i, var.start[i], var.stop[i], var.matrix[i], NONE);
 	//printf("%sEXIT SPLITTER%s\n", FRED, NONE);
 	//STOP DEBUG
 
