@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 12:08:56 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/14 13:56:10 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int		ft_syscall(char **s, t_h *h, int k)
 	argv = trim_apx(argv);
 	//argv = expand_var(h, argv);
 	if (ourturn_father(h, argv[0], argv))
+	{
+		free_arr(argv, arr_len(argv));
 		return (1);
+	}
 	pid = fork();
 	if (pid == 0)
 	{

@@ -842,3 +842,82 @@ cat
 ciao
 \cat
 cat
+ciao=666
+cacca=999
+export ciao
+ciao=555
+coca=444
+export ciao
+env
+ci=6
+co=8
+export ci
+ci=6
+co=8
+export ci
+export ci
+export ci
+export co
+env
+co=8
+export co
+stat
+env
+ci=6
+co=8
+export co
+stat
+ci=6
+co=8
+stat
+ci=6
+co=8
+stat
+ci=6
+co=8
+export co
+stat
+ci=6
+co=8
+stat
+export co
+stat
+ci=6
+co=8
+stat
+export co
+ci=6
+co=8
+stat
+export co
+ci=6
+co=8
+export co
+stat
+env
+cicci=ciao
+stat
+export ci cicci
+stat
+env
+cicci=ciao
+export cicci
+env
+stat
+cicci=ciao
+env
+stat
+unset cicci
+stat
+cicci=ciao
+export cicci
+env
+unset cicci
+env
+cicci=ciao
+unset cicci
+cavallo
+cicci=ciao
+unset cicci
+unset
+unset cicci

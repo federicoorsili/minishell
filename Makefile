@@ -19,6 +19,7 @@ SRCS	=	minishell.c \
 			rev_redirection.c \
 			ourturn.c \
 			ourturn2.c \
+			ourturn3.c \
 			ft_read_line.c \
 			ft_read_history.c \
 			env_manager.c \

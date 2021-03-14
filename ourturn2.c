@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 23:29:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 20:09:58 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 13:47:46 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,76 @@ char	*src_home(char **tmp)
 	out = ft_split(tmp[i], '=');
 	free(out[0]);
 	return (out[1]);
+}
+
+char	**ft_array_swap(char ***env, char **argv, int i)
+{
+	int k;
+	int j;
+	int found;
+	char **tmp;
+
+	k = 0;
+	while ((*env)[k])
+	{
+		if (!ft_strncmp((*env)[k], argv[i], ft_strlen(argv[i])))
+			break ;
+		k++;
+	}
+	found = k;
+	if ((tmp = ft_calloc(ENV_SIZE, sizeof(char *))))
+	{
+		k = 0;
+		j = 0;
+		while ((*env)[k])
+		{
+			if (j != found)
+			{
+				tmp[j] = ft_strdup((*env)[k]);
+				j++;
+			}
+			else
+				found = -1;
+			k++;
+		}
+	}
+	else
+		return (0);
+	free_arr((*env), ENV_SIZE);
+	return (tmp);
+}
+
+void	mono_export(t_h *h, char **argv, int i, int k)
+{
+	int j;
+
+	j = declarated(h->our_env, argv[i]);
+	if (j != arr_len(h->our_env))
+	{
+		free(h->our_env[j]);
+		h->our_env[j] = ft_strdup(h->tmp_env[k]);
+	}
+	else
+		h->our_env[j] = ft_strdup(h->tmp_env[k]);
+	h->tmp_env = ft_array_swap(&h->tmp_env, argv, i);
+	printf("io ci sono!\n");
+}
+
+int		ft_single_export(t_h *h, char **argv)
+{
+	int i;
+	int k;
+
+	i = 1;
+	while (argv[i])
+	{
+		k = 0;
+		while (h->tmp_env[k])
+		{
+			if (!ft_strncmp(h->tmp_env[k], argv[i], strlen(argv[i])))
+				mono_export(h, argv, i, k);
+			k++;
+		}
+		i++;
+	}
 }

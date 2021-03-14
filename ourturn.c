@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/14 12:35:08 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/14 13:48:52 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,16 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 	}
 	if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("export"))
 	{
-		h->error = ft_export(h);
+		if (!argv[1])
+			h->error = ft_export(h);
+		else
+			h->error = ft_single_export(h, argv);
+		return (1);
+	}
+	if ((ft_strncmp(argv[0], "unset", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("unset"))
+	{
+		if (argv[1])
+			h->error = ft_unset_manager(h, argv);
 		return (1);
 	}
 	return (0);
