@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/14 13:48:52 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/14 16:09:23 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,18 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 		if (argv[1])
 			h->error = ft_unset_manager(h, argv);
 		return (1);
+	}
+	if ((ft_strncmp(argv[0], "exit", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("exit"))
+	{
+		if (arr_len(argv) > 2)
+			free_exit(h, 255);
+		if (arr_len(argv) == 1)
+			free_exit(h, 0);
+		if (ft_strdigit(argv[1]))
+			free_exit(h, ft_atoi(argv[1]));
+		else
+			free_exit(h, 255);
+		//h->error = ft_unset_manager(h, argv);
 	}
 	return (0);
 }

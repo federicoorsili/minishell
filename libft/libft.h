@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:24:26 by dmalori           #+#    #+#             */
-/*   Updated: 2021/03/12 00:54:28 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 16:13:14 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ int					ft_printf(const char *str, ...);
 int					ft_putlchar(char c);
 int					ft_putlstr(char *s, int len);
 char				*ft_toupperstr(char *str);
+int					ft_strdigit(const char *str);
 
 #endif

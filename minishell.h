@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 13:48:04 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/14 16:00:26 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ int					declarated(char **env, char *argv);
 char				*src_home(char **tmp);
 char				**expand_var(t_h *h, char **argv);
 char				**trim_apx(char **argv);
-void				free_exit(t_h *h);
+void				free_exit(t_h *h, int code);
 int					ft_single_export(t_h *h, char **argv);
 char				**ft_array_swap(char ***env, char **argv, int i);
 int					ft_unset_manager(t_h *h, char **argv);

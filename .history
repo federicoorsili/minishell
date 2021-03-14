@@ -1069,3 +1069,131 @@ ls\'
 \'
 \'
 \'
+\\\
+\\''
+\'
+ciao 'ciao
+ciao 'ciao'
+ls 'ciao'
+ls 'ciao\''
+ls *.c
+ls *.c
+ls *
+ls | grep *.c
+ls
+ls *
+ls */*
+ls
+*/*
+ls */*
+"culosecco" > ciao.txt
+cat ciao.txt
+cat ciao.txt
+cat ciao.txt
+culosecco > ciao.txt
+ciao.txt < ciao
+ciao.txt < ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+"ciao carro" >> ciao.txt
+ciao carro >> ciao.txt
+ciao
+ciao pappa
+ciao carro >> ciao.txt
+ciao carro >> ciao.txt
+"ciao carro" >> ciao.txt
+"ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" > ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo "ciao carro" >> ciao.txt
+echo ciao carro >> ciao.txt
+echo ciao carro >> ciao.txt
+echo ciao carro >> ciao.txt
+ciao carro >> ciao.txt
+ciao carro >> ciao.txt
+ciao carro >> ciao.txt
+ciao carro >> ciao.txt
+ciao carro >> ciao.txt
+\'
+''
+'
+ls | grep mini
+ls | grep mini | grep minishell.h
+ciao culo | grep mini | grep minishell.h
+echo "ciao culo rosso" | grep ro | grep r
+echo "ciao culo rosso" | grep ro
+echo "ciao; culo; rosso" | grep ro
+echo "ciao; culo; rosso;" | grep ro
+echo ciao; culo; rosso; | grep ro
+echo ciao; culo; rosso; | grep ro
+echo ciao; culo; rosso;  grep ro
+grep
+grep ciao
+echo "culo" | grep culo
+ls siufhsdifughsdifuughsdifug | grep bla | more
+ls siufhsdifughsdifuughsdifug | grep bla
+ls siufhsdifughsdifuughsdifug | grep bla | more
+more
+ls more
+ls | more
+ls | more
+ls siufhsdifughsdifuughsdifug | grep bla | more
+ls siufhsdifughsdifuughsdifug | grep bla | more
+ls |  more
+culo=123
+env
+export culo
+culo=123
+export culo
+env
+cicci=1 pappa=234
+cicci=1 pappa=234 ls
+env
+export
+env
+culo=99
+env
+export culo
+env
+unset culo
+ls
+env
+unset cicci
+ls
+env
+env
+cicci=123
+export
+unset
+env
+unset cicci
+env
+exit
+exit 23
+exit viao
+exit poppo
+exit poppo 123
+exit 1
+exit 1123123
+exit 1123
+exit 255
+exit 256
+exit 257
+exit
+exit 12

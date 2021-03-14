@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_exit.c                                        :+:      :+:    :+:   */
+/*   ft_strdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 19:50:14 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 16:00:33 by dmalori          ###   ########.fr       */
+/*   Created: 2021/01/13 11:32:33 by dmalori           #+#    #+#             */
+/*   Updated: 2021/03/14 16:12:56 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	free_exit(t_h *h, int code)
+int			ft_strdigit(const char *str)
 {
-	free_arr(h->our_env, ENV_SIZE);
-	free_arr(h->tmp_env, ENV_SIZE);
-	free_arr(h->path, arr_len(h->path));
-	free_arr(h->history, arr_len(h->history));
-	free(h->history_path);
-	free(h->usr);
-	exit(code);
+	while (ft_isdigit(*str))
+		str++;
+	if (*str == 0)
+		return (1);
+	return (0);
 }

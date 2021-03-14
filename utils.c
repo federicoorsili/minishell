@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 15:20:09 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/14 15:46:30 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 		open_redirection(h, k);
 		open_double_redir(h, k, s);
 		exec_cmd(h, 0, cmd, argv);
-		printf("%d\n", errno);
+		//printf("%d\n", errno);
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);

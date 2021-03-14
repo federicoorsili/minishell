@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 23:29:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 13:47:46 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/14 15:55:30 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	mono_export(t_h *h, char **argv, int i, int k)
 	else
 		h->our_env[j] = ft_strdup(h->tmp_env[k]);
 	h->tmp_env = ft_array_swap(&h->tmp_env, argv, i);
-	printf("io ci sono!\n");
+	//printf("io ci sono!\n");
 }
 
 int		ft_single_export(t_h *h, char **argv)
