@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 11:31:20 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/14 15:25:31 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char			**ft_splitter(char *str, char *c)
 	var.matrix[var.i] = NULL;
 	
 	//DEBUG
-	for (int i = 0; var.matrix[i]; i++)
+	//for (int i = 0; var.matrix[i]; i++)
 	//	printf("%s%d = %.2d/%.2d || _%s_%s\n", FYELLOW,i, var.start[i], var.stop[i], var.matrix[i], NONE);
 	//printf("%sEXIT SPLITTER%s\n", FRED, NONE);
 	//STOP DEBUG

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_var.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/13 20:18:40 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/14 15:24:24 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char		**expand_var(t_h *h, char **argv)
 			if (argv[i][k] == '\'')
 			{
 				k++;
-				while (argv[i][k] != '\'')
+				while (argv[i][k] && argv[i][k] != '\'')
 					k++;
 			}
 			else if (argv[i][k] == '$')
