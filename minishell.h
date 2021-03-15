@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 19:33:21 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 22:05:23 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ struct	s_editorconfig {
 
 struct s_editorconfig		e;
 
+void				ft_start(void);
 int					arr_len(char **arr);
 void				ft_putstr(char *s);
 int					get_next_line(const int fd, char **line);

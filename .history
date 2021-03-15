@@ -1990,3 +1990,137 @@ echo "ciao" > ciao.txt
 echo ngul > nuovo.txt
 echo "ciao" >> culo.txt
 cat culo.txt
+echo "ciao" >> culo.txt
+echo "ciao" >> culo.txt
+echo "ciao" >> culo.txt
+echo "ciao" > culo.txt
+ls ; ls
+ls | grep mini
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo $?
+echo "ciao"
+echo $?
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+echo "ciao"
+ls | grep mini > ciao.txt ; cat ciao.txt >> miao.txt >> liao.txt
+?=127; export ?
+echo "\\    ngul ngul ngulll   \" " "ciao ciao<<"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+cat ciao3.txt
+cat ciao.txt
+>ciao.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+>ciao.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+cat ciao.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+pwd
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls

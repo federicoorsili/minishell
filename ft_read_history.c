@@ -7,7 +7,8 @@ void ft_convert_history(t_h *h)
 	int i;
 
 	fd = open(".history", O_RDWR | O_APPEND | O_CREAT, 0755);
-	h->history = malloc(5000 * sizeof(char *));
+	h->history = malloc(50000 * sizeof(char *));
+	h->cursor = 0;
 	while(ft_get_next_line(fd, &line))
 	{
 		h->history[h->v_cursor] = line;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 12:54:07 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/15 22:19:52 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		main_loop(t_h *h)
 {
 	char	*cmd;
 
+	ft_start();
 	while (1)
 	{
 		h->path = src_path(h->our_env);
@@ -61,8 +62,6 @@ int		main_loop(t_h *h)
 		ft_read_line(h);
 		cmd = ft_strdup(h->buffer);
 		parse_cmd(&cmd, h);
-		//printercmds(esterna);
-		//smister(esterna, h);
 		free(cmd);
 		free_arr(h->path, arr_len(h->path));
 	}

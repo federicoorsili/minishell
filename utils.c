@@ -6,11 +6,24 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 19:37:31 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:59:45 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	set_error(t_h *h)
+{
+	char	*cmd;
+	char	*tmp;
+
+	tmp = ft_itoa(h->error);
+	cmd = ft_strjoin("?=", tmp);
+	free(tmp);
+	free(h->our_env[declarated(h->our_env, cmd)]);
+	h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
+	free(cmd);
+}
 
 int		ft_syscall(char **s, t_h *h, int k)
 {
@@ -26,6 +39,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	//argv = expand_var(h, argv);
 	if (ourturn_father(h, argv[0], argv))
 	{
+		set_error(h);
 		free_arr(argv, arr_len(argv));
 		return (1);
 	}
@@ -55,8 +69,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	wait(&pid);
 	free_arr(argv, arr_len(argv));
 	h->error = WEXITSTATUS(pid);
-	cmd = ft_strjoin("?=", ft_itoa(h->error));
-	h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
+	set_error(h);
 	return (k);
 }
 
@@ -70,6 +83,7 @@ char	**free_arr(char **arr, int len)
 		free(arr[i]);
 		i++;
 	}
+	free(arr[i]);
 	free(arr);
 	return (arr);
 }
@@ -100,10 +114,10 @@ void	put_usrname(char *str, t_h *h)
 	if (h->error != 0)
 	{
 		ft_putstr(FRED);
-		ft_printf("(x|%d)", h->error);
+		ft_printf("[%.3d]", h->error);
 	}
 	else
-		ft_putstr(FGREEN"(v)");
+		ft_putstr(FGREEN"[000]");
 	ft_putstr(NONE);
 	ft_putstr(FCYAN);
 	ft_putstr(str);
