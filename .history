@@ -1755,3 +1755,61 @@ ls Makefile
 ls "Makefile"
 ls < test.txt
 exit
+echo ciao
+echo ciao > ciao.txt
+cat < ciao.txt
+echo ciao > ciao.txt
+echo ciao > ciao.txt
+cat < ciao.txt
+echo ciao > ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+echo ciao > ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat ciao.txt
+ls > ciao.txt
+cat ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat ciao.txt
+ls > ciao.txt
+cat ciao.txt
+cat < ciao.txt
+ls > ciao.txt
+ls > ciao.txt
+cat < ciao.txt
+cat ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat ciao.txt
+cat < ciao.txt
+cat ciao.txt
+cat ciao.txt
+ls > ciao.txt
+cat ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+cat < ciao.txt
+clean
+clear
+cat < ciao.txt
+cat < ciasdds.txt
+cat < ciasdds.txt
+cat < ciao.txt
+grep mini < ciao.txt

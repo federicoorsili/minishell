@@ -6,55 +6,67 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:55:12 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 16:06:48 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 17:18:13 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*fill_buff(t_h *h, int k, char **tmpcmd, int i)
+void	count_revredir(t_h *h, int k, char **tmpcmd)
 {
-	int fd;
-
-	if (tmpcmd[k])
-		k -= 2;
-	else if (!tmpcmd[k])
-		k--;
-	tmpcmd[i] = ft_strjoin(tmpcmd[i], " ");
-	tmpcmd[i] = ft_strjoin(tmpcmd[i], tmpcmd[k]);
-	return (tmpcmd[i]);
+	h->revred = 0;
+	if (k != 0)
+	{
+		if (tmpcmd[k - 1][0] == '<' && !tmpcmd[k - 1][1])
+			h->revred += 2;
+	}
+	if (k < (arr_len(tmpcmd) - 2))
+	{
+		if (tmpcmd[k + 1][0] == '<' && !tmpcmd[k + 1][1])
+			h->revred += 1;
+	}
 }
 
-char	*error_reverdir(t_h *h, int k, char **tmpcmd, int i)
-{
-	h->revred = k;
-	printf("ERRORE: file does not exist\n");
-	return (tmpcmd[i]);
-}
-
-char	*count_revredir(t_h *h, int k, char **tmpcmd)
+void	put_file(t_h *h)
 {
 	int i;
-	int j;
-	int	fd;
-
-	i = k;
-	h->revred = 0;
-	if (tmpcmd[k + 1] && tmpcmd[k + 1][0] == '<')
-		k++;
-	else
-		return (tmpcmd[i]);
-	while (tmpcmd[k] && tmpcmd[k][0] == '<' && !tmpcmd[k][1])
+	char buf[2];
+	
+	while(read(h->fdrev_redirection, &buf, 1))
 	{
-		tmpcmd[k + 1] = ft_strtrim(&tmpcmd[k + 1], " ", 1);
-		fd = open(tmpcmd[k + 1], O_RDONLY, 0755);
-		close(fd);
-		if (fd < 0)
-			return (error_reverdir(h, k, tmpcmd, i));
-		if (tmpcmd[k] && tmpcmd[k + 1])
-			k += 2;
+		write(0, &buf[0], 1);
+	}
+}
+
+void	last_reverse(t_h *h, int k, char **tmpcmd)
+{
+	int i;
+
+	i = k + 1;
+	while (tmpcmd[i])
+	{
+		if (tmpcmd[i][0] != '<')
+			break ;
+		if (tmpcmd[i + 1])
+			i += 2;
 		else
 			break ;
 	}
-	return (fill_buff(h, k, tmpcmd, i));
+	i--;
+	h->fdrev_redirection = open(tmpcmd[i], O_RDWR | O_CREAT, 0755);
+}
+
+void	open_revred(t_h *h, int k, char **tmpcmd)
+{
+	if (h->revred == 1)
+	{
+		last_reverse(h, k, tmpcmd);
+		dup2(h->fdrev_redirection, 0);
+	}
+}
+
+void	close_revredir(t_h *h)
+{
+	if (h->revred == 2)
+		close(h->fdrev_redirection);
 }

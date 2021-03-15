@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 14:22:16 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 17:04:57 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ int		ft_syscall(char **s, t_h *h, int k)
 		open_pipes(h, k);
 		open_redirection(h, k, s);
 		open_double_redir(h, k, s);
+		open_revred(h, k, s);
 		exec_cmd(h, 0, cmd, argv);
 		//printf("%d\n", errno);
+		//close_revredir(h);
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
@@ -46,6 +48,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
+	//close_revredir(h);
 	wait(&pid);
 	free_arr(argv, arr_len(argv));
 	return (k);
