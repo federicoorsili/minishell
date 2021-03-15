@@ -136,7 +136,7 @@ int		ft_single_export(t_h *h, char **argv)
 		k = 0;
 		while (h->tmp_env[k])
 		{
-			if (!ft_strncmp(h->tmp_env[k], argv[i], strlen(argv[i])))
+			if (!ft_strncmp(h->tmp_env[k], argv[i], ft_strlen(argv[i])))
 				mono_export(h, argv, i, k);
 			k++;
 		}

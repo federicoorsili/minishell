@@ -1197,3 +1197,9 @@ exit 256
 exit 257
 exit
 exit 12
+make re
+make fclean
+git status
+git add *
+git status
+git add .
