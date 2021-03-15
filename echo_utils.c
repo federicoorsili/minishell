@@ -6,7 +6,7 @@
 /*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/15 17:05:32 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/15 17:10:03 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,12 @@ int is_nflag(char *s)
     return 0;
 }
 
-void echo_manager(t_h *h, char *cmd, char **argv)
+int echo_support(t_h *h, char *cmd, char **argv, int nflag)
 {
-    int nflag;
     int i;
 
     i = 1;
-    nflag = 0;
-	if (!argv[1])
-        ft_printf("");
-	else
-    {
-        while(argv[i] && is_nflag(argv[i]))
+     while (argv[i] && is_nflag(argv[i]))
         {
             i++;
             nflag++;
@@ -42,6 +36,19 @@ void echo_manager(t_h *h, char *cmd, char **argv)
 			ft_printf("%s",argv[i]);
             i++;
         }
+    return (nflag);
+}
+
+void echo_manager(t_h *h, char *cmd, char **argv)
+{
+    int nflag;
+
+    nflag = 0;
+	if (!argv[1])
+        ft_printf("");
+	else
+    {
+        nflag = echo_support(h, cmd, argv, nflag);
     }
     if(!nflag)
         ft_printf("\n");
