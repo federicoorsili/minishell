@@ -6,7 +6,7 @@
 /*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/15 17:35:50 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/15 17:42:08 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int echo_support(t_h *h, char *cmd, char **argv, int nflag)
         {
             if (i != 1)
                 ft_printf(" ");
-            if (ft_strnstr(argv[i], "\\\\", ft_strlen(argv[i])) != 0 || ft_strnstr(argv[i], "\\\"", ft_strlen(argv[i])) != 0)
+            if (ft_strnstr(argv[i], "\\\\", ft_strlen(argv[i])) || ft_strnstr(argv[i], "\\\"", ft_strlen(argv[i])))
                 selective_print(argv[i]);
             else
 			    ft_printf("%s",argv[i]);
