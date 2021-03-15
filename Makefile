@@ -25,6 +25,7 @@ SRCS	=	minishell.c \
 			env_manager.c \
 			expand_var.c \
 			free_exit.c \
+			echo_utils.c \
 
 OBJ		=	$(SRCS:.c=.o)
 
