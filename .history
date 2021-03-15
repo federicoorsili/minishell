@@ -1985,3 +1985,4 @@ pwd
 echo "ciao " > ciao.txt ; cat ciao.txt
 echo "ciao " > ciao.txt
 echo "ciao " >> ciao.txt
+ciao

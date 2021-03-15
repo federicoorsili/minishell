@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 19:31:30 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:37:31 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int		ft_syscall(char **s, t_h *h, int k)
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
-		exit(0);
+		if (!h->flag_exit)
+			exit(127);
+		else
+			exit(h->error);
 	}
 	h->error = errno;
 	close_allfather(h, k);
@@ -51,6 +54,9 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_revredir(h);
 	wait(&pid);
 	free_arr(argv, arr_len(argv));
+	h->error = WEXITSTATUS(pid);
+	cmd = ft_strjoin("?=", ft_itoa(h->error));
+	h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
 	return (k);
 }
 
