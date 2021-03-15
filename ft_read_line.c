@@ -207,12 +207,12 @@ void	ft_read_line(t_h *h)
 		//..RIGHT
 		else if (temp == 17205)
 		{
-			while (h->buffer[h->cursor] != 0 && h->buffer[h->cursor + 1] == ' ')
+			while (h->buffer[h->cursor] != 0 && h->buffer[h->cursor] == ' ')
 			{
 				write(1, &h->buffer[h->cursor], 1);
 				h->cursor++;
 			}
-			while(h->buffer[h->cursor] != 0 && h->buffer[h->cursor + 1] != ' ')
+			while(h->buffer[h->cursor] != 0 && h->buffer[h->cursor] != ' ')
 			{
 				write(1, &h->buffer[h->cursor], 1);
 				h->cursor++;
