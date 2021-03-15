@@ -35,14 +35,30 @@ void		read_file(t_h *h, int k)
 {
 	char	buf[2];
 	int		i;
+	int		fd_tmp;
 
 	i = 0;
-	while ((read(h->fdred[k], buf, 1)) == 1)
+	if (h->next_redirection == 3)
 	{
-		h->bufred[i] = buf[0];
-		i++;
+		fd_tmp = open(".tmp", O_RDWR);
+		while ((read(fd_tmp, buf, 1)) == 1)
+		{
+			h->bufred[i] = buf[0];
+			i++;
+		}
+		h->bufred[i] = 0;
+		close(fd_tmp);
 	}
-	h->bufred[i] = 0;
+	else
+	{
+		while ((read(h->fdred[k], buf, 1)) == 1)
+		{
+			h->bufred[i] = buf[0];
+			i++;
+		}
+		
+		h->bufred[i] = 0;
+	}
 }
 
 void		      count_redirection(t_h *h, int k, char **tmpcmd)

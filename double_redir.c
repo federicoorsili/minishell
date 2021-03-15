@@ -12,6 +12,36 @@
 
 #include "minishell.h"
 
+void		count_double_redir_pre(t_h *h, char **tmpcmd)
+{
+	int k;
+
+	k = 0;
+	h->next_redirection = 0;
+	while(tmpcmd[k])
+	{
+		tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
+		if (k != 0 && tmpcmd[k - 1][0] == '>' && tmpcmd[k - 1][1] == '>' && !tmpcmd[k - 1][2])
+		{
+			h->next_redirection += 2;
+		}
+		if (k < (arr_len(tmpcmd) - 2))
+		{
+			tmpcmd[k + 2] = ft_strtrim(&tmpcmd[k + 2], " ", 1);
+			tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
+			if (tmpcmd[k + 1][0] == '>' && tmpcmd[k + 1][1] == '>' && !tmpcmd[k + 1][2])
+			{
+				h->next_redirection += 1;
+			}
+		}
+		
+		if (h->next_redirection == 3)
+			return;
+		k++;
+		h->next_redirection = 0;
+	}
+}
+
 void		count_double_redir(t_h *h, int k, char **tmpcmd)
 {
 	h->ndoubler = 0;
@@ -20,16 +50,15 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 	{
 		h->ndoubler += 2;
 		h->fdred[k] = open(tmpcmd[k], O_RDWR);
-		if (h->bufred[0] == 0)
-			read_file(h, k);
+		//if (h->bufred[0] == 0)
+		read_file(h, k);
 		close(h->fdred[k]);
 	}
 	if (k < (arr_len(tmpcmd) - 2))
 	{
 		tmpcmd[k + 2] = ft_strtrim(&tmpcmd[k + 2], " ", 1);
 		tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
-		if (tmpcmd[k + 1][0] == '>' && tmpcmd[k + 1][1] == '>' && !tmpcmd[k + 1][2]
-			&& ft_strncmp(tmpcmd[k], tmpcmd[k +2], ft_strlen(tmpcmd[k])))
+		if (tmpcmd[k + 1][0] == '>' && tmpcmd[k + 1][1] == '>' && !tmpcmd[k + 1][2])
 		{
 			h->ndoubler += 1;
 			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_APPEND, 0755);
@@ -46,8 +75,16 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 void		open_double_redir(t_h *h, int k, char**tmpcmd)
 {
 	if (h->ndoubler == 1)
-		dup2(h->fdred[k], 1);
-	if (h->ndoubler == 2)
+	{
+		if (h->next_redirection != 3)
+			dup2(h->fdred[k], 1);
+		else
+		{
+			h->fdred[k] = open(".tmp", O_RDWR | O_CREAT | O_TRUNC, 0755);		
+			dup2(h->fdred[k], 1);
+		}
+	}
+	if (h->ndoubler == 2 && k != 2)
 	{
 		h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_APPEND, 0755);
 		write_file(h, k, h->bufred);
@@ -56,7 +93,7 @@ void		open_double_redir(t_h *h, int k, char**tmpcmd)
 
 int			close_doubel_redir(t_h *h, int k, char **tmpcmd)
 {
-	if (h->ndoubler == 1 || h->ndoubler == 3)
+	if (h->ndoubler == 1 || h->ndoubler == 3 || h->ndoubler == 2)
 	{
 		close(h->fdred[k]);
 	}

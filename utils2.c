@@ -32,6 +32,7 @@ int		gestor_cmd(char **tmpcmd, int k, t_h *h)
 {
 	count_pipes(h, k, tmpcmd);
 	count_redirection(h, k, tmpcmd);
+	count_double_redir_pre(h, tmpcmd);
 	count_double_redir(h, k, tmpcmd);
 	if (tmpcmd[k][0] != '|' && tmpcmd[k][0] != '>' && tmpcmd[k][0] != '<')
 	{

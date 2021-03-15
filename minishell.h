@@ -97,6 +97,7 @@ typedef	struct		s_h
 	char			buffer[MAX_BUFFER];
 	int				v_cursor;
 	int				v_last_cursor;
+	int				next_redirection;
 }					t_h;
 
 struct	s_editorconfig {
@@ -137,6 +138,7 @@ int					close_redirection(t_h *h, int k, char **tmpcmd);
 void				write_file(t_h *h, int k, char *buf);
 void				read_file(t_h *h, int k);
 int					main_loop(t_h *h);
+void				count_double_redir_pre(t_h *h, char **tmpcmd);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
