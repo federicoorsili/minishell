@@ -1725,3 +1725,33 @@ ls asdfasd
 ++
 asdf
 exit 123
+ls | grep . < test.txt
+ls | grep . < test.txt
+cat < test.txt
+cat test.txt
+cat < test.txt
+cat < test.txt
+grep mini < test.txt
+grep mini < test.txt
+grep mini < test.txt
+grep mini < test.txt
+grep < test.txt
+grep mini < test.txt
+grep mini < test.txt
+grep mini test.txt
+grep mini < test.txt
+grep mini test.txt
+grep mini test.txt
+ls < test.txt
+ls < cat test.txt
+ls < test.txt
+ls < test.txt
+cat test.txt | ls
+ls libft
+pwd
+ls
+ls mini
+ls Makefile
+ls "Makefile"
+ls < test.txt
+exit

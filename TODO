@@ -103,11 +103,11 @@ V Yes
 - Check if multiple of the same redirections fail
  Yes
  No
-❌✅ Pipes
+✅ Pipes
 OK - Execute commands with pipes like 'cat file | grep bla | more'
 OK - Repeat multiple times with different commands and arguments
 OK - Try some failing commands like 'ls filethatdoesntexist | grep bla | more'
-- Try to mix pipes and redirections.
+OK - Try to mix pipes and redirections.
  Yes
  No
 ✅ Go Crazy and history
