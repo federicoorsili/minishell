@@ -93,7 +93,7 @@ void		open_double_redir(t_h *h, int k, char**tmpcmd)
 
 int			close_doubel_redir(t_h *h, int k, char **tmpcmd)
 {
-	if (h->ndoubler == 1 || h->ndoubler == 3)
+	if (h->ndoubler != 0)
 	{
 		close(h->fdred[k]);
 	}

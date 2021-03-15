@@ -63,7 +63,7 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 		i++;
 	}
 	cmd = argv[0];
-	//err = execve(cmd, argv, h->our_env);
+	err = execve(cmd, argv, h->our_env);
 	if ((h->revred != 0 || h->nredir != 0 || h->npipes != 0 || h->ndoubler != 0))
 		h->flag_exit = 1;
 }

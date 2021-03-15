@@ -81,8 +81,8 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 			h->tmp_env[declarated(h->tmp_env, argv[i])] = ft_strdup(argv[i]);
 			i++;
 		}
-		//printf("DEVO AGGIUNGERE QUESTO A ENV :%s\n", argv[i++]);
-		return (0);
+		h->error = errno;
+		return (1);
 	}
 	if ((ft_strncmp(argv[0], "stat", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("stat"))
 	{
@@ -92,6 +92,7 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 			printf("%s\n", h->tmp_env[i]);
 			i++;
 		}
+		h->error = errno;
 		return (1);
 	}
 	if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("export"))

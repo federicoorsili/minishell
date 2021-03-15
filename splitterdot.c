@@ -68,7 +68,10 @@ char			**ft_splitter(char *str, char *c)
 	}
 	//var.stop[var.size] = var.i;
 	if (var.type_apice != -1 || var.bs != -1)
-		printf("ERRORE\n");
+	{
+		printf(FYELLOW"Warning: format error\n"NONE);
+		return (NULL);
+	}
 	if (!(var.matrix = malloc((var.size + 2) * sizeof(char *))))
 		return (NULL);
 	var.i = 0;

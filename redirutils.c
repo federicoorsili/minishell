@@ -112,9 +112,11 @@ void		open_redirection(t_h *h, int k, char **tmpcmd)
 
 int			close_redirection(t_h *h, int k, char **tmpcmd)
 {
-	if (h->nredir == 1 || h->nredir == 3)
+	if (h->nredir != 0)
 	{
 		close(h->fdred[k]);
+		dup2(1, 1);
+		dup2(0, 0);
 	}
 	return (k);
 }

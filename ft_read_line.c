@@ -176,6 +176,7 @@ void	ft_read_line(t_h *h)
 			write(1, "\n", 1);
 			h->cursor = 0;
 			h->v_cursor = h->v_last_cursor;
+			h->error = 1;
 			return ;
 		}
 		//CTR-D

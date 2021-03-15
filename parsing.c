@@ -60,6 +60,8 @@ int		parse_cmd(char **cmd, t_h *h)
 
 	save_str(h, *cmd);
 	cmdarr = ft_splitter(*cmd, ";");
+	if (cmdarr == NULL)
+		return (0);
 	k = 0;
 	while (cmdarr[k])
 	{

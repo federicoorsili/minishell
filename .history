@@ -1755,177 +1755,203 @@ ls Makefile
 ls "Makefile"
 ls < test.txt
 exit
-echo -n fuck
-echo supercalifragilistichespiralidoso
-echo $ciao
-ciao=234234234
-echo $ciao
-echo $ciao -n
-echo
-echo ciao
-echo
-echo ciao
-echo
-echo
-echo
-echo ciao
-ciao -n
-echo ciao
-echo "supercalifragilisitiche" spiralisodo
-echo
-echo
-echo
-echo 
-echo
-echo ciao
-echo ciao ciao ciao
-echo ciao cccccc     ciao
-echo ciao cccccc     ciao
-echo ciao
-echo
+echo " \\ "
+echo " \\ ciao belllooo ciaooo "
+echo \
+echo \
 echo ciao
 echo ciao ciao
-echo ciao ciao
-echo ciao
-echo ciao ciao
-echo ciaone
-echo ciao ciao
-echo ciao ciao ciao ciao
-echo ciao
-echo ciao ciao
-echo ciao
-echo ciao ciao
-ciaone
-echo cocco
-echo cocco cocco cocco
-echo cocco cocco
-echo cocco cocco
-echo ciao
-echo ciao ciao
-echo ciao
+echo " \\ ciao belllooo ciaooo "
+echo " \\ ciao belllooo ciaooo "
+echo " \\ ciao belllooo ciaooo "
+echo " \\ ciao belllooo ciaooo "
+echo "\\ ciao belllooo ciaooo "
+echo "\" ciao belllooo ciaooo "
+echo "\\"
+echo "\\ "
+echo "\\   \" "
+echo \"
 clear
-echo ciao
-echo ciao
-echo ciao ciao
-echo ciao ciao
-echo
-echo      
-echo ciao ciao ciao
-echo    | ciao
-echo    | ciao
-echo    | ciao
-echo ciao | cat -e
-echo ciao | cat
-echo ciao\n | cat
-echo ciao
-clear
-echo ciao ciao
-echo -n ciao
-echo -n ciao
-echo -n minishell
+echo "\\   \" "
+echo "\\    ngul ngul ngulll   \" " "ciao ciao<<"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao<<"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao<<"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao>>"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao|"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao|"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+echo "\\    ngul ngul ngulll   \" " "ciao ciao"
+echo "\\    ngul ngul ngulll   \" " 'ciao<< ciao'
+echo "\\    ngul ngul ngulll   \" " 'ciao ciao'
+123
+stella
+pop
 ls
-echo ciao
-echo ciao
-echo ciao
-echo -n ciao
-clear
-echo coco
-echo cocococ cococo cocococo     cococo
-echo -n ciao
-echo -n coco
-clear
-echo -n coco
-echo -n coco
-echo ciao ciao
-echo -n ngul
-echo -n -n -n -n
-echo -n ciao
-echo -n -n -n -n -n
-echo -n -n -n -n -n -n 
-echo -n -n -n -n -n -n 
-echo -n -n -n -n -n -n 
-echo -n -n -n -n -n -n 
-echo -n -n -n fangul
-echo coco
-ciao=ssorreta
-echo $ciao
-echo $ciao "coccoco" "cuccucu"
-echo ciao cocco cuccu
-echo ciao cocco cuccu
-echo $ciao "coccoco" "cuccucu"
-echo -n  $ciao "coccoco" "cuccucu"
-echo -n  $ciao "coccoco" "cuccucu"
-echo $ciao "coccoco" "cuccucu"
-echo ciao cocco cuccu
-echo ciao ciao
-echo -n fangul
-echo "ciao"
-echo "$USER ciao"
-echo '$USER ciao'
-echo '                    $USER ciao'
-echo ' \'              $USER ciao'
-echo '              $USER ciao'
-echo '\'           $USER ciao'
-echo \'           $USER ciao'
-echo '           $USER ciao'
-echo  "  \"           $USER ciao"
-echo $?
-echo "\n"
-echo " \n"
-echo " \n  "
-echo "   \n  "
-echo < ciao.txt
-ls < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls ciao
-ls > ciao.txt
-ls > ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > ciao.txt; grep mini < ciao.txt
-ls > 123412ciao.txt; grep mini < ciao.txt
-ls > 123412ciao.txt
-l123412ciao.txt
-l123412ciao.txt
-ls l123412ciao.txt
-ls l123412ciao.txt
-l123412ciao.txt
-l123412ciao.txt2222
-pwe
-123
-123
-1231234
-1231234
-ls > 123412ciao.txt; grep mini < ciao.txt
-ls > 123412ciao.txt; grep mini < ciao.txt23
-ls > 123412ciao.txt; grep mini < ciao.txt23
-ls > 123412ciao.txt; grep mini < ciao.txt231234
-ls > 123412ciao.txt; grep mini < ciao.txt231234
-grep mini < ciao.txt231234
-grep mini < ciao.txt231234
-grep mini < 1ciao.txt231234
-grep mini < 1ciao.txt231234
-grep mini < 1ciao.txt231234
-gre < 1ciao.txt231234
-123
-cazzo
-okoko
-ld
-pwd
-pwd 123
+ls gino
+cat pippo.txt
+cat > pippo.txt
+make fclean
+ls
+ls
 ls 123
-cat 123
-eco 12
+cat 567
+pwd
+pwd 234234535235
+echo "peppe"
+echo "
+echo "
+make re
+echo "
+echo "
+echo "
+echo \
+echo \\
+echo \"
+echo "
+sborrro
+sborrro
+123
+apix "
+apix "
+suca
+suca
+suca
+suca
+plp
+plp
+qwe
+ls
+ls s
+ls s
+ls
+ls 2
+cat 234
+ls
+bonus
 echo $?
-ls; cat 123; ls
-ls; cat 123; ls
-ls; cat 123; ls
-ls; cat 123; ls
-ls; cat 123; ls
+echo "$?"
+?=12
+$?
+echo $?
+ciao=12
+ciao=12
+echo $ciao
+?=12
+echo $?
+ciao
+?=127; export ?
+ 
+ls
+?=0; export ?
+ 
+ls
+?=0; export ?
+
+echo $?
+ls
+?=0; export ?
+
+ls
+ls
+cd
+cat 234
+echo $?
+ls
+cd
+pippo
+stat
+ps
+ps
+stat
+pippo
+stat
+env
+stat
+echo 
+env
+ls
+env
+lop
+env
+pwd
+echo
+ls 123
+env
+ls 123
+echo $?
+echo $?
+echo $?
+echo $?
+ls a
+123
+ls
+ls 123
+act 345
+ls
+echo $?
+cd
+cd 456
+echo $?
+caty 345
+cd
+echo $?
+ls
+ls
+ls 4567
+pwd12112
+echo $?
+pwd 34
+echo $?
+pwd 345645645646778; caty 345; ls
+echo $?
+/bin/ls 
+echo $?
+/bin/ls
+/bin/ls
+echo " <<"
+/bin/echo "<<"
+cat 123
+/bin/cat 2123
+ls 1234
+/bin/ls 12334
+echo " &YEYE"
+/bin/echo " &YEYE"
+/bin/echo " &YEYE $USER"
+echo " &YEYE $USER"
+echo asd asd asd asd        123
+/bin/echo asd asd asd asd        123
+/bin/echo asd asd $asd asd        123
+echo asd asd $asd asd        123
+echo  >> asd asd $asd asd        123
+echo  FANCULO >> asd asd $asd asd        123
+echo  FANCULO > asd asd $asd asd        123
+echo  FANCULO < asd asd $asd asd        123
+echo  FANCULO > asd asd $asd asd        123
+echo  FANCULO > asd asd $asd asd        123
+echo  FANCULO > asd asd $asd asd        123
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao > ciao.txt
+lsciao.txt  >> ciao.txt
+ls  >> ciao.txt
+ls  >> ciao.txt
+ls  >> ciao.txt
+ls  >> ciao.txt
+echo "ciao" >> ciao,txt
+cat 234
+echo "ciao" > ciao,txt
+echo ciao
+echo "ciao"
+echo 'ciao'
+echo 'ciao' | grep ciao
+echo 'ciao' | grep cio
+echo 'ciao' | grep cio
+echo 'ciao' | grep cio
+echo 'ciao' > ciao.txt

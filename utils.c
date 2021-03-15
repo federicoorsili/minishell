@@ -25,10 +25,20 @@ int		ft_syscall(char **s, t_h *h, int k)
 	i = 0;
 	argv = trim_apx(argv);
 	//argv = expand_var(h, argv);
-	if (ourturn_father(h, argv[0], argv))
+	pid = fork();
+	if (pid == 0)
 	{
-		free_arr(argv, arr_len(argv));
-		return (1);
+		open_redirection(h, k, s);
+		if (ourturn_father(h, argv[0], argv))
+		{
+			free_arr(argv, arr_len(argv));
+			cmd = ft_strjoin("?=", ft_itoa(h->error));
+			h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
+			close_allfather(h, k);
+			close_doubel_redir(h, k, s);
+			close_redirection(h, k, s);
+			exit(h->error);
+		}
 	}
 	pid = fork();
 	if (pid == 0)
@@ -53,8 +63,10 @@ int		ft_syscall(char **s, t_h *h, int k)
 	close_redirection(h, k, s);
 	//close_revredir(h);
 	wait(&pid);
-	h->error = WEXITSTATUS(pid);
 	free_arr(argv, arr_len(argv));
+	h->error = WEXITSTATUS(pid);
+	cmd = ft_strjoin("?=", ft_itoa(h->error));
+	h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
 	return (k);
 }
 
@@ -98,10 +110,10 @@ void	put_usrname(char *str, t_h *h)
 	if (h->error != 0)
 	{
 		ft_putstr(FRED);
-		ft_printf("(x|%d)", h->error);
+		ft_printf("[%.3d]", h->error);
 	}
 	else
-		ft_putstr(FGREEN"(v)");
+		ft_putstr(FGREEN"[000]");
 	ft_putstr(NONE);
 	ft_putstr(FCYAN);
 	ft_putstr(str);
