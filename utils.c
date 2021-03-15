@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 17:04:57 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 18:55:41 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int		ft_syscall(char **s, t_h *h, int k)
 	pid = fork();
 	if (pid == 0)
 	{
+		open_pipes(h, k);
 		open_redirection(h, k, s);
+		open_double_redir(h, k, s);
+		open_revred(h, k, s);
 		if (ourturn_father(h, argv[0], argv))
 		{
 			free_arr(argv, arr_len(argv));
@@ -39,7 +42,11 @@ int		ft_syscall(char **s, t_h *h, int k)
 			close_redirection(h, k, s);
 			exit(h->error);
 		}
+		exit(127);
 	}
+	wait(&pid);
+	if (WEXITSTATUS(pid) != 127)
+		return (0);
 	pid = fork();
 	if (pid == 0)
 	{

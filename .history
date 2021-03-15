@@ -1955,3 +1955,19 @@ echo 'ciao' | grep cio
 echo 'ciao' | grep cio
 echo 'ciao' | grep cio
 echo 'ciao' > ciao.txt
+echo ciao > ciao.txt
+cat ciao.txt
+pwd > ciao.txt
+pwd > ciao.txt
+pwd > ciao.txt
+pwd > ciao.txt
+pwd > ciao.txt
+cat ciao.txt
+env > ciao.txt
+cat ciao.txt
+stat > ciao.txt
+cat ciao.txt
+grep ? < env
+env >ciao.txt ; grep ? < ciao.txt
+env >ciao.txt ; grep ? < ciao.txt
+env >ciao.txt ; grep C < ciao.txt

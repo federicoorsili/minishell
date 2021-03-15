@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/15 17:04:45 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/15 19:00:30 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_get_pwd(t_h *h)
 	errno = 0;
 
 	getcwd(path, FT_PATH_MAX);
-	printf("%s\n", path);
+	ft_printf("%s\n", path);
 	return (errno);
 }
 
