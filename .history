@@ -1986,3 +1986,7 @@ echo "ciao " > ciao.txt ; cat ciao.txt
 echo "ciao " > ciao.txt
 echo "ciao " >> ciao.txt
 ciao
+echo "ciao" > ciao.txt
+echo ngul > nuovo.txt
+echo "ciao" >> culo.txt
+cat culo.txt

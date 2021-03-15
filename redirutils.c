@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirutils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 19:29:22 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:55:53 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		write_file(t_h *h, int k)
 	int i;
 
 	i = 0;
-	if (!h->bufred)
+	if (!h->bufred[0])
 	{
 		write(h->fdred[k], 0, 1);
 		return ;
