@@ -6,7 +6,7 @@
 /*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 16:27:09 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/15 17:04:02 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,6 @@ void				free_exit(t_h *h, int code);
 int					ft_single_export(t_h *h, char **argv);
 char				**ft_array_swap(char ***env, char **argv, int i);
 int					ft_unset_manager(t_h *h, char **argv);
-int 				echo_manager(t_h *h, char *cmd, char **argv);
+void 				echo_manager(t_h *h, char *cmd, char **argv);
 
 #endif

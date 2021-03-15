@@ -1854,3 +1854,6 @@ echo ciao cocco cuccu
 echo ciao cocco cuccu
 echo $ciao "coccoco" "cuccucu"
 echo -n  $ciao "coccoco" "cuccucu"
+echo -n  $ciao "coccoco" "cuccucu"
+echo $ciao "coccoco" "cuccucu"
+echo ciao cocco cuccu

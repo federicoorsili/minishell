@@ -6,7 +6,7 @@
 /*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/15 16:56:35 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/15 17:05:32 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int is_nflag(char *s)
 {
-    //printf("**1:%c **2:%c **3: %c\n",s[1], s[2], s[3]);
     if (s[0] == '-' && s[1] == 'n' && (s[2] == 0 || s[2] == ' '))
         return (1);
     return 0;
 }
 
-int echo_manager(t_h *h, char *cmd, char **argv)
+void echo_manager(t_h *h, char *cmd, char **argv)
 {
     int nflag;
     int i;
