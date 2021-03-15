@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 14:24:08 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:29:22 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,9 @@ void		open_redirection(t_h *h, int k, char **tmpcmd)
 
 int			close_redirection(t_h *h, int k, char **tmpcmd)
 {
-	if (h->nredir != 0)
+	if (h->nredir == 1 || h->nredir == 3)
 	{
 		close(h->fdred[k]);
-		dup2(1, 1);
-		dup2(0, 0);
 	}
 	return (k);
 }

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 18:55:41 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:31:30 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		ft_syscall(char **s, t_h *h, int k)
 {
 	char	**argv;
-	int 	ret;
 	char	*cmd;
 	int		i;
 	pid_t	pid;
@@ -25,28 +24,11 @@ int		ft_syscall(char **s, t_h *h, int k)
 	i = 0;
 	argv = trim_apx(argv);
 	//argv = expand_var(h, argv);
-	pid = fork();
-	if (pid == 0)
+	if (ourturn_father(h, argv[0], argv))
 	{
-		open_pipes(h, k);
-		open_redirection(h, k, s);
-		open_double_redir(h, k, s);
-		open_revred(h, k, s);
-		if (ourturn_father(h, argv[0], argv))
-		{
-			free_arr(argv, arr_len(argv));
-			cmd = ft_strjoin("?=", ft_itoa(h->error));
-			h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
-			close_allfather(h, k);
-			close_doubel_redir(h, k, s);
-			close_redirection(h, k, s);
-			exit(h->error);
-		}
-		exit(127);
+		free_arr(argv, arr_len(argv));
+		return (1);
 	}
-	wait(&pid);
-	if (WEXITSTATUS(pid) != 127)
-		return (0);
 	pid = fork();
 	if (pid == 0)
 	{
@@ -60,20 +42,15 @@ int		ft_syscall(char **s, t_h *h, int k)
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
-		if (!h->flag_exit)
-			exit(127);
-		else
-			exit(h->error);
+		exit(0);
 	}
+	h->error = errno;
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
-	close_redirection(h, k, s);
-	//close_revredir(h);
+	//close_redirection(h, k, s);
+	close_revredir(h);
 	wait(&pid);
 	free_arr(argv, arr_len(argv));
-	h->error = WEXITSTATUS(pid);
-	cmd = ft_strjoin("?=", ft_itoa(h->error));
-	h->our_env[declarated(h->our_env, cmd)] = ft_strdup(cmd);
 	return (k);
 }
 
@@ -117,10 +94,10 @@ void	put_usrname(char *str, t_h *h)
 	if (h->error != 0)
 	{
 		ft_putstr(FRED);
-		ft_printf("[%.3d]", h->error);
+		ft_printf("(x|%d)", h->error);
 	}
 	else
-		ft_putstr(FGREEN"[000]");
+		ft_putstr(FGREEN"(v)");
 	ft_putstr(NONE);
 	ft_putstr(FCYAN);
 	ft_putstr(str);

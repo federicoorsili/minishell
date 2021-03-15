@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 17:20:35 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:33:21 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,5 +164,7 @@ int					ft_single_export(t_h *h, char **argv);
 char				**ft_array_swap(char ***env, char **argv, int i);
 int					ft_unset_manager(t_h *h, char **argv);
 void 				echo_manager(t_h *h, char *cmd, char **argv);
+int					ft_get_pwd(t_h *h);
+int					ft_print_env(t_h *h);
 
 #endif

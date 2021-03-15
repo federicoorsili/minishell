@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/15 19:00:30 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:31:50 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,23 +54,6 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 	if ((ft_strncmp(argv[0], "cd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("cd"))
 	{
 		h->error = cd(argv, h);
-		return (1);
-	}
-	else if ((ft_strncmp(argv[0], "pwd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("pwd"))
-	{
-		h->error = ft_get_pwd(h);
-		return (1);
-	}
-	else if ((ft_strncmp(argv[0], "env", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("env"))
-	{
-		h->error = ft_print_env(h);
-		return (1);
-	}
-	else if ((ft_strncmp(argv[0], "echo", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("echo"))
-	{
-		errno = 0;
-		echo_manager(h, cmd,argv);
-		h->error = errno;
 		return (1);
 	}
 	if (argv[0][0] != '=' && ft_strnstr(argv[0], "=", ft_strlen(argv[0])))

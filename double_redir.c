@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 21:50:00 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 14:23:51 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:29:32 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void		open_double_redir(t_h *h, int k, char**tmpcmd)
 
 int			close_doubel_redir(t_h *h, int k, char **tmpcmd)
 {
-	if (h->ndoubler != 0)
+	if (h->ndoubler == 1 || h->ndoubler == 3)
 	{
 		close(h->fdred[k]);
 	}
