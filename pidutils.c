@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 19:32:29 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:43:58 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ void	close_allfather(t_h *h, int k)
 		close(h->pipe[k - 2][1]);
 	}
 }
+
+void	set_flag_exit(t_h *h)
+{
+	if ((h->revred != 0 || h->nredir != 0 || h->npipes != 0 || h->ndoubler != 0))
+		h->flag_exit = 1;
+}
+
 void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 {
 	int err;
@@ -59,11 +66,13 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 	if ((ft_strncmp(argv[0], "pwd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("pwd"))
 	{
 		h->error = ft_get_pwd(h);
+		set_flag_exit(h);
 		return ;
 	}
 	else if ((ft_strncmp(argv[0], "env", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("env"))
 	{
 		h->error = ft_print_env(h);
+		set_flag_exit(h);
 		return ;
 	}
 	else if ((ft_strncmp(argv[0], "echo", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("echo"))
@@ -71,6 +80,7 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 		errno = 0;
 		echo_manager(h, cmd,argv);
 		h->error = errno;
+		set_flag_exit(h);
 		return ;
 	}
 	while (h->path[i])
