@@ -1525,3 +1525,203 @@ ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
 ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
 ls
 ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+>ciao.txt
+>ciao2.txt
+>ciao3.txt
+echo "POLLO" > ciao.txt
+>ciao.txt
+echo "POLLO" >> ciao.txt
+echo "POLLO" >> ciao.txt
+echo "POLLO" >> ciao.txt
+echo "ROSSO" >> ciao.txt
+echo "ROSSO" >> ciao.txt
+echo "NEW BUFFER" >> ciao.txt >> ciao3.txt
+echo "NEW BUFFER" >> ciao.txt >> ciao3.txt
+echo "NEW BUFFER" >> ciao.txt >> ciao3.txt
+echo "NEW BUFFER" >> ciao.txt >> ciao3.txt
+echo "ciao" >> ciao.txt >> ciao3.txt
+>ciao.txt; >ciao2.txt; >ciao3.txt
+echo "ROSSO" >> ciao.txt
+echo "ROSSO" >> ciao.txt
+echo "ROSSO" >> ciao.txt
+echo "ROSSO" > ciao.txt
+echo "ROSSO" > ciao.txt
+echo "ROSSO" > ciao.txt
+echo "ROSSO" > ciao.txt
+echo "ROSSO" >> ciao.txt >> ciao2.txt
+echo "ROSSO" >> ciao.txt >> ciao2.txt
+echo "ROSSO" >> ciao.txt >> ciao2.txt
+echo "ROSSO" >> ciao.txt >> ciao2.txt
+echo "ROSSO" >> ciao.txt >> ciao2.txt
+echo "ROSSO 123123" >> ciao.txt >> ciao2.txt
+echo "ROSSO 123123" >> ciao.txt >> ciao2.txt
+echo "ROSSO 123123" >> ciao.txt >> ciao2.txt
+echo "ROSSO 123123" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "ROSSO 123123" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "23123" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "23123" > ciao.txt >> ciao2.txt >> ciao3.txt
+echo "23123" > ciao.txt >> ciao2.txt >> ciao3.txt
+echo "23123" > ciao.txt > ciao2.txt >> ciao3.txt
+echo "23123" > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep  > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep . > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep * > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini > ciao.txt > ciao2.txt >> ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt >> ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt >> ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini >> ciao.txt >> ciao2.txt > ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt > ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt > ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt > ciao3.txt
+echo "CIAO"  >> ciao.txt >> ciao2.txt > ciao3.txt
+echo "CIAO"  > ciao.txt > ciao2.txt > ciao3.txt
+echo "CIAO"  > ciao.txt > ciao2.txt > ciao3.txt
+echo "CIAO"  > ciao.txt > ciao2.txt > ciao3.txt
+echo "CIAO"  > ciao.txt > ciao2.txt > ciao3.txt
+echo "CIAO" > ciao.txt > ciao2.txt > ciao3.txt
+echo "CIAO" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIAO" > ciao.txt
+echo "CIAO" > ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt 
+echo "CIAO" > ciao.txt 
+echo "CIAO" > ciao.txt 
+echo "CIAO" >> ciao.txt 
+echo "CIAO" >> ciao.txt 
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt > ciao2.txt
+echo "CIAO" >> ciao.txt > ciao2.txt
+echo "CIAO" >> ciao.txt > ciao2.txt
+echo "CIAO" >> ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt > ciao2.txt
+echo "CIAO" > ciao.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CIAO" >> ciao.txt >>ciao2.txt
+echo "CI123AO" >> ciao.txt >>ciao2.txt
+echo "CI123AO" >> ciao.txt >>ciao2.txt
+echo "CI123AO" > ciao.txt > ciao2.txt
+echo "CI123AO" > ciao.txt > ciao2.txt
+echo "CI123AO" > ciao.txt > ciao2.txt
+echo "CI123AO" > ciao.txt > ciao2.txt
+echo "CIcCCICICICI123AO" > ciao.txt > ciao2.txt
+echo "CIcCCICICICI123AO" >> ciao.txt >> ciao2.txt
+echo "CIcCCICICICI123AO" >> ciao.txt >> ciao2.txt
+echo "CIcCCICICICI123AO" > ciao.txt >> ciao2.txt
+echo "CIcCCICICICI123AO" > ciao.txt > ciao2.txt
+echo "CIcCCICICICI123AO" > ciao.txt > ciao2.txt >> ciao3.txt
+echo "CIcCCICICICI123AO" > ciao.txt > ciao2.txt >> ciao3.txt
+echo "CIcCCICICICI123AO" > ciao.txt > ciao2.txt >> ciao3.txt
+echo "C3AO" > ciao.txt > ciao2.txt >> ciao3.txt
+echo "C3AO" > ciao.txt > ciao2.txt > ciao3.txt
+echo "C3AO" > ciao.txt > ciao2.txt > ciao3.txt
+echo "CIcCCICICICI123AO" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIcCCICICICI123AO" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIcCCICICICI123AO" >> ciao.txt >> ciao2.txt >> ciao3.txt
+echo "CIcCCICICICI123AO" >> ciao.txt >> ciao2.txt >> ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt >> ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt >> ciao3.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+ls | grep mini  > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini  > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini  > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini  > ciao.txt > ciao2.txt > ciao3.txt
+ls | grep mini  > cat ciao.txt > grep . > ciao2.txt > ciao3.txt
+ls | grep mini  > ciao.txt ; cat ciao.txt > grep . > ciao2.txt > ciao3.txt
+ls | grep .  > ciao.txt ; cat ciao.txt > grep . > ciao2.txt > ciao3.txt
+ls | grep .  > ciao.txt ; cat ciao.txt | grep > ciao2.txt > ciao3.txt
+ls | grep .  > ciao.txt ; cat ciao.txt | grep . > ciao2.txt > ciao3.txt
+ls | grep .  > ciao.txt ; cat ciao.txt | grep . > ciao2.txt > ciao3.txt
+ls | grep .  > ciao.txt ; cat ciao.txt | grep . > ciao2.txt >> ciao3.txt
+ls >>> ciao.txt
+ls >> > ciao.txt
+ls >>> ciao.txt
+ls >>> ciao.txt
+ls >>> ciao.txt
+ls >>> ciao.txt
+ls >>> ciao.txt
+ls >> ciao.txt
+ls >> ciao.txt
+ls >>> ciao.txt
+ls >>> cia11212o.txt
+cat miao.txt
+cat miao.txt
+cat miao.txt
+cat miao.txt
+cat miao.txt
+cat miao.txt
+cat miao.txt
+cat miao.txt
+ls
+ls
+ls
+cd
+ls
+ls
+ls
+cat asdfasdf
+cat asdfasdf
+cat asdfasdf
+cat asdfasdf
+cat asdfasdf
+ls as
+ls >>>as
+ls >>> as
+ls
+cd
+ls
+cd
+cd
+ls
+cd
+ls
+exit
+ls
+cd
+exit 123
+exit pippo
+echo $?
+echo $?
+echo $?
+echo $?
+exit 123
+exit 7
+exit 79
+exit 123
+cat asdfasdf
+ls | grep .  > ciao.txt ; cat ciao.txt > grep . > ciao2.txt > ciao3.txt
+exit 99
+echo "pippo" > ciao.txt; echo "123" >> ciao.txt; cat ciao.txt
+echo "pippo" > ciao.txt; echo "123" > ciao.txt; cat ciao.txt
+echo "pippo" > ciao.txt; echo "123" > ciao.txt; cat ciao.txt
+ls asdfasd
+'
+\
+\'
+\'
+\'
+++
+asdf
+exit 123

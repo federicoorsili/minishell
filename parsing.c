@@ -82,6 +82,7 @@ int		parse_cmd(char **cmd, t_h *h)
 		}
 		free_arr(arr, arr_len(arr));
 		k++;
+		ft_memset(h->bufred, 0, MAX_FRED);
 	}
 	free_arr(cmdarr, arr_len(cmdarr));
 	return (0);

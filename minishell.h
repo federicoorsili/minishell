@@ -133,7 +133,7 @@ void				close_allfather(t_h *h, int k);
 void				exec_cmd(t_h *h, int i, char *cmd, char **argv);
 void				count_pipes(t_h *h, int k, char **tmpcmd);
 void				count_redirection(t_h *h, int k, char **tmpcmd);
-void				open_redirection(t_h *h, int k);
+void				open_redirection(t_h *h, int k, char **tmpcmd);
 int					close_redirection(t_h *h, int k, char **tmpcmd);
 void				write_file(t_h *h, int k);
 void				read_file(t_h *h, int k, int mod);

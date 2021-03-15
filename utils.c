@@ -33,7 +33,7 @@ int		ft_syscall(char **s, t_h *h, int k)
 	if (pid == 0)
 	{
 		open_pipes(h, k);
-		open_redirection(h, k);
+		open_redirection(h, k, s);
 		open_double_redir(h, k, s);
 		exec_cmd(h, 0, cmd, argv);
 		//printf("%d\n", errno);

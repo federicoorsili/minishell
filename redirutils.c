@@ -99,12 +99,15 @@ void		      count_redirection(t_h *h, int k, char **tmpcmd)
 	}
 }
 
-void		open_redirection(t_h *h, int k)
+void		open_redirection(t_h *h, int k, char **tmpcmd)
 {
 	if (h->nredir == 1)
 		dup2(h->fdred[k], 1);
-	if (h->nredir == 3)
+	if (h->nredir == 2 && h->ndoubler == 0)
+	{
+		h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_TRUNC, 0755);
 		write_file(h, k);
+	}
 }
 
 int			close_redirection(t_h *h, int k, char **tmpcmd)
