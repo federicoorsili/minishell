@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 15:46:30 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/15 14:22:16 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int		ft_syscall(char **s, t_h *h, int k)
 		close_pipeson(h, k);
 		exit(0);
 	}
+	h->error = errno;
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
 	wait(&pid);
 	free_arr(argv, arr_len(argv));
-	h->error = errno;
 	return (k);
 }
 

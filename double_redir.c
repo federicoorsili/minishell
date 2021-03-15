@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 21:50:00 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/09 12:09:31 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/15 14:23:51 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		count_double_redir_pre(t_h *h, char **tmpcmd)
 	while(tmpcmd[k])
 	{
 		tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
-		if (k != 0 && tmpcmd[k - 1][0] == '>' && tmpcmd[k - 1][1] == '>' && !tmpcmd[k - 1][2])
+		if (k != 0 && tmpcmd[k - 1][0] == '>')
 		{
 			h->next_redirection += 2;
 		}
@@ -29,7 +29,7 @@ void		count_double_redir_pre(t_h *h, char **tmpcmd)
 		{
 			tmpcmd[k + 2] = ft_strtrim(&tmpcmd[k + 2], " ", 1);
 			tmpcmd[k] = ft_strtrim(&tmpcmd[k], " ", 1);
-			if (tmpcmd[k + 1][0] == '>' && tmpcmd[k + 1][1] == '>' && !tmpcmd[k + 1][2])
+			if (tmpcmd[k + 1][0] == '>')
 			{
 				h->next_redirection += 1;
 			}
@@ -50,8 +50,8 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 	{
 		h->ndoubler += 2;
 		h->fdred[k] = open(tmpcmd[k], O_RDWR);
-		//if (h->bufred[0] == 0)
-		read_file(h, k);
+		if (h->bufred[0] == 0)
+			read_file(h, k, 1);
 		close(h->fdred[k]);
 	}
 	if (k < (arr_len(tmpcmd) - 2))
@@ -84,16 +84,16 @@ void		open_double_redir(t_h *h, int k, char**tmpcmd)
 			dup2(h->fdred[k], 1);
 		}
 	}
-	if (h->ndoubler == 2 && k != 2)
+	if (h->ndoubler == 2 && h->nredir == 0 && k != 2)
 	{
 		h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_APPEND, 0755);
-		write_file(h, k, h->bufred);
+		write_file(h, k);
 	}
 }
 
 int			close_doubel_redir(t_h *h, int k, char **tmpcmd)
 {
-	if (h->ndoubler == 1 || h->ndoubler == 3 || h->ndoubler == 2)
+	if (h->ndoubler == 1 || h->ndoubler == 3)
 	{
 		close(h->fdred[k]);
 	}

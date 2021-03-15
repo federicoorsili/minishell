@@ -1479,3 +1479,49 @@ echo "123123"  >> pippo.txt >> ciao.txt
 echo "PALLA CORDA"  >> pippo.txt >> ciao.txt
 echo "123 CICCIA"  >> pippo.txt > ciao.txt
 echo "123 CICCIA"  > pippo.txt >> ciao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat ciao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat ciao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat ciao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat ciao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat ciao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt >> pippo.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt
+echo 123> ciao.txt >> liao.txt >> miao.txt >> pippo.txt; cat ciao.txt; echo "--------"; cat miao.txt; echo "---------"; cat liao.txt; cat pippo.txt
+echo 123 > miao.txt ; cat miao.txt
+echo 123 > miao.txt > liao.txt ; cat miao.txt
+cat liao.txt
+> liao.txt
+cat liao.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+cat ciao.txt
+cat miao.txt
+cat liao.txt
+cat pippo.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+cat miao.txt
+cat pippo.txt
+cat liao.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+cat liao.txt
+cat miao.txt
+cat pippo.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+cat pippo.txt
+> ciao.txt ; > miao.txt; >liao.txt ; >pippo.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+cat ciao.txt
+cat miao.txt
+cat liao.txt
+cat pippo.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt
+ls
+ls | grep mini > ciao.txt >> miao.txt > liao.txt >> pippo.txt

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 16:00:26 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/15 14:09:41 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,8 @@ void				count_pipes(t_h *h, int k, char **tmpcmd);
 void				count_redirection(t_h *h, int k, char **tmpcmd);
 void				open_redirection(t_h *h, int k);
 int					close_redirection(t_h *h, int k, char **tmpcmd);
-void				write_file(t_h *h, int k, char *buf);
-void				read_file(t_h *h, int k);
+void				write_file(t_h *h, int k);
+void				read_file(t_h *h, int k, int mod);
 int					main_loop(t_h *h);
 void				count_double_redir_pre(t_h *h, char **tmpcmd);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
