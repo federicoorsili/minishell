@@ -6,7 +6,7 @@
 /*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/15 17:10:03 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/15 17:35:50 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,23 @@ int is_nflag(char *s)
     return 0;
 }
 
+void selective_print(char *s)
+{
+    int i = 0;
+
+    while(s[i])
+    {
+        if(s[i] == '\\' && (s[i + 1] == '\\' || s[i + 1] == '\"'))
+            i++;
+        write(1, &s[i],1);
+        i++;
+    }
+}
+
 int echo_support(t_h *h, char *cmd, char **argv, int nflag)
 {
     int i;
+    int k;
 
     i = 1;
      while (argv[i] && is_nflag(argv[i]))
@@ -31,9 +45,12 @@ int echo_support(t_h *h, char *cmd, char **argv, int nflag)
         }
 		while (argv[i])
         {
-            if(i != 1)
+            if (i != 1)
                 ft_printf(" ");
-			ft_printf("%s",argv[i]);
+            if (ft_strnstr(argv[i], "\\\\", ft_strlen(argv[i])) != 0 || ft_strnstr(argv[i], "\\\"", ft_strlen(argv[i])) != 0)
+                selective_print(argv[i]);
+            else
+			    ft_printf("%s",argv[i]);
             i++;
         }
     return (nflag);

@@ -1755,3 +1755,15 @@ ls Makefile
 ls "Makefile"
 ls < test.txt
 exit
+echo " \\ "
+echo " \\ ciao belllooo ciaooo "
+echo \
+echo \
+echo ciao
+echo ciao ciao
+echo " \\ ciao belllooo ciaooo "
+echo " \\ ciao belllooo ciaooo "
+echo " \\ ciao belllooo ciaooo "
+echo " \\ ciao belllooo ciaooo "
+echo "\\ ciao belllooo ciaooo "
+echo "\" ciao belllooo ciaooo "
