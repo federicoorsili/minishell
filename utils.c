@@ -36,17 +36,18 @@ int		ft_syscall(char **s, t_h *h, int k)
 		open_redirection(h, k, s);
 		open_double_redir(h, k, s);
 		exec_cmd(h, 0, cmd, argv);
-		//printf("%d\n", errno);
 		close_doubel_redir(h, k, s);
 		close_redirection(h, k, s);
 		close_pipeson(h, k);
-		exit(0);
+		exit(errno);
 	}
 	h->error = errno;
 	close_allfather(h, k);
 	close_doubel_redir(h, k, s);
 	close_redirection(h, k, s);
 	wait(&pid);
+	printf("OLD %d\n", h->error);
+	printf("$? = %d\n", WEXITSTATUS(pid));
 	free_arr(argv, arr_len(argv));
 	return (k);
 }
