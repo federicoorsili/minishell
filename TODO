@@ -128,8 +128,8 @@ double left redirection
 Line editing
 OK - Can we move the cursor left and right and edit the line by inserting or deleting characters at cursor location
 - Can we copy paste all/part of a line using a key sequence
-- Can we move word by word with ctrl+left or ctrl+right
-- Go directly to the beginning or the end of the line with home or end
+OK - Can we move word by word with ctrl+left or ctrl+right
+OK - Go directly to the beginning or the end of the line with home or end
 - Write and edit commands with multilines
 Rate it from 0 (failed) through 5 (excellent)
 And, Or

@@ -185,10 +185,56 @@ void	ft_read_line(t_h *h)
 			write(1, "\n", 1);
 			free_exit(h, 0);
 		}
-		//CTR-D
-		else if (temp == 28)
+		//CTR-LEFT && CTRL-RIGHT
+		else if (temp == 993090331)
 		{
-			//??
+			//CLEAN CTRL
+		}
+		//..LEFT
+		else if(temp == 17461)
+		{
+			while (h->cursor != 0 && h->buffer[h->cursor - 1] == ' ')
+			{
+				h->cursor--;
+				write(1, "\b", 1);
+			}
+			while(h->cursor != 0 && h->buffer[h->cursor - 1] != ' ')
+			{
+				h->cursor--;
+				write(1, "\b", 1);
+			}
+		}
+		//..RIGHT
+		else if (temp == 17205)
+		{
+			while (h->buffer[h->cursor] != 0 && h->buffer[h->cursor + 1] == ' ')
+			{
+				write(1, &h->buffer[h->cursor], 1);
+				h->cursor++;
+			}
+			while(h->buffer[h->cursor] != 0 && h->buffer[h->cursor + 1] != ' ')
+			{
+				write(1, &h->buffer[h->cursor], 1);
+				h->cursor++;
+			}
+		}
+		//HOME
+		else if (temp == 4741915)
+		{
+			while(h->cursor != 0)
+			{
+				h->cursor--;
+				write(1, "\b", 1);
+			}
+		}
+		//FINE
+		else if (temp == 4610843)
+		{
+			while (h->buffer[h->cursor] != 0)
+			{
+				write(1, &h->buffer[h->cursor], 1);
+				h->cursor++;
+			}
 		}
 		//DEBUG
 		//else if (temp != 0)
