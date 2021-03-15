@@ -1859,3 +1859,18 @@ echo $ciao "coccoco" "cuccucu"
 echo ciao cocco cuccu
 echo ciao ciao
 echo -n fangul
+echo "ciao"
+echo "$USER ciao"
+echo '$USER ciao'
+echo '                    $USER ciao'
+echo ' \'              $USER ciao'
+echo '              $USER ciao'
+echo '\'           $USER ciao'
+echo \'           $USER ciao'
+echo '           $USER ciao'
+echo  "  \"           $USER ciao"
+echo $?
+echo "\n"
+echo " \n"
+echo " \n  "
+echo "   \n  "
