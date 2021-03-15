@@ -1755,3 +1755,102 @@ ls Makefile
 ls "Makefile"
 ls < test.txt
 exit
+echo -n fuck
+echo supercalifragilistichespiralidoso
+echo $ciao
+ciao=234234234
+echo $ciao
+echo $ciao -n
+echo
+echo ciao
+echo
+echo ciao
+echo
+echo
+echo
+echo ciao
+ciao -n
+echo ciao
+echo "supercalifragilisitiche" spiralisodo
+echo
+echo
+echo
+echo 
+echo
+echo ciao
+echo ciao ciao ciao
+echo ciao cccccc     ciao
+echo ciao cccccc     ciao
+echo ciao
+echo
+echo ciao
+echo ciao ciao
+echo ciao ciao
+echo ciao
+echo ciao ciao
+echo ciaone
+echo ciao ciao
+echo ciao ciao ciao ciao
+echo ciao
+echo ciao ciao
+echo ciao
+echo ciao ciao
+ciaone
+echo cocco
+echo cocco cocco cocco
+echo cocco cocco
+echo cocco cocco
+echo ciao
+echo ciao ciao
+echo ciao
+clear
+echo ciao
+echo ciao
+echo ciao ciao
+echo ciao ciao
+echo
+echo      
+echo ciao ciao ciao
+echo    | ciao
+echo    | ciao
+echo    | ciao
+echo ciao | cat -e
+echo ciao | cat
+echo ciao\n | cat
+echo ciao
+clear
+echo ciao ciao
+echo -n ciao
+echo -n ciao
+echo -n minishell
+ls
+echo ciao
+echo ciao
+echo ciao
+echo -n ciao
+clear
+echo coco
+echo cocococ cococo cocococo     cococo
+echo -n ciao
+echo -n coco
+clear
+echo -n coco
+echo -n coco
+echo ciao ciao
+echo -n ngul
+echo -n -n -n -n
+echo -n ciao
+echo -n -n -n -n -n
+echo -n -n -n -n -n -n 
+echo -n -n -n -n -n -n 
+echo -n -n -n -n -n -n 
+echo -n -n -n -n -n -n 
+echo -n -n -n fangul
+echo coco
+ciao=ssorreta
+echo $ciao
+echo $ciao "coccoco" "cuccucu"
+echo ciao cocco cuccu
+echo ciao cocco cuccu
+echo $ciao "coccoco" "cuccucu"
+echo -n  $ciao "coccoco" "cuccucu"

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 15:25:05 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/15 15:38:59 by simonegiovo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		save_str(t_h *h, char *str)
+void	save_str(t_h *h, char *str)
 {
 	int fd;
 	int i;
