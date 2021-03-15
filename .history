@@ -1874,3 +1874,58 @@ echo "\n"
 echo " \n"
 echo " \n  "
 echo "   \n  "
+echo < ciao.txt
+ls < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls ciao
+ls > ciao.txt
+ls > ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > ciao.txt; grep mini < ciao.txt
+ls > 123412ciao.txt; grep mini < ciao.txt
+ls > 123412ciao.txt
+l123412ciao.txt
+l123412ciao.txt
+ls l123412ciao.txt
+ls l123412ciao.txt
+l123412ciao.txt
+l123412ciao.txt2222
+pwe
+123
+123
+1231234
+1231234
+ls > 123412ciao.txt; grep mini < ciao.txt
+ls > 123412ciao.txt; grep mini < ciao.txt23
+ls > 123412ciao.txt; grep mini < ciao.txt23
+ls > 123412ciao.txt; grep mini < ciao.txt231234
+ls > 123412ciao.txt; grep mini < ciao.txt231234
+grep mini < ciao.txt231234
+grep mini < ciao.txt231234
+grep mini < 1ciao.txt231234
+grep mini < 1ciao.txt231234
+grep mini < 1ciao.txt231234
+gre < 1ciao.txt231234
+123
+cazzo
+okoko
+ld
+pwd
+pwd 123
+ls 123
+cat 123
+eco 12
+echo $?
+ls; cat 123; ls
+ls; cat 123; ls
+ls; cat 123; ls
+ls; cat 123; ls
+ls; cat 123; ls

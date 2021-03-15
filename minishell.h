@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 18:02:55 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 17:04:02 by simonegiovo      ###   ########.fr       */
+/*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
+/*   Updated: 2021/03/15 17:20:35 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef	struct		s_h
 	int				nredir;
 	int				ndoubler;
 	int				revred;
+	int				fdrev_redirection;
 	int				fdred[MAX_FD];
 	char			bufred[MAX_FRED];
 	int				error;
@@ -98,6 +99,7 @@ typedef	struct		s_h
 	int				v_cursor;
 	int				v_last_cursor;
 	int				next_redirection;
+	int				flag_exit;
 }					t_h;
 
 struct	s_editorconfig {
@@ -143,7 +145,10 @@ void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
 int					ourturn_father(t_h *h, char *cmd, char **argv);
-char				*count_revredir(t_h *h, int k, char **tmpcmd);
+void				count_revredir(t_h *h, int k, char **tmpcmd);
+void				last_reverse(t_h *h, int k, char **tmpcmd);
+void				open_revred(t_h *h, int k, char **tmpcmd);
+void				close_revredir(t_h *h);
 void				ft_read_line(t_h *h);
 void				ft_read_history_up(t_h *h);
 void				ft_read_history_down(t_h *h);
