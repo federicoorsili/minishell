@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 18:00:43 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:52:58 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ int					is_line(char *str);
 int					get_next_line(const int fd, char **line);
 int					parse_cmd(char **cmd, t_h *h);
 char				**ft_split_cmd(char *str, char *charset);
-char				**ft_splitter(char *str, char *c, int mod);
+char				**ft_splitter(char *str, char *c, int mod, t_h *h);
 int					apix_gest(char *s, char c, int *i, int *sw, char *apx);
 void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
@@ -181,7 +181,7 @@ char				**ft_array_swap(char ***env, char **argv, int i);
 int					ft_unset_manager(t_h *h, char **argv);
 void				echo_manager(char **argv);
 int					ft_get_pwd(void);
-int					ft_print_env(t_h *h);
+int					ft_print_env(t_h *h, int mod);
 void				swap_buffer_del(t_h *h, int i);
 void				swap_buffer(t_h *h, int c, int i);
 void				ft_stamp_char(t_h *h, int temp);
@@ -190,7 +190,7 @@ void				ft_ctrl_left(t_h *h);
 void				ft_ctrl_right(t_h *h);
 void				disablerawmod(void);
 void				ft_ctrl_c(t_h *h);
-void				ft_exit_readline(t_h *h);
+void				ft_exit_readline(t_h *h, int mod);
 void				ft_cmd_home(t_h *h);
 void				ft_cmd_end(t_h *h);
 void				ft_cmd_invio(t_h *h);

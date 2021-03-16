@@ -291,6 +291,7 @@ echo " \$USER"
 echo ""
 echo "'"
 exit
+<<<<<<< HEAD
 ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
 ls | grep mini | grep minis > ciao.txt; cat ciao.txt
 ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
@@ -374,3 +375,133 @@ ls | grep mini | grep minis >> ciao.txt
 ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
 ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
 ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+=======
+'echo' \'ciao\'
+export
+<<<<<<< HEAD
+bash
+export pippo
+unset ciao
+env
+leaks minishell
+leaks -atExit -- ./minishell
+env
+ls
+ls | grep mini | grep minis > ciao
+ls | grep mini | grep minis >> ciao > pippo
+cat ciao
+ls | grep mini | grep minis >> ciao
+cat ciao
+rm ciao
+ls | grep mini | grep minis > ciao
+cat ciao
+ls | grep mini | grep minis >> ciao
+cat ciao
+rm ciao
+ls | grep mini | grep minis > ciao
+ls | grep m | grep minis >> ciao
+cat ciao
+rm ciao
+ls
+ls | grep mini | grep minis > ciao
+ls | grep i | grep minis >> ciao
+cat ciao
+ls | grep i > ciao
+cat ciao
+ls | grep mini >> ciao
+cat ciao
+rm ciao
+ls | grep mini > ciao 
+ls|grep mini>ciao 
+cat ciao
+grep mini < ciao 
+grep mini < ciao < iawbd
+ls
+rm ciao
+rm pippo
+ls | wc
+vim Makefile
+leaks minishell
+exit
+ciao;
+ciao;;;
+ciao;;
+;ciao;
+;ciao ; ;
+;ciao ; ;
+;ciao ; ;
+ls 123
+ls 123
+:ls
+;ls
+;ls;;
+;ls; ;
+;ls; ;;;;
+;ls; ;;;;
+;ls; ;;;;
+;ls; ;;;;
+;ls; ;;;;
+;ls
+;ls;;
+ls;;
+ls;; ;;;
+ls;; ;;;
+ls;; ;;;
+ls;; ;;;
+ls;
+;ls;
+;ls;;
+ls 4qw
+; ls ; ; ;
+ls;;
+ls ;
+;ls ;;;
+make fclean
+git add .
+=======
+export
+export
+cd ffff
+export
+export
+cd dssfsdf
+export
+export
+cd dsfgsdf
+export
+fngl?=1223
+export
+fg?=3
+export
+cd regserg
+export
+; ls
+cd
+cd sdasasd
+echo $PWD
+export
+ciccio?=1
+export
+; ls
+; ls ;;
+ls 123
+ls 123
+ls
+env
+exit
+export
+export
+export
+export
+export
+export
+export
+cd sdf 
+export
+exit 
+export
+export
+cd dsffgsdffg
+export
+gianni?=4
+export

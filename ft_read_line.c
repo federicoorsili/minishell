@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:36:55 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 17:47:29 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ static void		ft_while_part2(t_h *h, int temp)
 	if (temp == 4414235 && h->buffer[h->cursor])
 		write(1, &h->buffer[h->cursor++], 1);
 	else if (temp == 27)
-		ft_exit_readline(h);
+		ft_exit_readline(h, 0);
 	else if (temp == 4283163)
 		ft_read_history_up(h);
 	else if (temp == 4348699)
 		ft_read_history_down(h);
 	else if (temp == 4)
-		ft_exit_readline(h);
+		ft_exit_readline(h, 1);
 	else if (temp == 993090331)
 		;
 	else if (temp == 17461)

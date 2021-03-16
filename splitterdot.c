@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 15:30:54 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:05:14 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void		ft_add_char_split(t_var_splitter *var, int c, char *str)
 	var->stop[var->size] = var->i;
 }
 
-static void		ft_splitter_loop_bis(char *str, char *c, t_var_splitter *var)
+static int		ft_splitter_loop_bis(char *str, char *c, t_var_splitter *var)
 {
 	if (str[var->i] == var->type_apice)
 	{
@@ -48,14 +48,18 @@ static void		ft_splitter_loop_bis(char *str, char *c, t_var_splitter *var)
 			var->stop[var->size] = var->i++;
 		while (str[var->i] == ' ')
 			var->i++;
+		if (c[0] == ';' && str[var->i] == ';')
+			return (-1);
 		if (str[var->i])
 			var->start[++var->size] = var->i;
 	}
 	else
 		var->i++;
+	return (0);
 }
 
-static void		ft_splitter_loop(char *str, char *c, t_var_splitter *var)
+static void		ft_splitter_loop(char *str, char *c,
+	t_var_splitter *var, t_h *h)
 {
 	while (str[var->i])
 	{
@@ -75,18 +79,22 @@ static void		ft_splitter_loop(char *str, char *c, t_var_splitter *var)
 			var->type_apice = str[var->i];
 			var->i++;
 		}
-		else
-			ft_splitter_loop_bis(str, c, var);
+		else if (ft_splitter_loop_bis(str, c, var) == -1)
+		{
+			var->bs = 1;
+			h->error = 1;
+			return ;
+		}
 	}
 }
 
-char			**ft_splitter(char *str, char *c, int mod)
+char			**ft_splitter(char *str, char *c, int mod, t_h *h)
 {
 	t_var_splitter var;
 
 	ft_init_var(&var);
 	var.mod = mod;
-	ft_splitter_loop(str, c, &var);
+	ft_splitter_loop(str, c, &var, h);
 	if (var.type_apice != -1 || var.bs != -1)
 	{
 		printf(FYELLOW"Warning: format error\n"NONE);

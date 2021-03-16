@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 17:07:06 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:02:30 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,13 @@ int			parse_cmd(char **cmd, t_h *h)
 	int		k;
 
 	save_str(h, *cmd);
-	cmdarr = ft_splitter(*cmd, ";", 0);
+	cmdarr = ft_splitter(*cmd, ";", 0, h);
 	if (cmdarr == NULL)
 		return (0);
 	k = -1;
 	while (cmdarr[++k])
 	{
-		arr = ft_splitter(cmdarr[k], "<>|", 1);
+		arr = ft_splitter(cmdarr[k], "<>|", 1, h);
 		i = -1;
 		arr = expand_var(h, arr);
 		while (arr[++i])

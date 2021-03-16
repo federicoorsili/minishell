@@ -3,24 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/16 12:17:28 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:47:25 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int			ft_print_env(t_h *h)
+int			ft_print_sort_env(char **env)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (env[i] && env[i + 1])
+	{
+		if (ft_strcmp(env[i], env[i + 1]) > 0)
+		{
+			tmp = env[i];
+			env[i] = env[i + 1];
+			env[i + 1] = tmp;
+			i = 0;
+		}
+		i++;
+	}
+	i = 0;
+	while (env[i])
+	{
+		if (!ft_strnstr(env[i], "?=", ft_strlen("?=")))
+			ft_printf("declare -x %s\n", env[i++]);
+		else
+			i++;
+	}
+	return (0);
+}
+
+int			ft_print_env(t_h *h, int mod)
 {
 	int		i;
 	char	**envmtrx;
 
 	i = 0;
 	envmtrx = h->our_env;
+	if (mod)
+	{
+		ft_print_sort_env(envmtrx);
+		return (0);
+	}
 	while (envmtrx[i])
-		ft_printf("%s\n", envmtrx[i++]);
+	{
+		if (!ft_strnstr(envmtrx[i], "?=", ft_strlen("?=")))
+			ft_printf("%s\n", envmtrx[i++]);
+		else
+			i++;
+	}
 	return (0);
 }
 
@@ -48,7 +86,10 @@ static int	ourturn_father3(t_h *h, char *cmd, char **argv)
 	ft_strlen(argv[0]) == ft_strlen("export"))
 	{
 		if (!argv[1])
+		{
 			h->error = ft_export(h);
+			ft_print_env(h, 1);
+		}
 		else
 			h->error = ft_single_export(h, argv);
 		return (1);
