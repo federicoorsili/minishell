@@ -391,3 +391,38 @@ ls | wc
 vim Makefile
 leaks minishell
 exit
+ciao;
+ciao;;;
+ciao;;
+;ciao;
+;ciao ; ;
+;ciao ; ;
+;ciao ; ;
+ls 123
+ls 123
+:ls
+;ls
+;ls;;
+;ls; ;
+;ls; ;;;;
+;ls; ;;;;
+;ls; ;;;;
+;ls; ;;;;
+;ls; ;;;;
+;ls
+;ls;;
+ls;;
+ls;; ;;;
+ls;; ;;;
+ls;; ;;;
+ls;; ;;;
+ls;
+;ls;
+;ls;;
+ls 4qw
+; ls ; ; ;
+ls;;
+ls ;
+;ls ;;;
+make fclean
+git add .

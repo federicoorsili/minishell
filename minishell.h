@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 17:47:58 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:00:49 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int					is_line(char *str);
 int					get_next_line(const int fd, char **line);
 int					parse_cmd(char **cmd, t_h *h);
 char				**ft_split_cmd(char *str, char *charset);
-char				**ft_splitter(char *str, char *c, int mod);
+char				**ft_splitter(char *str, char *c, int mod, t_h *h);
 int					apix_gest(char *s, char c, int *i, int *sw, char *apx);
 void				printercmds(t_cmds *lst);
 int					lstcounter_smplcmds(t_scmd *lst);
