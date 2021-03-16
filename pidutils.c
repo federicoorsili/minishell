@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pidutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 17:06:18 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 17:51:55 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	exec_cmd2(t_h *h, char **argv)
 	else if ((ft_strncmp(argv[0], "env", ft_strlen(argv[0])) == 0) &&
 	ft_strlen(argv[0]) == ft_strlen("env"))
 	{
-		h->error = ft_print_env(h);
+		h->error = ft_print_env(h, 0);
 		set_flag_exit(h, 1);
 		return (1);
 	}

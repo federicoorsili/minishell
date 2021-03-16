@@ -291,3 +291,6 @@ echo " \$USER"
 echo ""
 echo "'"
 exit
+'echo' \'ciao\'
+export
+export
