@@ -6,17 +6,20 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:56:12 by dmalori           #+#    #+#             */
-/*   Updated: 2021/03/16 12:23:01 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 17:49:26 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_exit_readline(t_h *h)
+void	ft_exit_readline(t_h *h, int mod)
 {
-	disablerawmod();
-	write(1, "\n", 1);
-	free_exit(h, 0);
+	if (mod == 0 || (mod == 1 && h->buffer[0] == 0))
+	{
+		disablerawmod();
+		write(1, "\n", 1);
+		free_exit(h, 0);
+	}
 }
 
 void	ft_cmd_home(t_h *h)
