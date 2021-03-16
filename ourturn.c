@@ -6,7 +6,7 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/16 17:53:49 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:02:09 by sgiovo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,14 @@ int			ft_print_env(t_h *h, int mod)
 	envmtrx = h->our_env;
 	while (envmtrx[i])
 	{
-		if (mod)
-			ft_printf("declare -x ");
-		ft_printf("%s\n", envmtrx[i++]);
+		if (!ft_strnstr(envmtrx[i], "?=", ft_strlen("?=")))
+		{
+			if (mod)
+				ft_printf("declare -x ");
+			ft_printf("%s\n", envmtrx[i++]);
+		}
+		else
+			i++;
 	}
 	return (0);
 }
