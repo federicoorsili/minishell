@@ -405,3 +405,114 @@ ls 123
 ls
 env
 exit
+echo \' ciao \'
+echo \'ciao\'
+echo \' ciao\'
+echo \'
+echo \'
+echo '
+echo ;;
+echo \'
+echo ciao
+echo ciao \'
+echo ciao \"
+echo ciao "
+echo ciao
+echo \'ciao
+echo '' ciao
+echo '' ciao
+echo '' ciao
+echo '' ciao
+echo  ciao
+echo " ciao"
+echo "" "ciao"
+echo "ciao"
+"echo" "ciao"
+"echo" "" "ciao"
+"echo" "" "ciao"
+"echo" "" "ciao"
+"echo" "" "ciao"
+"echo" "" "ciao"
+echo ciao
+echo ciao ""
+echo "" ciao ""
+echo "" cia
+echo "" cia
+"echo" "" "ciao"
+echo '' ciao
+echo ciao
+echo ciao ''
+echo ciao ''\'
+echo ciao ''\'
+"echo" "" "ciao"
+"echo" "" "ciao"
+"echo" "" "ciao"
+echo ciao ''\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+'echo' \'ciao\'
+"echo" "" "ciao"
+'echo' \'ciao\'
+echo '' ciao
+echo '' ciao
+echo '' ciao
+echo '' ciao
+echo '' ciao
+echo '' ciao
+echo "" ciao
+echo " " ciao
+echo ciao
+echo "" ciao
+echo  ciao
+"echo" "" "ciao"
+'echo' \'ciao\'
+"echo" "" "ciao"
+"echo" \"\" "ciao"
+"echo" \"\" \"ciao"
+"echo" \"\" \"ciao\"
+"echo" \"\"\"ciao\"
+"echo" \"\"\" ciao\"
+"echo" \"\"\"ciao\"
+"echo" \"\"\"ciao\"
+"echo" "" ciao
+"echo" "" ciao
+"echo" "" ciao
+"echo" "" ciao
+"echo" '' ciao
+"echo" '' ciao
+"echo" '' ciao
+"echo" '' ciao
+"echo"  ciao
+"echo"  '' ciao
+"echo"  '' ciao
+"echo"  '' ciao
+"echo"  " ciao    "
+"echo"  " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao    "
+"echo" '' " ciao \'   "
+"echo" '' " ciao \'   "  \"
+"echo" '' " ciao \'   "  \"
+'echo' \'ciao\'
+echo "'"
+echo '"'
+echo "'"
+echo "     '   "
+echo "     '   "
+echo "'"
+echo "\'"
+echo '\"'

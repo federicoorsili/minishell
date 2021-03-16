@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 18:02:30 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:08:17 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ void		save_str(t_h *h, char *str)
 	h->v_cursor = ++h->v_last_cursor;
 }
 
-static void	ft_loop_apix(char *str, int last_apix, int *j, char buff[1000])
+static char	*ft_loop_apix(char *str, int last_apix, int i, int j)
 {
-	int i;
+	char	buff[1000];
 
-	i = 1;
 	while (str[i])
 	{
 		if (str[i] == last_apix)
@@ -45,39 +44,31 @@ static void	ft_loop_apix(char *str, int last_apix, int *j, char buff[1000])
 			i++;
 			last_apix = -1;
 		}
-		else if (last_apix == '\'')
-			buff[j[0]++] = str[i++];
+		else if (last_apix == '\'' && str[i] != '\'')
+			buff[j++] = str[i++];
 		else if (str[i] == '\\')
 		{
 			i++;
-			buff[j[0]++] = str[i++];
+			buff[j++] = str[i++];
 		}
-		else if (str[i] == '\'' || str[i] == '"')
+		else if ((str[i] == '\'' || str[i] == '"') && last_apix == -1)
 			last_apix = str[i++];
 		else
-			buff[j[0]++] = str[i++];
+			buff[j++] = str[i++];
 	}
+	buff[j] = 0;
+	if (j == 0)
+		return (ft_strdup(""));
+	return (ft_strdup(buff));
 }
 
 char		*ft_trim_apx(char *str)
 {
 	char	*out;
-	int		i;
-	char	buff[1000];
 	int		last_apix;
-	int		j;
 
-	i = 0;
-	j = 0;
-	last_apix = str[i++];
-	if (ft_strlen(str) == 2)
-	{
-		free(str);
-		return (ft_strdup(""));
-	}
-	ft_loop_apix(str, last_apix, &j, buff);
-	buff[j] = 0;
-	out = ft_strdup(buff);
+	last_apix = -1;
+	out = ft_loop_apix(str, last_apix, 0, 0);
 	free(str);
 	return (out);
 }
@@ -91,12 +82,7 @@ char		**trim_apx(char **argv, t_h *h)
 	while (argv[i])
 	{
 		argv[i] = ft_strtrim(&argv[i], " ", 1);
-		if (argv[i][0] == '\'' || argv[i][0] == '"')
-		{
-			if (argv[i][0] == '\'')
-				h->apix_str[i] = 1;
-			argv[i] = ft_trim_apx(argv[i]);
-		}
+		argv[i] = ft_trim_apx(argv[i]);
 		i++;
 	}
 	return (argv);
