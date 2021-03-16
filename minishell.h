@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:55:21 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 16:59:05 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 # define MAX_FRED 1000000
 # define MAX_FD 1200
 # define ENV_SIZE 500
+# define APX_MAX 1000
 
 typedef struct		s_var_splitter
 {
@@ -110,6 +111,7 @@ typedef	struct		s_h
 	int				next_redirection;
 	int				flag_exit;
 	int				sw_dir;
+	char			apix_str[APX_MAX];
 }					t_h;
 
 typedef struct		s_editorconfig
@@ -171,7 +173,7 @@ int					ft_export(t_h *h);
 int					declarated(char **env, char *argv);
 char				*src_home(char **tmp);
 char				**expand_var(t_h *h, char **argv);
-char				**trim_apx(char **argv);
+char				**trim_apx(char **argv, t_h *h);
 void				free_exit(t_h *h, int code);
 int					ft_single_export(t_h *h, char **argv);
 char				**ft_array_swap(char ***env, char **argv, int i);

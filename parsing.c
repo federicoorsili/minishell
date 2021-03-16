@@ -6,13 +6,13 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:59:16 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 17:07:06 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	save_str(t_h *h, char *str)
+void		save_str(t_h *h, char *str)
 {
 	int fd;
 	int i;
@@ -33,23 +33,76 @@ void	save_str(t_h *h, char *str)
 	h->v_cursor = ++h->v_last_cursor;
 }
 
-char	**trim_apx(char **argv)
+static void	ft_loop_apix(char *str, int last_apix, int *j, char buff[1000])
+{
+	int i;
+
+	i = 1;
+	while (str[i])
+	{
+		if (str[i] == last_apix)
+		{
+			i++;
+			last_apix = -1;
+		}
+		else if (last_apix == '\'')
+			buff[j[0]++] = str[i++];
+		else if (str[i] == '\\')
+		{
+			i++;
+			buff[j[0]++] = str[i++];
+		}
+		else if (str[i] == '\'' || str[i] == '"')
+			last_apix = str[i++];
+		else
+			buff[j[0]++] = str[i++];
+	}
+}
+
+char		*ft_trim_apx(char *str)
+{
+	char	*out;
+	int		i;
+	char	buff[1000];
+	int		last_apix;
+	int		j;
+
+	i = 0;
+	j = 0;
+	last_apix = str[i++];
+	if (ft_strlen(str) == 2)
+	{
+		free(str);
+		return (ft_strdup(""));
+	}
+	ft_loop_apix(str, last_apix, &j, buff);
+	buff[j] = 0;
+	out = ft_strdup(buff);
+	free(str);
+	return (out);
+}
+
+char		**trim_apx(char **argv, t_h *h)
 {
 	int i;
 
 	i = 0;
+	ft_memset(h->apix_str, 0, APX_MAX);
 	while (argv[i])
 	{
-		if (argv[i][0] == '\'')
-			argv[i] = ft_strtrim(&argv[i], "\'", 1);
-		else if (argv[i][0] == '"')
-			argv[i] = ft_strtrim(&argv[i], "\"", 1);
+		argv[i] = ft_strtrim(&argv[i], " ", 1);
+		if (argv[i][0] == '\'' || argv[i][0] == '"')
+		{
+			if (argv[i][0] == '\'')
+				h->apix_str[i] = 1;
+			argv[i] = ft_trim_apx(argv[i]);
+		}
 		i++;
 	}
 	return (argv);
 }
 
-int		parse_cmd(char **cmd, t_h *h)
+int			parse_cmd(char **cmd, t_h *h)
 {
 	char	**arr;
 	char	**cmdarr;

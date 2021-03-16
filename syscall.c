@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:08:42 by dmalori           #+#    #+#             */
-/*   Updated: 2021/03/16 14:55:21 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 17:01:25 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			ft_syscall(char **s, t_h *h, int k)
 	s[k] = ft_strtrim(&s[k], " ", 1);
 	argv = ft_splitter(s[k], " ", 0);
 	i = 0;
-	argv = trim_apx(argv);
+	argv = trim_apx(argv, h);
 	if (ourturn_father(h, argv[0], argv))
 		return (ft_pre_ourturn(h, argv));
 	pid = fork();

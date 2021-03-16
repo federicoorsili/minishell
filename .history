@@ -15,3 +15,279 @@ echo \'
 echo \"
 echo \' ciao mamma 'come stai?'
 exit 0
+test
+csc
+cd
+cd libft
+cd Desktop
+cd minishell
+cd 
+cd Desktop/minishell/libft
+ls
+ls | grep mini
+ls . | grep mini
+ls | grep mini;
+ls | grep mini
+ciao | ciao
+ls | echo
+ls
+ls | grep c
+ls | grep mini
+ls  grep mini
+grep mini
+grep c
+echo "ciao" > grep c
+echo "ciao" | grep c
+echo "ciao" > ciao.txt
+cat ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+aaaaaa
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" > ciao.txt
+echo "ciao" >> ciao.txt
+echo > > > 
+echo>>> 
+echo>>> 
+echo >>> 
+echo ciao > ciao.txt; cat ciao.txt
+echo ciao > ciao.txt;
+cat ciao.txt
+echo "ciao ciao >> ciao" >> ciao.txt
+cat ciao.txt
+cat ciao.txt
+echo "ciao" > ciao.txt
+cat ciao.txt
+echo "ciao" >> ciao.txt
+echo "ciao" >> ciao.txt
+echo "ciao" >> ciao.txt
+echo "ciao" >>|| ciao.txt
+echo "ciao" | ciao.txt
+echo "ciao" | ciao.txt
+ls | grep mini
+ciao  || ciaao
+make re
+echo "ciao mamma" | grep c
+make re
+echo "ciao mamma" | grep c
+echo "ciao mamma" | grep c
+echo "ciao mamma" | grep c
+echo "ciao mamma"
+echo "ciao mamma" > ciao.txt
+cat ciao.txt
+echo "ciao mamma ammamamamam" >> ciao.txt
+cat ciao.txt
+echo "ciao mamma ammamamamam" >>> ciao.txt
+cat ciao.txt
+echo "ciao mamma ammamamamam" || ciao.txt
+echo "ciao mamma ammamamamam" || ciao.txt
+echo \'
+echo \"
+echo \''ciao'
+echo \\\"
+echo \\\\
+echo \''ciao'
+echo \'
+echo \'
+echo \'
+echo \'
+echo \\\\\\\'
+echo \\\\\\\\'
+echo "ciao mamma"
+echo "ciao mamma \" come stai\""
+echo "ciao mamma \" come stai'
+echo "ciao mamma \" come stai"
+echo "ciao mamma " come stai"
+echo "ciao mamma " come stai\"
+echo "ciao mamma " come stai\"""
+echo "ciao mamma " come stai\""
+echo "ciao mamma \" come stai\""
+exit
+echo "ciao"
+echo "ciao\""
+echo "ciao\" ciao"
+echo "ciao\""
+echo "ciao\" "
+echo "ciao\""
+echo "ciao\" "
+echo "ciao\" "
+echo "" ciao ""
+bash
+echo "" ciao ""
+echo "ciao\" "
+echo "" ciao ""
+echo "ciao\" "
+echo "ciao\""
+echo "ciao\" "
+echo '"" ciao ""'
+echo ""      ciao   ""
+echo ""      ciao   ""
+echo ""      ciao   ""
+echo "ciao\" "
+echo "ciao\" "
+echo ""      ciao   ""
+echo "ciao\""
+\\
+echo \\
+echo \"
+echo \''
+echo \'
+echo '\''
+echo '\''
+echo '\\\\\'
+echo '\\\\\\'
+echo '\\\\\\'
+echo '\\\\\\'
+echo '\\\\\\\'
+echo "" ciao ""
+echo " ciao \""
+echo "libft"
+echo " ciao \""
+echo '\\\\\\'
+echo '\\\\\\'
+echo '\\\\\\    '
+echo '\\\\\\    a'
+echo "\\\\\\    a"
+echo "\\\\\    a"
+echo "\\\\\a"
+echo "\\\\\"
+echo "\\\\\ "
+echo "\\\\\  a"
+echo "\\\\\ a"
+echo "\\\\\a"
+echo ciao "mammamammma" > x.txt
+cat x.txt
+echo ciao "mammamammma $USER"
+echo ciao 'mammamammma $USER'
+echo ciao ''mammamammma ''$USER
+echo ciao ""mammamammma $USER
+echo ciao "" mammamammma $USER
+echo ciao ""mammamammma $USER
+echo ciao ""mammamammma ""$USER
+echo ciao \""mammamammma "\"$USER
+echo ' ciao '
+echo 'ciao'
+echo "ciao"\"
+echo "ciao\""
+echo "ciao"
+echo "ciao|"
+echo "ciao|ciao"
+echo "ciao|ciao"\\\"
+echo "ciao|ciao"\\\"
+echo "ciao|ciao"\\\"
+echo 'ciao|ciao'\\\"
+echo 'ciao|ciao'\\\"
+echo 'ciao|ciao\\\\\\\\\\\\'
+echo 'ciao|ciao'\\\\\\\\\\\\'
+echo 'ciao|ciao'\\\\\\\\\\\'
+echo '"  ciao'
+echo ''
+echo ""
+echo \"
+echo \'
+echo 'ciao|ciao'\\\\\\\\\\\'
+echo 'ciao|ciao\\\\\\\\\\\'
+echo "ciao|ciao\\\\\\\\\\\"
+echo 'ciao|ciao\\\\\\\\\\\'
+echo "ciao|ciao\\\\\\\\\\\"
+echo "ciao|ciao\\\\\\\\\\"
+echo "ciao|ciao\\\\\\\\\\"
+echo "ciao|ciao"'\\\\\\\\\\'
+echo "ciao|ciao\\\\\\\\\\"
+echo "ciao|ciao\\\\\\\\\\"
+echo "ciao|ciao\\\\\\\\\\"
+echo "ciao|ciao""\\\\\\\\\\"
+echo "ciao|ciao""\\\\\\\\\\"
+echo "ciao|ciao""\\\\\\\\\\'
+echo "ciao|ciao"'\\\\\\\\\\'
+echo "ciao|ciao"'\\\\\\\\\\'
+echo "ciao|ciao""\\\\\\\\\\"
+echo "ciao"
+echo "ciao\"
+echo "ciao"
+echo "ciao"
+echo "ciao\""
+echo "ciao"
+echo "ciao\"
+echo "ciao\""
+echo 'ciao\''
+echo 'ciao\'
+echo "ciao\""
+echo "ciao\""
+echo "ciao\" "
+echo "ciao\"    "
+echo "ciao\"    "
+echo "ciao\" "
+echo "ciao\' "
+echo "ciao\'
+echo 'ciao\'
+echo \'
+echo \"
+echo "ciao\""
+echo "ciao   \\""
+echo "ciao   \\"\"
+echo 'caio ciaoc ai      """""""" "'
+echo 'caio ciaoc ai      """""""" "'
+echo 'caio ciaoc ai      """""""" "'
+echo "ciao\""
+echo "ciao\"     "
+echo "ciao    \"     "
+echo "ciao    \"  \\   "
+echo "ciao    \"  \\   "
+echo "ciao    \"  \\'   "
+echo "" ciao ""
+echo '" ciao "'
+echo " \' ciao\""
+echo \\
+echo \\ \\
+echo "\\"
+echo "\\"
+echo "\\"
+echo "\   \"
+echo "\   \""
+'l''s'
+'l''s'
+'l''s' 'libft'
+ls
+cd 
+cd ..
+cat 'Makefile'
+cat 'Makefile'
+cat 'Makefile'
+cat 'Makefile'
+echo 'ciao \'\'\''
+echo 'ciao \'
+echo 'ciao \""""""'
+echo " ciao \"  ciao |"
+echo " \$USER"
+echo " \$USER"
+echo ""
+echo "'"
+exit

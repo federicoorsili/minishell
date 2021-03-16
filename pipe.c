@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:21:45 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:23:40 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 15:34:53 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	count_pipes(t_h *h, int k, char **tmpcmd)
 	h->npipes = 0;
 	if (k < (arr_len(tmpcmd) - 1))
 	{
-		if (tmpcmd[k + 1][0] == '|')
+		if (tmpcmd[k + 1][0] == '|' && !tmpcmd[k + 1][1])
 		{
 			h->npipes += 1;
 			pipe(h->pipe[k]);
@@ -65,7 +65,7 @@ void	count_pipes(t_h *h, int k, char **tmpcmd)
 	}
 	if (k != 0)
 	{
-		if (tmpcmd[k - 1][0] == '|')
+		if (tmpcmd[k - 1][0] == '|' && !tmpcmd[k - 1][1])
 			h->npipes += 2;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:57:27 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 15:30:54 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ static void		ft_init_var(t_var_splitter *var)
 	var->start[0] = 0;
 }
 
+static void		ft_add_char_split(t_var_splitter *var, int c, char *str)
+{
+	var->stop[var->size] = var->i;
+	var->start[++var->size] = var->i++;
+	while (str[var->i] == c)
+		var->i++;
+	var->stop[var->size] = var->i;
+}
+
 static void		ft_splitter_loop_bis(char *str, char *c, t_var_splitter *var)
 {
 	if (str[var->i] == var->type_apice)
@@ -34,10 +43,7 @@ static void		ft_splitter_loop_bis(char *str, char *c, t_var_splitter *var)
 	else if (ft_iscontain(str[var->i], c) && var->type_apice == -1)
 	{
 		if (var->mod)
-		{
-			var->stop[var->size] = var->i;
-			var->i++;
-		}
+			ft_add_char_split(var, str[var->i], str);
 		else
 			var->stop[var->size] = var->i++;
 		while (str[var->i] == ' ')

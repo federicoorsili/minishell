@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/16 11:51:01 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 16:58:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	selective_print(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == '\\' && (s[i + 1] == '\\' || s[i + 1] == '\"'))
+		if (s[i] == '\\')
 			i++;
 		write(1, &s[i], 1);
 		i++;
@@ -47,9 +47,6 @@ int		echo_support(char **argv, int nflag)
 	{
 		if (i != 1)
 			ft_printf(" ");
-		if (ft_strnstr(argv[i], "\\\\", ft_strlen(argv[i])) ||
-		ft_strnstr(argv[i], "\\\"", ft_strlen(argv[i])))
-			selective_print(argv[i]);
 		else
 			ft_printf("%s", argv[i]);
 		i++;
