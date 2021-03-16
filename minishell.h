@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/03/16 18:00:49 by dmalori          ###   ########.fr       */
+=======
+/*   Updated: 2021/03/16 17:57:24 by sgiovo           ###   ########.fr       */
+>>>>>>> 481d51cd5e026cc6898b48e2aa9cede1e2f5eae9
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +184,7 @@ char				**ft_array_swap(char ***env, char **argv, int i);
 int					ft_unset_manager(t_h *h, char **argv);
 void				echo_manager(char **argv);
 int					ft_get_pwd(void);
-int					ft_print_env(t_h *h);
+int					ft_print_env(t_h *h, int mod);
 void				swap_buffer_del(t_h *h, int i);
 void				swap_buffer(t_h *h, int c, int i);
 void				ft_stamp_char(t_h *h, int temp);

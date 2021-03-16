@@ -291,62 +291,9 @@ echo " \$USER"
 echo ""
 echo "'"
 exit
-ls
-echo $?
-cd lwdkdncwkn
-cd 
-echo $OLDPWD
-echo $PWD
-ls | grep mini | grep minis > prova
-cat prova
-ls | grep mini | grep minis 
-ls | grep mini
-cd Desktop/minishell
-ls | grep mini | grep minis 
-ls | grep mini | grep minis > prova
-cat prova
-eeiffvbaejrbv
-cat
-./minishell
-exit
-./minishell
-exit 127
-leaks minishell
-leaks minishell
-leaks minishell
-leaks minishell
-leaks minishell
-leaks minishell
-leaks minishell
-leaks minishell
-leaks minishell
 'echo' \'ciao\'
-echo "\\"'\\'"'"
-echo "\\"
-echo '\\'
-echo "'"
-'ec'"ho" ciao
-echo '"'
-cd
-cd Desktop/minishell
-rm prova
-ls
-make fclean
-ls
-mkdir "ciao ciao"
-ls
-cd ciao ciao
-cd ciao\ ciao
-cd "ciao ciao"
-cd ..
-rm "ciao ciao"
-rm -rf "ciao ciao"
-ls ; ls ;;
-make clean
-leaks -atExit -- ./minishell
-ciao=5 pippo=6
-env
 export
+<<<<<<< HEAD
 bash
 export pippo
 unset ciao
@@ -426,3 +373,21 @@ ls ;
 ;ls ;;;
 make fclean
 git add .
+=======
+export
+export
+cd ffff
+export
+export
+cd dssfsdf
+export
+export
+cd dsfgsdf
+export
+fngl?=1223
+export
+fg?=3
+export
+cd regserg
+export
+>>>>>>> 481d51cd5e026cc6898b48e2aa9cede1e2f5eae9
