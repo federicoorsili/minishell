@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 23:29:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:09:42 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:29:20 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_export(t_h *h)
 		free(h->tmp_env[i]);
 		i++;
 	}
-	h->tmp_env = ft_calloc(500, sizeof(char *));
+	h->tmp_env = ft_calloc(ENV_SIZE, sizeof(char *));
 	return (0);
 }
 

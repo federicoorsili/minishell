@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:38:03 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:32:06 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@ typedef struct		s_var_splitter
 	int				start[MAX_CMDS];
 	int				stop[MAX_CMDS];
 }					t_var_splitter;
+
+typedef struct		s_var_split
+{
+	int				i;
+	int				w_i;
+	char			*str;
+	char			*charset;
+}					t_var_split;
 
 typedef struct		s_scmd
 {
@@ -185,5 +193,6 @@ void				ft_cmd_invio(t_h *h);
 int					ft_unset_manager(t_h *h, char **argv);
 int					cd(char **argv, t_h *h);
 int					ft_get_pwd(void);
+int					ft_syscall(char **s, t_h *h, int k);
 
 #endif

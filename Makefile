@@ -30,6 +30,7 @@ SRCS	=	minishell.c \
 			ft_cmd_readline_1.c \
 			ft_cmd_readline_2.c \
 			pipe.c \
+			syscall.c
 
 OBJ		=	$(SRCS:.c=.o)
 

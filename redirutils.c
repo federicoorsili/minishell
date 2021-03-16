@@ -3,35 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   redirutils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:10:00 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:00:48 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		write_file(t_h *h, int k)
-{
-	int i;
-
-	i = 0;
-	if (!h->bufred[0])
-	{
-		write(h->fdred[k], 0, 1);
-		return ;
-	}
-	while (h->bufred[i])
-	{
-		write(h->fdred[k], &h->bufred[i], 1);
-		h->bufred[i] = 0;
-		i++;
-	}
-	write(h->fdred[k], 0, 1);
-}
-
-void		read_file(t_h *h, int k, int mod)
+void			read_file(t_h *h, int k, int mod)
 {
 	char	buf[2];
 	int		i;
@@ -60,26 +41,8 @@ void		read_file(t_h *h, int k, int mod)
 	}
 }
 
-void		      count_redirection(t_h *h, int k, char **tmpcmd)
+static void		count_redirection_bis(t_h *h, int k, char **tmpcmd)
 {
-	h->nredir = 0;
-	if (k != 0)
-	{
-		if (tmpcmd[k - 1][0] == '>' && !tmpcmd[k - 1][1])
-		{
-			h->nredir += 2;
-			h->fdred[k] = open(tmpcmd[k], O_RDWR);
-			if (h->bufred[0] == 0)
-				read_file(h, k, 0);
-			if (k < (arr_len(tmpcmd) - 2))
-				if (tmpcmd[k + 1][0] == '>')
-				{
-					close(h->fdred[k]);
-					h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_TRUNC, 0755);
-				}
-			close(h->fdred[k]);
-		}
-	}
 	if (k < (arr_len(tmpcmd) - 2))
 	{
 		if (tmpcmd[k + 1][0] == '>' && !tmpcmd[k + 1][1])
@@ -97,7 +60,31 @@ void		      count_redirection(t_h *h, int k, char **tmpcmd)
 	}
 }
 
-void		open_redirection(t_h *h, int k, char **tmpcmd)
+void			count_redirection(t_h *h, int k, char **tmpcmd)
+{
+	h->nredir = 0;
+	if (k != 0)
+	{
+		if (tmpcmd[k - 1][0] == '>' && !tmpcmd[k - 1][1])
+		{
+			h->nredir += 2;
+			h->fdred[k] = open(tmpcmd[k], O_RDWR);
+			if (h->bufred[0] == 0)
+				read_file(h, k, 0);
+			if (k < (arr_len(tmpcmd) - 2))
+				if (tmpcmd[k + 1][0] == '>')
+				{
+					close(h->fdred[k]);
+					h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT |
+						O_TRUNC, 0755);
+				}
+			close(h->fdred[k]);
+		}
+	}
+	count_redirection_bis(h, k, tmpcmd);
+}
+
+void			open_redirection(t_h *h, int k, char **tmpcmd)
 {
 	if (h->nredir == 1)
 		dup2(h->fdred[k], 1);
@@ -108,7 +95,7 @@ void		open_redirection(t_h *h, int k, char **tmpcmd)
 	}
 }
 
-int			close_redirection(t_h *h, int k)
+int				close_redirection(t_h *h, int k)
 {
 	if (h->nredir == 1 || h->nredir == 3)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:09:20 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:13:26 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:00:16 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,23 @@ char			**ft_array_swap(char ***env, char **argv, int i)
 		return (0);
 	free_arr((*env), ENV_SIZE);
 	return (tmp);
+}
+
+void			write_file(t_h *h, int k)
+{
+	int i;
+
+	i = 0;
+	if (!h->bufred[0])
+	{
+		write(h->fdred[k], 0, 1);
+		return ;
+	}
+	while (h->bufred[i])
+	{
+		write(h->fdred[k], &h->bufred[i], 1);
+		h->bufred[i] = 0;
+		i++;
+	}
+	write(h->fdred[k], 0, 1);
 }

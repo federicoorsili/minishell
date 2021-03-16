@@ -3,50 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   splitcmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 00:40:29 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/08 13:07:12 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:27:12 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int			ft_is_sep(char c, char *charset)
-{
-	int		i;
-
-	i = 0;
-	while (charset[i] != 0)
-	{
-		if (charset[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int			ft_strlen_split(char *str, char *charset, int mod)
+int				ft_strlen_split(char *str, char *charset, int mod)
 {
 	int i;
 
 	if (!mod)
 	{
 		i = 0;
-		while (str[i] != 0 && ft_is_sep(str[i], charset) == 0)
+		while (str[i] != 0 && ft_iscontain(str[i], charset) == 0)
 			i++;
 		return (i);
 	}
 	else
 	{
 		i = 0;
-		while (str[i] != 0 && ft_is_sep(str[i], charset) == 1)
+		while (str[i] != 0 && ft_iscontain(str[i], charset) == 1)
 			i++;
 		return (i);
 	}
 }
 
-int			ft_cw(char *str, char *charset)
+int				ft_cw(char *str, char *charset)
 {
 	int		i;
 	int		count;
@@ -55,7 +41,7 @@ int			ft_cw(char *str, char *charset)
 	count = 0;
 	while (str[i] != 0)
 	{
-		if (ft_is_sep(str[i], charset))
+		if (ft_iscontain(str[i], charset))
 		{
 			i += ft_strlen_split(&str[i], charset, 1);
 			count++;
@@ -69,7 +55,7 @@ int			ft_cw(char *str, char *charset)
 	return (count);
 }
 
-void		ft_insert_word(char *dest, char *src, int size)
+void			ft_insert_word(char *dest, char *src, int size)
 {
 	int		i;
 
@@ -82,37 +68,46 @@ void		ft_insert_word(char *dest, char *src, int size)
 	dest[i] = 0;
 }
 
-char		**ft_split_cmd(char *str, char *charset)
+static int		ft_loop_split(t_var_split *var, char **m)
 {
-	char	**m;
-	int		i;
-	int		w_i;
-
-	i = 0;
-	w_i = 0;
-	if ((m = (char **)malloc(((ft_cw(str, charset) + 1)) * sizeof(char *))) == 0)
-		return (0);
-	while (str[i])
+	if (ft_iscontain(var->str[var->i], var->charset))
 	{
-		if (ft_is_sep(str[i], charset))
-		{
-			if ((m[w_i] = (char *)malloc((ft_strlen_split(&str[i], charset, 1) + 1) *
-				sizeof(char))) == 0)
-				return (0);
-			ft_insert_word(m[w_i], &str[i], ft_strlen_split(&str[i], charset, 1));
-			i += ft_strlen_split(&str[i], charset, 1);
-			w_i++;
-		}
-		else
-		{
-			if ((m[w_i] = (char *)malloc((ft_strlen_split(&str[i], charset, 0) + 1) *
-				sizeof(char))) == 0)
-				return (0);
-			ft_insert_word(m[w_i], &str[i], ft_strlen_split(&str[i], charset, 0));
-			i += ft_strlen_split(&str[i], charset, 0);
-			w_i++;
-		}
+		if ((m[var->w_i] = (char *)malloc((ft_strlen_split(&var->str[var->i],
+			var->charset, 1) + 1) *
+			sizeof(char))) == 0)
+			return (0);
+		ft_insert_word(m[var->w_i], &var->str[var->i],
+			ft_strlen_split(&var->str[var->i], var->charset, 1));
+		var->i += ft_strlen_split(&var->str[var->i], var->charset, 1);
+		var->w_i++;
 	}
-	m[w_i] = 0;
+	else
+	{
+		if ((m[var->w_i] = (char *)malloc((ft_strlen_split(&var->str[var->i],
+			var->charset, 0) + 1) * sizeof(char))) == 0)
+			return (0);
+		ft_insert_word(m[var->w_i], &var->str[var->i],
+			ft_strlen_split(&var->str[var->i], var->charset, 0));
+		var->i += ft_strlen_split(&var->str[var->i], var->charset, 0);
+		var->w_i++;
+	}
+	return (1);
+}
+
+char			**ft_split_cmd(char *str, char *charset)
+{
+	char			**m;
+	t_var_split		var;
+
+	ft_memset(&var, 0, sizeof(t_var_split));
+	var.str = str;
+	var.charset = charset;
+	if ((m = (char **)malloc(((ft_cw(str, charset) + 1)) *
+		sizeof(char *))) == 0)
+		return (0);
+	while (var.str[var.i])
+		if (!ft_loop_split(&var, m))
+			return (NULL);
+	m[var.w_i] = 0;
 	return (m);
 }
