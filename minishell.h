@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 18:52:58 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:08:32 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,5 +198,6 @@ int					ft_unset_manager(t_h *h, char **argv);
 int					cd(char **argv, t_h *h);
 int					ft_get_pwd(void);
 int					ft_syscall(char **s, t_h *h, int k);
+void				env_cpy(char **env);
 
 #endif

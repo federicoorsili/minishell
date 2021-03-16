@@ -3,42 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/16 18:47:25 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/16 19:07:05 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-int			ft_print_sort_env(char **env)
-{
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	while (env[i] && env[i + 1])
-	{
-		if (ft_strcmp(env[i], env[i + 1]) > 0)
-		{
-			tmp = env[i];
-			env[i] = env[i + 1];
-			env[i + 1] = tmp;
-			i = 0;
-		}
-		i++;
-	}
-	i = 0;
-	while (env[i])
-	{
-		if (!ft_strnstr(env[i], "?=", ft_strlen("?=")))
-			ft_printf("declare -x %s\n", env[i++]);
-		else
-			i++;
-	}
-	return (0);
-}
 
 int			ft_print_env(t_h *h, int mod)
 {
@@ -49,7 +21,7 @@ int			ft_print_env(t_h *h, int mod)
 	envmtrx = h->our_env;
 	if (mod)
 	{
-		ft_print_sort_env(envmtrx);
+		env_cpy(envmtrx);
 		return (0);
 	}
 	while (envmtrx[i])

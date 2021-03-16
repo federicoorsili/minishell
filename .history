@@ -505,3 +505,23 @@ cd dsffgsdffg
 export
 gianni?=4
 export
+ls | grep mini | grep m > provax.txt
+ls | grep mini | grep m >> provax.txt
+ls | grep mini | grep m > provax.txt
+ls | grep mini | grep m > provax.txt > provax+1.txt
+ls | grep mini | grep m >> provax.txt > provax+1.txt
+ls | grep mini | grep m >> provax.txt 
+ls | grep mini | grep m | grep .o > provax.txt
+export
+cd sdflfkhjsfd
+export
+env
+env
+export
+export
+env
+export
+env
+cd ksuudfh
+env
+export
