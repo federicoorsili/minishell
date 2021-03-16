@@ -425,3 +425,32 @@ cd
 cd
 cd
 echo $PWD
+bash t.sh
+bash t.sh
+diff _myshell.txt _realshell.txt
+diff _myshell.txt _realshell.txt
+bash t.sh
+bash t.sh
+bash t.sh
+bash t.sh
+bash t.sh
+bash t.sh
+bash t.sh
+bash t.sh
+bash t.sh
+exit
+exit
+exit
+exit
+exit
+$FILE
+exit
+exit
+bash _TESTER.sh
+exit 0
+bash _TESTER.sh
+diff _1test.txt _test.txt
+ls ;;
+exit
+bash _TESTER.sh
+exit
