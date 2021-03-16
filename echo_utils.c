@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/15 17:42:08 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/16 11:16:54 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ void selective_print(char *s)
     }
 }
 
-int echo_support(t_h *h, char *cmd, char **argv, int nflag)
+int echo_support(char **argv, int nflag)
 {
     int i;
-    int k;
 
     i = 1;
      while (argv[i] && is_nflag(argv[i]))
@@ -56,7 +55,7 @@ int echo_support(t_h *h, char *cmd, char **argv, int nflag)
     return (nflag);
 }
 
-void echo_manager(t_h *h, char *cmd, char **argv)
+void echo_manager(char **argv)
 {
     int nflag;
 
@@ -65,7 +64,7 @@ void echo_manager(t_h *h, char *cmd, char **argv)
         ft_printf("");
 	else
     {
-        nflag = echo_support(h, cmd, argv, nflag);
+        nflag = echo_support(argv, nflag);
     }
     if(!nflag)
         ft_printf("\n");

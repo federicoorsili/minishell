@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 22:19:52 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:05:28 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		main_loop(t_h *h)
 	char	*cmd;
 
 	ft_start();
+	h->sw_dir = 1;
 	while (1)
 	{
 		h->path = src_path(h->our_env);
@@ -70,9 +71,12 @@ int		main_loop(t_h *h)
 int		main(int argc, char **argv, char **env)
 {
 	t_h		h;
-	pid_t	pid;
 	char	*tmp;
 
+	if (argc > 1 && argv[0])
+	{
+		exit(-1);
+	}
 	ft_memset(&h, 0, sizeof(t_h));
 	crt_env(env, &h);
 	h.error = 0;

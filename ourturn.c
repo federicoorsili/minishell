@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/15 19:31:50 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:13:24 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 int		cd(char **argv, t_h *h)
 {
-	if (!argv[1])
-		argv[1] = src_home(h->our_env);
+	char *tmp;
+	
 	errno = 0;
+	if (!argv[1])
+	{
+		tmp = src_home(h->our_env);
+		chdir(tmp);
+		free(tmp);
+		return (errno);
+	}
 	chdir(argv[1]);
 	return (errno);
 }
 
-int		ft_get_pwd(t_h *h)
+int		ft_get_pwd(void)
 {
 	char	path[4096];
-	int		error;
 
 	errno = 0;
-
 	getcwd(path, FT_PATH_MAX);
 	ft_printf("%s\n", path);
 	return (errno);
@@ -48,9 +53,7 @@ int		ft_print_env(t_h *h)
 int		ourturn_father(t_h *h, char *cmd, char **argv)
 {
 	int i;
-	char	*tmp;	
-	//if tutti hanno =
-	//else if = piscia
+
 	if ((ft_strncmp(argv[0], "cd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("cd"))
 	{
 		h->error = cd(argv, h);
@@ -75,6 +78,12 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 			printf("%s\n", h->tmp_env[i]);
 			i++;
 		}
+		h->error = errno;
+		return (1);
+	}
+	if ((ft_strncmp(argv[0], "setdir", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("setdir"))
+	{
+		h->sw_dir *= -1;
 		h->error = errno;
 		return (1);
 	}
@@ -104,5 +113,6 @@ int		ourturn_father(t_h *h, char *cmd, char **argv)
 			free_exit(h, 255);
 		//h->error = ft_unset_manager(h, argv);
 	}
+	cmd = NULL;
 	return (0);
 }

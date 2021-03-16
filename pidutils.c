@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 21:54:00 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:16:54 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 	h->flag_exit = 0;
 	if ((ft_strncmp(argv[0], "pwd", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("pwd"))
 	{
-		h->error = ft_get_pwd(h);
+		h->error = ft_get_pwd();
 		set_flag_exit(h, 1);
 		return ;
 	}
@@ -77,7 +77,7 @@ void	exec_cmd(t_h *h, int i, char *cmd, char **argv)
 	}
 	else if ((ft_strncmp(argv[0], "echo", ft_strlen(argv[0])) == 0) && ft_strlen(argv[0]) == ft_strlen("echo"))
 	{
-		echo_manager(h, cmd,argv);
+		echo_manager(argv);
 		h->error = 0;
 		set_flag_exit(h, 1);
 		return ;

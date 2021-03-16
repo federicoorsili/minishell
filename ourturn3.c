@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 13:35:45 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/14 15:55:34 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:14:16 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_check_unset(t_h *h, char **argv, int i)
 int		ft_unset_manager(t_h *h, char **argv)
 {
 	int i;
-	int k;
 
 	i = 1;
 	while (argv[i])
@@ -44,4 +43,5 @@ int		ft_unset_manager(t_h *h, char **argv)
 		ft_check_unset(h, argv, i);
 		i++;
 	}
+	return (0);
 }

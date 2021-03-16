@@ -4,12 +4,11 @@ void ft_convert_history(t_h *h)
 {
 	int fd;
 	char *line;
-	int i;
 
 	fd = open(".history", O_RDWR | O_APPEND | O_CREAT, 0755);
 	h->history = malloc(50000 * sizeof(char *));
 	h->cursor = 0;
-	while(ft_get_next_line(fd, &line))
+	while (ft_get_next_line(fd, &line))
 	{
 		h->history[h->v_cursor] = line;
 		h->v_cursor++;
@@ -21,7 +20,6 @@ void ft_convert_history(t_h *h)
 
 void ft_read_history_up(t_h *h)
 {
-	int fd;
 	int i;
 
 	i = 0;
@@ -56,7 +54,6 @@ void ft_read_history_up(t_h *h)
 
 void ft_read_history_down(t_h *h)
 {
-	int fd;
 	int i;
 
 	i = 0;

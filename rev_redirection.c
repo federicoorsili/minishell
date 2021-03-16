@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:55:12 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 17:18:13 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:11:23 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ void	count_revredir(t_h *h, int k, char **tmpcmd)
 
 void	put_file(t_h *h)
 {
-	int i;
 	char buf[2];
-	
-	while(read(h->fdrev_redirection, &buf, 1))
+
+	while (read(h->fdrev_redirection, &buf, 1))
 	{
 		write(0, &buf[0], 1);
 	}

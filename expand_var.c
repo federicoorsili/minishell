@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_var.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 15:29:53 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:15:17 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int			src_var(char **tmp, char *src)
 {
 	int		i;
-	int		k;
 
 	i = 0;
 	while (tmp[i])

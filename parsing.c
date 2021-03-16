@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 15:38:59 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/16 11:05:59 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	save_str(t_h *h, char *str)
 char	**trim_apx(char **argv)
 {
 	int i;
-	char *str;
 
 	i = 0;
 	while (argv[i])
@@ -53,7 +52,6 @@ char	**trim_apx(char **argv)
 int		parse_cmd(char **cmd, t_h *h)
 {
 	char	**arr;
-	char	*tmpstr;
 	char	**cmdarr;
 	int		i;
 	int		k;

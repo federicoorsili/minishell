@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirutils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 19:55:53 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/16 11:10:00 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void		read_file(t_h *h, int k, int mod)
 
 void		      count_redirection(t_h *h, int k, char **tmpcmd)
 {
-	char	*str;
-
 	h->nredir = 0;
 	if (k != 0)
 	{
@@ -110,7 +108,7 @@ void		open_redirection(t_h *h, int k, char **tmpcmd)
 	}
 }
 
-int			close_redirection(t_h *h, int k, char **tmpcmd)
+int			close_redirection(t_h *h, int k)
 {
 	if (h->nredir == 1 || h->nredir == 3)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smista.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/14 12:13:08 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:07:50 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int		ft_strnstr_md(char *haystack, char *needle, int len)
 	find = 0;
 	if (needle[index] == 0)
 		return (0);
-	while (haystack[index] != 0 && index < len)
+	while (haystack[index] != 0 && index < (size_t)len)
 	{
 		find = 0;
-		while (haystack[index + find] == needle[find] && index + find < len)
+		while (haystack[index + find] == needle[find] && index + find < (size_t)len)
 		{
 			if (find == ft_strlen(needle) - 1)
 				if (haystack[find + 1] == 0)
@@ -53,7 +53,6 @@ void	print_env(t_h *h)
 char	**src_path(char **tmp)
 {
 	int		i;
-	int		k;
 	char	**out;
 	char	**temporanea;
 	char	*str;

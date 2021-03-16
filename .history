@@ -2124,3 +2124,69 @@ ls
 ls
 ls
 ls
+ls
+bin/ls
+/bin/ls
+ls |grep pid > ciao.txt ;grep pid<ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid >> ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid >> ciao.txt ; grep pid < ciao.txt ; cat ciao.txt
+ls | grep pid >> ciao.txt ; cat ciao.txt
+ls | grep pid > ciao.txt ; cat ciao.txt
+ls | grep mini  >> ciao.txt >> ciao2.txt > ciao3.txt
+cat ciao.txt
+cat ciao2.txt
+cat ciao3.txt
+unsetdir
+unsetdir
+setdir
+setdir
+cd ..
+setidr
+setidir
+setdir
+cd
+setdir
+cd
+cd
+cd
+cd ..
+cd 
+cd 
+cd
+cd libbb
+cd libft
+cd ..
+cd 
+cd
+cd
+cd
+setdit
+setdir
+cd Desktop
+pwd
+touch ciao.txt
+echo "ciao mmamammamama" > ciao.txt; cat ciao.txt
+echo "ciao mmamammamama" > ciao.txt; cat ciao.txt | grep c
+setdir
+ciao sdcisdi sdifjisdfj        sidfjisdfu   sdfisdfidi
+make re
+test
+ciao
+mmamamamama
+test
+unset werwer
+exit (99)
+exit (99)
+exit 99
+exit casa

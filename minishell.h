@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 22:05:23 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:17:24 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ typedef	struct		s_h
 	int				v_last_cursor;
 	int				next_redirection;
 	int				flag_exit;
+	int				sw_dir;
 }					t_h;
 
 struct	s_editorconfig {
@@ -137,14 +138,14 @@ void				exec_cmd(t_h *h, int i, char *cmd, char **argv);
 void				count_pipes(t_h *h, int k, char **tmpcmd);
 void				count_redirection(t_h *h, int k, char **tmpcmd);
 void				open_redirection(t_h *h, int k, char **tmpcmd);
-int					close_redirection(t_h *h, int k, char **tmpcmd);
+int					close_redirection(t_h *h, int k);
 void				write_file(t_h *h, int k);
 void				read_file(t_h *h, int k, int mod);
 int					main_loop(t_h *h);
 void				count_double_redir_pre(t_h *h, char **tmpcmd);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
-int					close_doubel_redir(t_h *h, int k, char **tmpcmd);
+int					close_doubel_redir(t_h *h, int k);
 int					ourturn_father(t_h *h, char *cmd, char **argv);
 void				count_revredir(t_h *h, int k, char **tmpcmd);
 void				last_reverse(t_h *h, int k, char **tmpcmd);
@@ -164,8 +165,8 @@ void				free_exit(t_h *h, int code);
 int					ft_single_export(t_h *h, char **argv);
 char				**ft_array_swap(char ***env, char **argv, int i);
 int					ft_unset_manager(t_h *h, char **argv);
-void 				echo_manager(t_h *h, char *cmd, char **argv);
-int					ft_get_pwd(t_h *h);
+void				echo_manager(char **argv);
+int					ft_get_pwd(void);
 int					ft_print_env(t_h *h);
 
 #endif
