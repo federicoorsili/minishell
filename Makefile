@@ -7,7 +7,6 @@ RM		=	rm -f
 SRCS	=	minishell.c \
 			parsing.c \
 			splitcmd.c \
-			splitcmd2.c \
 			splitterdot.c \
 			smista.c \
 			utils.c \
@@ -27,6 +26,9 @@ SRCS	=	minishell.c \
 			free_exit.c \
 			echo_utils.c \
 			print_open.c \
+			ft_swap_buffer.c \
+			ft_cmd_readline_1.c \
+			ft_cmd_readline_2.c \
 			pipe.c \
 
 OBJ		=	$(SRCS:.c=.o)

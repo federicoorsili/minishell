@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:07:50 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 13:54:33 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int		ft_strnstr_md(char *haystack, char *needle, int len)
 	while (haystack[index] != 0 && index < (size_t)len)
 	{
 		find = 0;
-		while (haystack[index + find] == needle[find] && index + find < (size_t)len)
+		while (haystack[index + find] == needle[find] &&
+		index + find < (size_t)len)
 		{
 			if (find == ft_strlen(needle) - 1)
 				if (haystack[find + 1] == 0)
@@ -77,4 +78,3 @@ char	**src_path(char **tmp)
 	}
 	return (out);
 }
-
