@@ -516,3 +516,14 @@ export
 gianni?=4
 export
 >>>>>>> 68010190c3cabea59de165a85e6355649cb7105a
+echo ciao\ ciao
+mkdir ciao ciao
+mkdir "ciao ciao"
+cd ciao\ ciao
+cd ciao\ciao
+cd ..
+cd ciao\ciao
+echo ciao\ciao
+echo ciao\ ciao
+cd ciao\ ciao
+exit
