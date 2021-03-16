@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:17:24 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:07:35 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@
 # define MAX_FD 1200
 # define ENV_SIZE 500
 
-typedef struct	s_var_splitter
+typedef struct		s_var_splitter
 {
-	int		bs;
-	int		i;
-	char	type_apice;
-	char	**matrix;
-	int		size;
-	int		start[MAX_CMDS];
-	int		stop[MAX_CMDS];
-}				t_var_splitter;
+	int				bs;
+	int				i;
+	char			type_apice;
+	char			**matrix;
+	int				size;
+	int				start[MAX_CMDS];
+	int				stop[MAX_CMDS];
+}					t_var_splitter;
 
 typedef struct		s_scmd
 {
@@ -103,11 +103,13 @@ typedef	struct		s_h
 	int				sw_dir;
 }					t_h;
 
-struct	s_editorconfig {
+typedef struct		s_editorconfig
+{
 	struct termios	orig_termios;
-};
+	int				g_signalaction;
+}					t_editorconfig;
 
-struct s_editorconfig		e;
+t_editorconfig		g_e;
 
 void				ft_start(void);
 int					arr_len(char **arr);
@@ -168,5 +170,8 @@ int					ft_unset_manager(t_h *h, char **argv);
 void				echo_manager(char **argv);
 int					ft_get_pwd(void);
 int					ft_print_env(t_h *h);
+int					ft_unset_manager(t_h *h, char **argv);
+int					cd(char **argv, t_h *h);
+int					ft_get_pwd(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:15:17 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:51:19 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char		*maker(t_h *h, char *src)
 	while (h->tmp_env[i][k] && h->tmp_env[i][k] != '=')
 		k++;
 	return (ft_substr(h->tmp_env[i], k + 1, ft_strlen(h->tmp_env[i])));
-	//GESTIRE ASSENZA DI VARIABILE
 }
 
 char		*expand(t_h *h, char *s, int k)

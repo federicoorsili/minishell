@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:05:59 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:16:47 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,18 @@ int		parse_cmd(char **cmd, t_h *h)
 	cmdarr = ft_splitter(*cmd, ";");
 	if (cmdarr == NULL)
 		return (0);
-	k = 0;
-	while (cmdarr[k])
+	k = -1;
+	while (cmdarr[++k])
 	{
 		arr = ft_split_cmd(cmdarr[k], "<>|");
-		i = 0;
+		i = -1;
 		arr = expand_var(h, arr);
-		while (arr[i])
-		{
+		while (arr[++i])
 			arr[i] = ft_strtrim(&arr[i], " \n", 1);
-			////printf("(%s)", arr[i]);
-			i++;
-		}
-		//printf("\n");
-		i = 0;
-		while (arr[i])
-		{
-			i = gestor_cmd(arr, i, h);
-			if (arr[i])
-				i++;
-		}
+		i = -1;
+		while (arr[++i])
+			gestor_cmd(arr, i, h);
 		free_arr(arr, arr_len(arr));
-		k++;
 		ft_memset(h->bufred, 0, MAX_FRED);
 	}
 	free_arr(cmdarr, arr_len(cmdarr));

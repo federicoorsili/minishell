@@ -9,7 +9,6 @@ SRCS	=	minishell.c \
 			splitcmd.c \
 			splitcmd2.c \
 			splitterdot.c \
-			lstprinter.c \
 			smista.c \
 			utils.c \
 			utils2.c \
@@ -20,6 +19,7 @@ SRCS	=	minishell.c \
 			ourturn.c \
 			ourturn2.c \
 			ourturn3.c \
+			ourturn4.c \
 			ft_read_line.c \
 			ft_read_history.c \
 			env_manager.c \
@@ -27,6 +27,7 @@ SRCS	=	minishell.c \
 			free_exit.c \
 			echo_utils.c \
 			print_open.c \
+			pipe.c \
 
 OBJ		=	$(SRCS:.c=.o)
 

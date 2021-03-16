@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:05:28 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 11:59:34 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,11 @@ t_cmds	init_cmd(t_cmds last)
 	return (last);
 }
 
-int		signalaction = 0;
-
 void	handlesignal(int signal)
 {
 	if (signal == SIGINT || signal == SIGQUIT)
 	{
-		signalaction = 1;
+		g_e.g_signalaction = 1;
 	}
 }
 
@@ -56,8 +54,8 @@ int		main_loop(t_h *h)
 			write(2, "Error catching signal C \r\n", 26);
 		if (signal(SIGQUIT, handlesignal) == SIG_ERR)
 			write(2, "Error catching signal C \r\n", 26);
-		if (signalaction == 1)
-			signalaction = 0;
+		if (g_e.g_signalaction == 1)
+			g_e.g_signalaction = 0;
 		src_usr(h->our_env, h);
 		put_usrname(h->usr, h);
 		ft_read_line(h);
@@ -70,13 +68,12 @@ int		main_loop(t_h *h)
 
 int		main(int argc, char **argv, char **env)
 {
-	t_h		h;
-	char	*tmp;
+	t_h				h;
+	char			*tmp;
 
 	if (argc > 1 && argv[0])
-	{
 		exit(-1);
-	}
+	g_e.g_signalaction = 0;
 	ft_memset(&h, 0, sizeof(t_h));
 	crt_env(env, &h);
 	h.error = 0;
