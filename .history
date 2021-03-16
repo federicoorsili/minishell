@@ -391,3 +391,17 @@ export
 cd regserg
 export
 >>>>>>> 481d51cd5e026cc6898b48e2aa9cede1e2f5eae9
+; ls
+cd
+cd sdasasd
+echo $PWD
+export
+ciccio?=1
+export
+; ls
+; ls ;;
+ls 123
+ls 123
+ls
+env
+exit
