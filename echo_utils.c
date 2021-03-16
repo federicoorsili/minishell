@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/16 16:58:40 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:05:40 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int		echo_support(char **argv, int nflag)
 		i++;
 		nflag++;
 	}
+	i = 1;
 	while (argv[i])
 	{
 		if (i != 1)
 			ft_printf(" ");
-		else
-			ft_printf("%s", argv[i]);
+		ft_printf("%s", argv[i]);
 		i++;
 	}
 	return (nflag);
