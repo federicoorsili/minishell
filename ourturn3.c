@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 13:35:45 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/16 12:13:37 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:25:12 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,33 @@ int		ft_unset_manager(t_h *h, char **argv)
 int		cd(char **argv, t_h *h)
 {
 	char *tmp;
+	char *tmp2;
+	char buff[1000];
 
 	errno = 0;
+	tmp = ft_strjoin("OLDPWD=", getcwd(buff, 1000));
+	tmp2 = h->our_env[declarated(h->our_env, tmp)];
+	h->our_env[declarated(h->our_env, tmp)] = ft_strdup(tmp);
+	free(tmp2);
+	free(tmp);
 	if (!argv[1])
 	{
 		tmp = src_home(h->our_env);
 		chdir(tmp);
 		free(tmp);
+		tmp = ft_strjoin("PWD=", getcwd(buff, 1000));
+		tmp2 = h->our_env[declarated(h->our_env, tmp)];
+		h->our_env[declarated(h->our_env, tmp)] = ft_strdup(tmp);
+		free(tmp2);
+		free(tmp);
 		return (errno);
 	}
 	chdir(argv[1]);
+	tmp = ft_strjoin("PWD=", getcwd(buff, 1000));
+	tmp2 = h->our_env[declarated(h->our_env, tmp)];
+	h->our_env[declarated(h->our_env, tmp)] = ft_strdup(tmp);
+	free(tmp2);
+	free(tmp);
 	return (errno);
 }
 

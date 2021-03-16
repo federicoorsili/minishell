@@ -413,3 +413,15 @@ echo ciao\ciao
 echo ciao\ ciao
 cd ciao\ ciao
 exit
+cd ..
+env
+echo $PWD
+CD
+cd
+echo $PWD
+cd
+echo $PWD
+cd
+cd
+cd
+echo $PWD
