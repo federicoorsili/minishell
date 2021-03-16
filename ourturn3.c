@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 13:35:45 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/16 11:14:16 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:13:37 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_check_unset(t_h *h, char **argv, int i)
 		h->our_env = ft_array_swap(&h->our_env, argv, i);
 	else
 		h->tmp_env = ft_array_swap(&h->tmp_env, argv, i);
-	//printf("io ci sono!\n");
 }
 
 int		ft_unset_manager(t_h *h, char **argv)
@@ -44,4 +43,30 @@ int		ft_unset_manager(t_h *h, char **argv)
 		i++;
 	}
 	return (0);
+}
+
+int		cd(char **argv, t_h *h)
+{
+	char *tmp;
+
+	errno = 0;
+	if (!argv[1])
+	{
+		tmp = src_home(h->our_env);
+		chdir(tmp);
+		free(tmp);
+		return (errno);
+	}
+	chdir(argv[1]);
+	return (errno);
+}
+
+int		ft_get_pwd(void)
+{
+	char	path[4096];
+
+	errno = 0;
+	getcwd(path, FT_PATH_MAX);
+	ft_printf("%s\n", path);
+	return (errno);
 }

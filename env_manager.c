@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simonegiovo <simonegiovo@student.42.fr>    +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:50:12 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/15 15:15:25 by simonegiovo      ###   ########.fr       */
+/*   Updated: 2021/03/16 11:51:11 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	crt_env(char **env, t_h *h)
 		k = 0;
 		if (!(h->our_env[i] = malloc(ft_strlen(env[i]))))
 			return ;
-		while(env[i][k])
+		while (env[i][k])
 		{
 			h->our_env[i][k] = env[i][k];
 			k++;

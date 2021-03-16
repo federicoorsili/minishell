@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:36:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/15 17:20:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:24:04 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,13 @@ int			arr_len(char **arr)
 	return (i);
 }
 
-int		gestor_cmd(char **tmpcmd, int k, t_h *h)
+int			gestor_cmd(char **tmpcmd, int k, t_h *h)
 {
 	count_pipes(h, k, tmpcmd);
 	count_double_redir_pre(h, tmpcmd);
 	count_redirection(h, k, tmpcmd);
 	count_double_redir(h, k, tmpcmd);
 	count_revredir(h, k, tmpcmd);
-	//printf("red %d\n duble %d \n nextred %d\n", h->nredir, h->ndoubler, h->next_redirection);
 	if (tmpcmd[k][0] != '|' && tmpcmd[k][0] != '>' && tmpcmd[k][0] != '<')
 	{
 		ft_syscall(tmpcmd, h, k);

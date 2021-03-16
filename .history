@@ -2190,25 +2190,8 @@ exit (99)
 exit (99)
 exit 99
 exit casa
-test
-ls libft
-asdasd;asdasda
+ls
+cd
+dszsd
 ciao
-terst
-test
-cat cavallo
-echo cavallo o        goloso
-ciao
-ciao
-mamma
-cat ciao.txt
->x
-cat c
-cat x
-ciao
-test
-comma
-cat ciao.txt
-> ciao.txt
-echo "chiappe" > ciao.txt; cat ciao.txt
-exit 9
+cat

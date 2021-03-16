@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:34:16 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:36:55 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		die(const char *s)
 
 void			disablerawmod(void)
 {
-	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &e.orig_termios) == -1)
+	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &g_e.orig_termios) == -1)
 		die("tcsetattr");
 }
 
@@ -30,10 +30,10 @@ static void		enablerawmod(void)
 {
 	struct termios raw;
 
-	if (tcgetattr(STDIN_FILENO, &e.orig_termios) == -1)
+	if (tcgetattr(STDIN_FILENO, &g_e.orig_termios) == -1)
 		die("tcgetattr");
 	atexit(disablerawmod);
-	raw = e.orig_termios;
+	raw = g_e.orig_termios;
 	raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON);
 	raw.c_oflag &= ~(OPOST);
 	raw.c_cflag |= (CS8);

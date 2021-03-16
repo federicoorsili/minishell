@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 23:29:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:13:57 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:09:42 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		declarated(char **env, char *argv)
 	while (env[i])
 	{
 		if (!ft_strncmp(env[i], argv, len))
-			return	(i);
+			return (i);
 		i++;
 	}
 	return (i);
@@ -41,7 +41,6 @@ int		ft_export(t_h *h)
 	{
 		k = declarated(h->our_env, h->tmp_env[i]);
 		h->our_env[k] = ft_strdup(h->tmp_env[i]);
-		//ft_memset(h->tmp_env[i], 0, ft_strlen(h->tmp_env[i]));
 		free(h->tmp_env[i]);
 		i++;
 	}
@@ -72,43 +71,6 @@ char	*src_home(char **tmp)
 	return (out[1]);
 }
 
-char	**ft_array_swap(char ***env, char **argv, int i)
-{
-	int k;
-	int j;
-	int found;
-	char **tmp;
-
-	k = 0;
-	while ((*env)[k])
-	{
-		if (!ft_strncmp((*env)[k], argv[i], ft_strlen(argv[i])))
-			break ;
-		k++;
-	}
-	found = k;
-	if ((tmp = ft_calloc(ENV_SIZE, sizeof(char *))))
-	{
-		k = 0;
-		j = 0;
-		while ((*env)[k])
-		{
-			if (j != found)
-			{
-				tmp[j] = ft_strdup((*env)[k]);
-				j++;
-			}
-			else
-				found = -1;
-			k++;
-		}
-	}
-	else
-		return (0);
-	free_arr((*env), ENV_SIZE);
-	return (tmp);
-}
-
 void	mono_export(t_h *h, char **argv, int i, int k)
 {
 	int j;
@@ -122,7 +84,6 @@ void	mono_export(t_h *h, char **argv, int i, int k)
 	else
 		h->our_env[j] = ft_strdup(h->tmp_env[k]);
 	h->tmp_env = ft_array_swap(&h->tmp_env, argv, i);
-	//printf("io ci sono!\n");
 }
 
 int		ft_single_export(t_h *h, char **argv)
