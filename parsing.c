@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:16:47 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:59:16 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ int		parse_cmd(char **cmd, t_h *h)
 	int		k;
 
 	save_str(h, *cmd);
-	cmdarr = ft_splitter(*cmd, ";");
+	cmdarr = ft_splitter(*cmd, ";", 0);
 	if (cmdarr == NULL)
 		return (0);
 	k = -1;
 	while (cmdarr[++k])
 	{
-		arr = ft_split_cmd(cmdarr[k], "<>|");
+		arr = ft_splitter(cmdarr[k], "<>|", 1);
 		i = -1;
 		arr = expand_var(h, arr);
 		while (arr[++i])

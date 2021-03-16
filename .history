@@ -1,1 +1,17 @@
-exit
+teest ciao
+cat ciao.txt
+ls libft
+echo ">>"
+echo "...>>"
+echo ciao mamma >> come stai?
+echo ciao mamma '>>' come stai?
+ciao mamma
+exit 0
+echo '
+echo '; ls
+echo '\; ls
+echo '\
+echo \'
+echo \"
+echo \' ciao mamma 'come stai?'
+exit 0

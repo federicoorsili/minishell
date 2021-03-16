@@ -6,7 +6,7 @@
 /*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:08:42 by dmalori           #+#    #+#             */
-/*   Updated: 2021/03/16 14:08:55 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:55:21 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int			ft_syscall(char **s, t_h *h, int k)
 
 	cmd = NULL;
 	s[k] = ft_strtrim(&s[k], " ", 1);
-	argv = ft_splitter(s[k], " ");
+	argv = ft_splitter(s[k], " ", 0);
 	i = 0;
 	argv = trim_apx(argv);
 	if (ourturn_father(h, argv[0], argv))
