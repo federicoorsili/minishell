@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:09:20 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:00:16 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:28:28 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void			write_file(t_h *h, int k)
 		write(h->fdred[k], 0, 1);
 		return ;
 	}
+	//ft_printf("%s\n", h->bufred);
 	while (h->bufred[i])
 	{
 		write(h->fdred[k], &h->bufred[i], 1);

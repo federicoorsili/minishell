@@ -291,3 +291,86 @@ echo " \$USER"
 echo ""
 echo "'"
 exit
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis > ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt > ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini >> ciao.txt; cat ciao.txt
+ls | grep mini >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini >> ciao.txt; cat ciao.txt
+ls | grep mini >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt ; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt ; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt ; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt ; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt ; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt > ciao.txt >> ciao.txt; cat ciao.txt
+cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt > ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt > ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt > ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt > ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt >> ciao.txt >> ciao.txt; cat ciao.txt
+>ciao.txt ;ls | grep mini | grep minis >> ciao.txt
+cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
+ls | grep mini | grep minis >> ciao.txt; cat ciao.txt
