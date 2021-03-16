@@ -2196,3 +2196,14 @@ dszsd
 ciao
 cat
 exit
+binfo bongo
+test
+ciao
+hello
+cd
+exit
+test
+cat ciao.txt
+echo tempo     fuggit > ciao.txt
+cat ciao.txt
+exit 12

@@ -7,7 +7,6 @@ RM		=	rm -f
 SRCS	=	minishell.c \
 			parsing.c \
 			splitcmd.c \
-			splitcmd2.c \
 			splitterdot.c \
 			smista.c \
 			utils.c \
