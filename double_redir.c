@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 21:50:00 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:47:27 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 18:48:14 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,37 @@ void		count_double_redir(t_h *h, int k, char **tmpcmd)
 	}
 }
 
+int			pipe_before(char **tmpcmd, int k)
+{
+	int i;
+
+	i = k;
+	while (i >= 0)
+	{
+		if (tmpcmd[i][0] == '|' && (k - i) == 3)
+			return (1);
+		i--;
+	}
+	return (0);
+}
+
 void		open_double_redir(t_h *h, int k, char **tmpcmd)
 {
+
 	if (h->ndoubler == 1)
 	{
 		if (h->next_redirection != 3)
+		{
+			h->pre_write = 1;
 			dup2(h->fdred[k], 1);
+		}
 		else
 		{
 			h->fdred[k] = open(".tmp", O_RDWR | O_CREAT | O_TRUNC, 0755);
 			dup2(h->fdred[k], 1);
 		}
 	}
-	if (h->ndoubler == 2 && h->nredir == 0 && k != 2)
+	if (h->ndoubler == 2 && h->nredir == 0 && k != 2 && !pipe_before(tmpcmd, k))
 	{
 		h->fdred[k] = open(tmpcmd[k], O_RDWR | O_CREAT | O_APPEND, 0755);
 		write_file(h, k);

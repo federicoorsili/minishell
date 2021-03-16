@@ -386,119 +386,6 @@ ls 123
 ls
 env
 exit
-<<<<<<< HEAD
-echo \' ciao \'
-echo \'ciao\'
-echo \' ciao\'
-echo \'
-echo \'
-echo '
-echo ;;
-echo \'
-echo ciao
-echo ciao \'
-echo ciao \"
-echo ciao "
-echo ciao
-echo \'ciao
-echo '' ciao
-echo '' ciao
-echo '' ciao
-echo '' ciao
-echo  ciao
-echo " ciao"
-echo "" "ciao"
-echo "ciao"
-"echo" "ciao"
-"echo" "" "ciao"
-"echo" "" "ciao"
-"echo" "" "ciao"
-"echo" "" "ciao"
-"echo" "" "ciao"
-echo ciao
-echo ciao ""
-echo "" ciao ""
-echo "" cia
-echo "" cia
-"echo" "" "ciao"
-echo '' ciao
-echo ciao
-echo ciao ''
-echo ciao ''\'
-echo ciao ''\'
-"echo" "" "ciao"
-"echo" "" "ciao"
-"echo" "" "ciao"
-echo ciao ''\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-'echo' \'ciao\'
-"echo" "" "ciao"
-'echo' \'ciao\'
-echo '' ciao
-echo '' ciao
-echo '' ciao
-echo '' ciao
-echo '' ciao
-echo '' ciao
-echo "" ciao
-echo " " ciao
-echo ciao
-echo "" ciao
-echo  ciao
-"echo" "" "ciao"
-'echo' \'ciao\'
-"echo" "" "ciao"
-"echo" \"\" "ciao"
-"echo" \"\" \"ciao"
-"echo" \"\" \"ciao\"
-"echo" \"\"\"ciao\"
-"echo" \"\"\" ciao\"
-"echo" \"\"\"ciao\"
-"echo" \"\"\"ciao\"
-"echo" "" ciao
-"echo" "" ciao
-"echo" "" ciao
-"echo" "" ciao
-"echo" '' ciao
-"echo" '' ciao
-"echo" '' ciao
-"echo" '' ciao
-"echo"  ciao
-"echo"  '' ciao
-"echo"  '' ciao
-"echo"  '' ciao
-"echo"  " ciao    "
-"echo"  " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao    "
-"echo" '' " ciao \'   "
-"echo" '' " ciao \'   "  \"
-"echo" '' " ciao \'   "  \"
-'echo' \'ciao\'
-echo "'"
-echo '"'
-echo "'"
-echo "     '   "
-echo "     '   "
-echo "'"
-echo "\'"
-echo '\"'
-=======
 export
 export
 export
@@ -515,7 +402,6 @@ cd dsffgsdffg
 export
 gianni?=4
 export
->>>>>>> 68010190c3cabea59de165a85e6355649cb7105a
 echo ciao\ ciao
 mkdir ciao ciao
 mkdir "ciao ciao"

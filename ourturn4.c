@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn4.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:09:20 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:00:16 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:09:54 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,45 @@ void			write_file(t_h *h, int k)
 		i++;
 	}
 	write(h->fdred[k], 0, 1);
+}
+
+void			ft_print_sort_env(char **env)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (env[i] && env[i + 1])
+	{
+		if (ft_strcmp(env[i], env[i + 1]) > 0)
+		{
+			tmp = env[i];
+			env[i] = env[i + 1];
+			env[i + 1] = tmp;
+			i = 0;
+		}
+		i++;
+	}
+	i = 0;
+	while (env[i])
+	{
+		if (!ft_strnstr(env[i], "?=", ft_strlen("?=")))
+			ft_printf("declare -x %s\n", env[i++]);
+		else
+			i++;
+	}
+}
+
+void			env_cpy(char **env)
+{
+	char	*env2[5000];
+	int		i;
+
+	i = 0;
+	while (env[i])
+	{
+		env2[i] = env[i];
+		i++;
+	}
+	ft_print_sort_env(env2);
 }

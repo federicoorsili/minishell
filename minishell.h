@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 18:07:31 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:08:32 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ typedef	struct		s_h
 	int				flag_exit;
 	int				sw_dir;
 	char			apix_str[APX_MAX];
+	int				pre_write;
 }					t_h;
 
 typedef struct		s_editorconfig
@@ -197,5 +198,6 @@ int					ft_unset_manager(t_h *h, char **argv);
 int					cd(char **argv, t_h *h);
 int					ft_get_pwd(void);
 int					ft_syscall(char **s, t_h *h, int k);
+void				env_cpy(char **env);
 
 #endif
