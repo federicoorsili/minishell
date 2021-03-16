@@ -6,7 +6,11 @@
 /*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/03/16 17:51:44 by sgiovo           ###   ########.fr       */
+=======
+/*   Updated: 2021/03/16 17:47:58 by dmalori          ###   ########.fr       */
+>>>>>>> 581905a0b382b4000c795a9b5cd7888837300b6d
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +193,7 @@ void				ft_ctrl_left(t_h *h);
 void				ft_ctrl_right(t_h *h);
 void				disablerawmod(void);
 void				ft_ctrl_c(t_h *h);
-void				ft_exit_readline(t_h *h);
+void				ft_exit_readline(t_h *h, int mod);
 void				ft_cmd_home(t_h *h);
 void				ft_cmd_end(t_h *h);
 void				ft_cmd_invio(t_h *h);
