@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:17:24 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/16 12:23:09 by dmalori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,5 +168,17 @@ int					ft_unset_manager(t_h *h, char **argv);
 void				echo_manager(char **argv);
 int					ft_get_pwd(void);
 int					ft_print_env(t_h *h);
+void				swap_buffer_del(t_h *h, int i);
+void				swap_buffer(t_h *h, int c, int i);
+void				ft_stamp_char(t_h *h, int temp);
+void				ft_del_char(t_h *h);
+void				ft_ctrl_left(t_h *h);
+void				ft_ctrl_right(t_h *h);
+void				disablerawmod(void);
+void				ft_ctrl_c(t_h *h);
+void				ft_exit_readline(t_h *h);
+void				ft_cmd_home(t_h *h);
+void				ft_cmd_end(t_h *h);
+void				ft_cmd_invio(t_h *h);
 
 #endif
