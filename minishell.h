@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 19:08:32 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 12:47:53 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ typedef struct		s_editorconfig
 
 t_editorconfig		g_e;
 
+void				add_assign(t_h *h, char **argv);
 void				ft_start(void);
 int					arr_len(char **arr);
 void				ft_putstr(char *s);
@@ -155,14 +156,13 @@ void				open_redirection(t_h *h, int k, char **tmpcmd);
 int					close_redirection(t_h *h, int k);
 void				write_file(t_h *h, int k);
 void				read_file(t_h *h, int k, int mod);
-int					main_loop(t_h *h);
 void				count_double_redir_pre(t_h *h, char **tmpcmd);
 void				count_double_redir(t_h *h, int k, char **tmpcmd);
 void				open_double_redir(t_h *h, int k, char **tmpcmd);
 int					close_doubel_redir(t_h *h, int k);
 int					ourturn_father(t_h *h, char *cmd, char **argv);
 void				count_revredir(t_h *h, int k, char **tmpcmd);
-void				last_reverse(t_h *h, int k, char **tmpcmd);
+int					last_reverse(t_h *h, int k, char **tmpcmd);
 void				open_revred(t_h *h, int k, char **tmpcmd);
 void				close_revredir(t_h *h);
 void				ft_read_line(t_h *h);
@@ -199,5 +199,6 @@ int					cd(char **argv, t_h *h);
 int					ft_get_pwd(void);
 int					ft_syscall(char **s, t_h *h, int k);
 void				env_cpy(char **env);
+int					pipe_before(char **tmpcmd, int k);
 
 #endif

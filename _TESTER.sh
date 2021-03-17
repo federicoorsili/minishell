@@ -20,7 +20,7 @@ echo \"ciao\" >> _test.txt
 echo $? >> _test.txt
 ls | grep mini > ciao.txt; cat ciao.txt >> _test.txt
 echo $? >> _test.txt
-grep mi < ciao.txt >> ciao.txt >> _test.txt;
+#grep mi < ciao.txt >> ciao.txt >> _test.txt;
 echo $? >> _test.txt
 cat ciao.txt >> _test.txt; rm ciao.txt;
 echo $? >> _test.txt
@@ -48,4 +48,20 @@ echo $? >> _test.txt
 rm ciao.txt; rm miao.txt;
 echo $? >> _test.txt
 echo ';ls \;\;"' >> _test.txt
+echo $? >> _test.txt
+export >> _test.txt
+echo $? >> _test.txt
+pappa=12
+echo $pappa >> _test.txt
+echo $? >> _test.txt
+export pappa
+echo $? >> _test.txt
+export >> _test.txt
+export | grep PATH >> _test.txt
+echo $? >> _test.txt
+export dam=99 orso='cavallo'
+export >> _test.txt
+echo $? >> _test.txt
+export lol
+export >> _test.txt
 echo $? >> _test.txt

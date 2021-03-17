@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ourturn2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 23:29:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:29:20 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/17 11:12:09 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,15 @@ int		ft_export(t_h *h)
 	int i;
 	int k;
 
-	k = arr_len(h->our_env);
+	k = 0;
 	i = 0;
 	while (h->tmp_env[i])
 	{
 		k = declarated(h->our_env, h->tmp_env[i]);
 		h->our_env[k] = ft_strdup(h->tmp_env[i]);
-		free(h->tmp_env[i]);
 		i++;
 	}
-	while (i < ENV_SIZE)
-	{
-		free(h->tmp_env[i]);
-		i++;
-	}
+	free_arr(h->tmp_env, ENV_SIZE);
 	h->tmp_env = ft_calloc(ENV_SIZE, sizeof(char *));
 	return (0);
 }

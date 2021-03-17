@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 19:11:32 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 17:47:29 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/17 11:56:50 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void		enablerawmod(void)
 	struct termios raw;
 
 	if (tcgetattr(STDIN_FILENO, &g_e.orig_termios) == -1)
-		die("tcgetattr");
+		die("tcgetattr_1");
 	atexit(disablerawmod);
 	raw = g_e.orig_termios;
 	raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON);
@@ -41,7 +41,7 @@ static void		enablerawmod(void)
 	raw.c_cc[VMIN] = 0;
 	raw.c_cc[VTIME] = 1;
 	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1)
-		die("tcsetattr");
+		die("tcsetattr_2");
 }
 
 static void		ft_while_part2(t_h *h, int temp)

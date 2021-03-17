@@ -2,7 +2,7 @@ NAME	=	minishell
 CC		=	gcc #-pedantic -g
 FT_DIR	=	libft
 FT_LNK	=	-L ${FT_DIR} -lft
-#CFLAGS	=	-Wall -Wextra -Werror	
+CFLAGS	=	-Wall -Wextra -Werror	
 RM		=	rm -f
 SRCS	=	minishell.c \
 			parsing.c \
@@ -30,7 +30,8 @@ SRCS	=	minishell.c \
 			ft_cmd_readline_1.c \
 			ft_cmd_readline_2.c \
 			pipe.c \
-			syscall.c
+			syscall.c \
+			double_redir_2.c
 
 OBJ		=	$(SRCS:.c=.o)
 
@@ -61,7 +62,7 @@ stest		:	$(NAME)
 			bash _TESTER.sh
 			@cp _test.txt _testreal.txt
 			@rm _test.txt
-			./minishell & bash _TESTER.sh
+			./minishell _TESTER.sh
 			@echo "\nDIFFERENZE:\n"
 			@diff _test.txt _testreal.txt
 			
@@ -69,7 +70,7 @@ test		:	$(NAME)
 			bash _TESTER.sh
 			@cp _test.txt _testreal.txt
 			@rm _test.txt
-			./minishell & bash _TESTER.sh
+			./minishell _TESTER.sh
 			@echo "\nDIFFERENZE:\n"
 			@diff _test.txt _testreal.txt
 			@rm _test.txt _testreal.txt

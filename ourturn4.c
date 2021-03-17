@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:09:20 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 19:09:54 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 13:24:38 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void			write_file(t_h *h, int k)
 void			ft_print_sort_env(char **env)
 {
 	int		i;
+	int		k;
 	char	*tmp;
 
 	i = 0;
@@ -85,7 +86,7 @@ void			ft_print_sort_env(char **env)
 			tmp = env[i];
 			env[i] = env[i + 1];
 			env[i + 1] = tmp;
-			i = 0;
+			i = -1;
 		}
 		i++;
 	}
@@ -93,7 +94,22 @@ void			ft_print_sort_env(char **env)
 	while (env[i])
 	{
 		if (!ft_strnstr(env[i], "?=", ft_strlen("?=")))
-			ft_printf("declare -x %s\n", env[i++]);
+		{
+			ft_printf("declare -x ");
+			k = 0;
+			while (env[i][k])
+			{
+				if (k > 0 && env[i][k] == '=')
+				{
+					ft_printf("=\"");
+				}
+				else
+					ft_printf("%c", env[i][k]);
+				k++;
+			}
+			ft_printf("\"\n");
+			i++;
+		}
 		else
 			i++;
 	}

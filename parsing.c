@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 19:08:17 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/17 12:38:36 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ static char	*ft_loop_apix(char *str, int last_apix, int i, int j)
 		}
 		else if (last_apix == '\'' && str[i] != '\'')
 			buff[j++] = str[i++];
-		else if (str[i] == '\\')
+		else if (str[i] == '\\' && last_apix != '\'')
 		{
-			i++;
+			if ((str[i + 1] == '"' || str[i + 1] == '\\') && last_apix == '"')
+				i++;
+			else if (last_apix == -1)
+				i++;
 			buff[j++] = str[i++];
 		}
 		else if ((str[i] == '\'' || str[i] == '"') && last_apix == -1)

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 11:51:19 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 09:40:27 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,13 @@ char		**expand_var(t_h *h, char **argv)
 {
 	int		i;
 	int		k;
+	char	*tmp;
 
-	i = 0;
-	while (argv[i])
+	i = -1;
+	while (argv[++i])
 	{
-		k = 0;
-		while (argv[i][k])
+		k = -1;
+		while (argv[i][++k])
 		{
 			if (argv[i][k] == '\'')
 			{
@@ -101,11 +102,11 @@ char		**expand_var(t_h *h, char **argv)
 			}
 			else if (argv[i][k] == '$')
 			{
+				tmp = argv[i];
 				argv[i] = expand(h, argv[i], k);
+				free(tmp);
 			}
-			k++;
 		}
-		i++;
 	}
 	return (argv);
 }

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:55:12 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 13:54:03 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 12:46:54 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	put_file(t_h *h)
 	}
 }
 
-void	last_reverse(t_h *h, int k, char **tmpcmd)
+int		last_reverse(t_h *h, int k, char **tmpcmd)
 {
 	int i;
 
@@ -53,6 +53,7 @@ void	last_reverse(t_h *h, int k, char **tmpcmd)
 	}
 	i--;
 	h->fdrev_redirection = open(tmpcmd[i], O_RDWR);
+	return (i);
 }
 
 void	open_revred(t_h *h, int k, char **tmpcmd)

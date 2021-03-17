@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pidutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgiovo <sgiovo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:03:08 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 17:51:55 by sgiovo           ###   ########.fr       */
+/*   Updated: 2021/03/17 13:06:29 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,19 @@ static int	exec_cmd2(t_h *h, char **argv)
 	ft_strlen(argv[0]) == ft_strlen("pwd"))
 	{
 		h->error = ft_get_pwd();
+		set_flag_exit(h, 1);
+		return (1);
+	}
+	else if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) &&
+	ft_strlen(argv[0]) == ft_strlen("export"))
+	{
+		if (!argv[1])
+			ft_print_env(h, 1);
+		else
+		{
+			add_assign(h, argv);
+			h->error = ft_single_export(h, argv);
+		}
 		set_flag_exit(h, 1);
 		return (1);
 	}
@@ -53,11 +66,14 @@ void		exec_cmd(t_h *h, int i, char *cmd, char **argv)
 	h->flag_exit = 0;
 	if (exec_cmd2(h, argv))
 		return ;
-	while (h->path[i])
+	if (h->path)
 	{
-		cmd = ft_strjoin(h->path[i], argv[0]);
-		err = execve(cmd, argv, h->our_env);
-		i++;
+		while (h->path[i])
+		{
+			cmd = ft_strjoin(h->path[i], argv[0]);
+			err = execve(cmd, argv, h->our_env);
+			i++;
+		}
 	}
 	cmd = argv[0];
 	err = execve(cmd, argv, h->our_env);

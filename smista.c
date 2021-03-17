@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:35:27 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 13:54:33 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 10:04:54 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,14 @@ char	**src_path(char **tmp)
 	char	**temporanea;
 	char	*str;
 
-	i = 0;
-	while (tmp[i])
+	i = -1;
+	while (tmp[++i])
 	{
 		if (!ft_strncmp(tmp[i], "PATH=", 5))
 			break ;
-		i++;
 	}
+	if (i == arr_len(tmp))
+		return (ft_calloc(1, sizeof(char **)));
 	temporanea = ft_split(tmp[i], '=');
 	out = ft_split(temporanea[1], ':');
 	free_arr(temporanea, arr_len(temporanea));

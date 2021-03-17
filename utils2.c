@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:36:58 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 12:24:04 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 12:47:36 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int			gestor_cmd(char **tmpcmd, int k, t_h *h)
 	{
 		ft_syscall(tmpcmd, h, k);
 	}
+	k =  last_reverse(h, k, tmpcmd);
 	return (k);
 }

@@ -6,11 +6,29 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/16 19:07:05 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 13:29:24 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	add_assign(t_h *h, char **argv)
+{
+	int i;
+
+	if (argv[1][0] != '=' && ft_strnstr(argv[1], "=", ft_strlen(argv[1])))
+	{
+		i = 1;
+		while (argv[i] && argv[i][0] != '=' &&
+		ft_strnstr(argv[i], "=", ft_strlen(argv[i])))
+		{
+			h->tmp_env[declarated(h->tmp_env, argv[i])] = ft_strdup(argv[i]);
+			i++;
+		}
+		h->error = errno;
+		return ;
+	}
+}
 
 int			ft_print_env(t_h *h, int mod)
 {
@@ -26,7 +44,8 @@ int			ft_print_env(t_h *h, int mod)
 	}
 	while (envmtrx[i])
 	{
-		if (!ft_strnstr(envmtrx[i], "?=", ft_strlen("?=")))
+		if (!ft_strnstr(envmtrx[i], "?=", ft_strlen("?=")) &&
+			ft_strlen(envmtrx[i]) != 0)
 			ft_printf("%s\n", envmtrx[i++]);
 		else
 			i++;
@@ -36,6 +55,16 @@ int			ft_print_env(t_h *h, int mod)
 
 static int	ourturn_father4(t_h *h, char *cmd, char **argv)
 {
+	if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) &&
+	ft_strlen(argv[0]) == ft_strlen("export"))
+	{
+		if (argv[1])
+		{
+			add_assign(h, argv);
+			h->error = ft_single_export(h, argv);
+		}
+		return (0);
+	}
 	if ((ft_strncmp(argv[0], "exit", ft_strlen(argv[0])) == 0) &&
 	ft_strlen(argv[0]) == ft_strlen("exit"))
 	{
@@ -54,18 +83,6 @@ static int	ourturn_father4(t_h *h, char *cmd, char **argv)
 
 static int	ourturn_father3(t_h *h, char *cmd, char **argv)
 {
-	if ((ft_strncmp(argv[0], "export", ft_strlen(argv[0])) == 0) &&
-	ft_strlen(argv[0]) == ft_strlen("export"))
-	{
-		if (!argv[1])
-		{
-			h->error = ft_export(h);
-			ft_print_env(h, 1);
-		}
-		else
-			h->error = ft_single_export(h, argv);
-		return (1);
-	}
 	if ((ft_strncmp(argv[0], "unset", ft_strlen(argv[0])) == 0) &&
 	ft_strlen(argv[0]) == ft_strlen("unset"))
 	{
@@ -110,6 +127,8 @@ int			ourturn_father(t_h *h, char *cmd, char **argv)
 	ft_strlen(argv[0]) == ft_strlen("cd"))
 	{
 		h->error = cd(argv, h);
+		if (h->error == 2)
+			h->error = 1;
 		return (1);
 	}
 	if (argv[0][0] != '=' && ft_strnstr(argv[0], "=", ft_strlen(argv[0])))
