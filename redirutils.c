@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 10:24:05 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 18:27:34 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 18:35:31 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ void			read_file(t_h *h, int k, int mod)
 
 static void		count_redirection_bis(t_h *h, int k, char **tmpcmd)
 {
+	char	*tmp;
+
 	if (k < (arr_len(tmpcmd) - 2))
 	{
 		if (tmpcmd[k + 1][0] == '>' && !tmpcmd[k + 1][1])
 		{
+			tmp = ft_strtrim(&tmpcmd[k + 2], " ", 0);
 			h->nredir += 1;
-			tmpcmd[k + 2] = ft_strtrim(&tmpcmd[k + 2], " ", 1);
-			h->fdred[k] = open(tmpcmd[k + 2], O_RDWR | O_CREAT | O_TRUNC, 0755);
+			h->fdred[k] = open(tmp, O_RDWR | O_CREAT | O_TRUNC, 0755);
+			free(tmp);
 		}
 	}
 	if (k == 0 && tmpcmd[k][0] == '>' && !tmpcmd[k][1])
