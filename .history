@@ -454,3 +454,13 @@ ls ;;
 exit
 bash _TESTER.sh
 exit
+exit
+ls
+cat _test.txt
+exit
+ls
+exit
+exit
+exit
+exit
+exit

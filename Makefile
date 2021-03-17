@@ -54,13 +54,30 @@ fclean	:	clean
 
 re		:	fclean all
 
-run		:	${NAME}
-			./${NAME}
+run		:	$(NAME)
+			./$(NAME)
+			
+stest		:	$(NAME)
+			bash _TESTER.sh
+			@cp _test.txt _testreal.txt
+			@rm _test.txt
+			./minishell & bash _TESTER.sh
+			@echo "\nDIFFERENZE:\n"
+			@diff _test.txt _testreal.txt
+			
+test		:	$(NAME)
+			bash _TESTER.sh
+			@cp _test.txt _testreal.txt
+			@rm _test.txt
+			./minishell & bash _TESTER.sh
+			@echo "\nDIFFERENZE:\n"
+			@diff _test.txt _testreal.txt
+			@rm _test.txt _testreal.txt
 
-v		:	${NAME}
+v		:	$(NAME)
 			valgrind --leak-check=full \
 			--show-leak-kinds=all \
 			--log-file=./valgrind-out.txt \
-			./${NAME} && cat ./valgrind-out.txt
+			./$(NAME) && cat ./valgrind-out.txt
 
-.PHONY		:	all clean fclean re run
+.PHONY		:	all clean fclean re run test v stest

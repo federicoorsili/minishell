@@ -1,4 +1,0 @@
-0
-/home/d2435/Desktop/minishell/libft
-/home/d2435/Desktop/minishell/libft
-/home/d2435/Desktop/minishell/libft

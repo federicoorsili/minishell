@@ -25,7 +25,7 @@ echo $? >> _test.txt
 cat ciao.txt >> _test.txt; rm ciao.txt;
 echo $? >> _test.txt
 cd libft;
-echo $PWD >> _test.txt;
+echo $PWD >> ../_test.txt;
 cd ..;
 echo $PWD >> _test.txt;
 echo $? >> _test.txt
@@ -39,7 +39,7 @@ rm 123123123
 echo $? >> _test.txt
 'l''s' | "gre""p" 'm'ini >> _test.txt
 echo $? >> _test.txt
-echo m       a         q   w   e      42 > ciao.txt > miao.txt >> test.txt
+echo m       a         q   w   e      42 > ciao.txt > miao.txt >> _test.txt
 echo $? >> _test.txt
 cat ciao.txt >> _test.txt; cat miao.txt >> _test.txt;
 echo $? >> _test.txt
@@ -49,4 +49,3 @@ rm ciao.txt; rm miao.txt;
 echo $? >> _test.txt
 echo ';ls \;\;"' >> _test.txt
 echo $? >> _test.txt
-echo "FATTO"
