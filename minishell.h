@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 15:09:15 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 18:26:14 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ typedef struct		s_editorconfig
 {
 	struct termios	orig_termios;
 	int				g_signalaction;
+	int				error;
 }					t_editorconfig;
 
 t_editorconfig		g_e;

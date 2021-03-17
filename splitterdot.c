@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   splitterdot.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:49:40 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 18:05:14 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:11:27 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void		ft_splitter_loop(char *str, char *c,
 		else if (ft_splitter_loop_bis(str, c, var) == -1)
 		{
 			var->bs = 1;
-			h->error = 1;
+			h->error = 258;
 			return ;
 		}
 	}
@@ -94,6 +94,12 @@ char			**ft_splitter(char *str, char *c, int mod, t_h *h)
 
 	ft_init_var(&var);
 	var.mod = mod;
+	if (str[0] == ';')
+	{
+		printf(FYELLOW"Warning: format error\n"NONE);
+		h->error = 258;
+		return (NULL);
+	}
 	ft_splitter_loop(str, c, &var, h);
 	if (var.type_apice != -1 || var.bs != -1)
 	{
@@ -102,13 +108,10 @@ char			**ft_splitter(char *str, char *c, int mod, t_h *h)
 	}
 	if (!(var.matrix = malloc((var.size + 2) * sizeof(char *))))
 		return (NULL);
-	var.i = 0;
-	while (var.i <= var.size)
-	{
+	var.i = -1;
+	while (++var.i <= var.size)
 		var.matrix[var.i] = ft_substr(str, var.start[var.i],
 			(var.stop[var.i] - var.start[var.i]));
-		var.i++;
-	}
 	var.matrix[var.i] = NULL;
 	return (var.matrix);
 }

@@ -6,21 +6,18 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 15:03:44 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:30:22 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		ft_putstr(char *s)
+static void	ft_reset_error_global(t_h *h)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
+	if (g_e.error != -1)
 	{
-		write(1, &s[i], 1);
-		i++;
+		h->error = g_e.error;
+		g_e.error = -1;
 	}
 }
 
@@ -28,7 +25,10 @@ void		handlesignal(int signal)
 {
 	if (signal == SIGINT || signal == SIGQUIT)
 	{
-		g_e.g_signalaction = 1;
+		if (signal == SIGINT)
+			g_e.error = 130;
+		if (signal == SIGQUIT)
+			g_e.error = 131;
 	}
 }
 
@@ -54,8 +54,7 @@ static int	main_loop(t_h *h, int argc, int fd)
 		if (signal(SIGINT, handlesignal) == SIG_ERR ||
 			signal(SIGQUIT, handlesignal) == SIG_ERR)
 			write(2, "Error catching signal C \r\n", 26);
-		if (g_e.g_signalaction == 1)
-			g_e.g_signalaction = 0;
+		ft_reset_error_global(h);
 		src_usr(h->our_env, h);
 		put_usrname(h->usr, h);
 		if (argc == 1)
@@ -65,7 +64,8 @@ static int	main_loop(t_h *h, int argc, int fd)
 		}
 		else
 			cmd = ft_read_test(fd, h);
-		parse_cmd(&cmd, h, -1);
+		if (cmd[0])
+			parse_cmd(&cmd, h, -1);
 		free(cmd);
 		free_arr(h->path, arr_len(h->path));
 	}

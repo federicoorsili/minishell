@@ -3409,3 +3409,527 @@ echo -nnnnnnnno ciao
 echo -nnnnnnnno ciao
 echo -nnnnnnnn ciao
 echo -nnnnnnnn -n -nnnnn ciao
+echo -n  ciao
+echo -n -nnnnnnn -no ciao
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo $USER
+echo ciao
+echo ciao
+echociao
+echo ciao
+echo _ciao
+echo ciao
+echo -n -nnnnnnnn -n ciao
+echo -n -nnnnnnnno -n ciao
+exit
+exit 99
+exit pippo
+exit pippo90
+exit 9 8
+exit 9
+exit s
+exit pippo
+exit 9 8
+exit 999
+exit 9 8
+exit 9 qowiehqwoeiuhw
+exit 
+exit pippo
+/bin/ls libft
+echo $?
+/bin/ls 123
+/bin/echo \\\\
+echo $?
+/bin/cat 123
+/bin/ls sduyfgsduyfgsdf
+/bin/ls ; /bin/echo ciao
+/bin/ls ; /bin/echo ciao; /bin/ls mini
+/bin/ls ; /bin/echo ciao; /bin/ls libft;
+/bin/ls ; /bin/echo ciao; /bin/ls libft;;;
+;ls;;
+/bin/ls ; /bin/echo ciao; /bin/ls libft;;;
+;ls
+; ls
+     ; ls
+; ls
+     ; ls
+; ls
+       ; ls
+ls ;;;
+; ls
+ls;ls;echo ciao
+cd 123
+ls
+cat 
+echo $?
+grep .
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+cat
+> _test.txt
+echo $? >> _test.txt
+echo "ciao" >> _test.txt
+echo $? >> _test.txt
+echo "ciao 123" >> _test.txt
+echo $? >> _test.txt
+echo "ciao\'\'\'" >> _test.txt
+echo $? >> _test.txt
+echo \'ciao\' >> _test.txt
+echo $? >> _test.txt
+echo $USER "pollo" >> _test.txt
+echo $? >> _test.txt
+echo 1234567890 +èùàò      123123 >> _test.txt
+echo $? >> _test.txt
+ls | grep mini >> _test.txt
+echo $? >> _test.txt
+ls | grep mini | grep x >> _test.txt
+echo $? >> _test.txt
+echo \"ciao\" >> _test.txt
+echo $? >> _test.txt
+ls | grep mini > ciao.txt; cat ciao.txt >> _test.txt
+echo $? >> _test.txt
+grep mi < ciao.txt >> ciao.txt >> _test.txt;
+echo $? >> _test.txt
+cat ciao.txt >> _test.txt; rm ciao.txt;
+echo $? >> _test.txt
+cd libft;
+echo $PWD >> ../_test.txt;
+cd ..;
+echo $PWD >> _test.txt;
+echo $? >> _test.txt
+123
+echo $? >> _test.txt
+cd 123
+echo $? >> _test.txt
+ls 123
+echo $? >> _test.txt
+rm 123123123
+echo $? >> _test.txt
+'l''s' | "gre""p" 'm'ini >> _test.txt
+echo $? >> _test.txt
+echo m       a         q   w   e      42 > ciao.txt > miao.txt >> _test.txt
+echo $? >> _test.txt
+cat ciao.txt >> _test.txt; cat miao.txt >> _test.txt;
+echo $? >> _test.txt
+ls | grep iao >> _test.txt
+echo $? >> _test.txt
+rm ciao.txt; rm miao.txt;
+echo $? >> _test.txt
+echo ';ls \;\;"' >> _test.txt
+echo $? >> _test.txt
+export >> _test.txt
+echo $? >> _test.txt
+pappa=12
+echo $pappa >> _test.txt
+echo $? >> _test.txt
+export pappa
+echo $? >> _test.txt
+export >> _test.txt
+export | grep PATH >> _test.txt
+echo $? >> _test.txt
+export dam=99 orso='cavallo'
+export >> _test.txt
+echo $? >> _test.txt
+export lol
+export >> _test.txt
+echo $? >> _test.txt
+test
+ciao
+culo
+ls
+> _test.txt
+echo $? >> _test.txt
+echo "ciao" >> _test.txt
+echo $? >> _test.txt
+echo "ciao 123" >> _test.txt
+echo $? >> _test.txt
+echo "ciao\'\'\'" >> _test.txt
+echo $? >> _test.txt
+echo \'ciao\' >> _test.txt
+echo $? >> _test.txt
+echo $USER "pollo" >> _test.txt
+echo $? >> _test.txt
+echo 1234567890 +èùàò      123123 >> _test.txt
+echo $? >> _test.txt
+ls | grep mini >> _test.txt
+echo $? >> _test.txt
+ls | grep mini | grep x >> _test.txt
+echo $? >> _test.txt
+echo \"ciao\" >> _test.txt
+echo $? >> _test.txt
+ls | grep mini > ciao.txt; cat ciao.txt >> _test.txt
+echo $? >> _test.txt
+grep mi < ciao.txt >> ciao.txt >> _test.txt;
+echo $? >> _test.txt
+cat ciao.txt >> _test.txt; rm ciao.txt;
+echo $? >> _test.txt
+cd libft;
+echo $PWD >> ../_test.txt;
+cd ..;
+echo $PWD >> _test.txt;
+echo $? >> _test.txt
+123
+echo $? >> _test.txt
+cd 123
+echo $? >> _test.txt
+ls 123
+echo $? >> _test.txt
+rm 123123123
+echo $? >> _test.txt
+'l''s' | "gre""p" 'm'ini >> _test.txt
+echo $? >> _test.txt
+echo m       a         q   w   e      42 > ciao.txt > miao.txt >> _test.txt
+echo $? >> _test.txt
+cat ciao.txt >> _test.txt; cat miao.txt >> _test.txt;
+echo $? >> _test.txt
+ls | grep iao >> _test.txt
+echo $? >> _test.txt
+rm ciao.txt; rm miao.txt;
+echo $? >> _test.txt
+echo ';ls \;\;"' >> _test.txt
+echo $? >> _test.txt
+export >> _test.txt
+echo $? >> _test.txt
+pappa=12
+echo $pappa >> _test.txt
+echo $? >> _test.txt
+export pappa
+echo $? >> _test.txt
+export >> _test.txt
+export | grep PATH >> _test.txt
+echo $? >> _test.txt
+export dam=99 orso='cavallo'
+export >> _test.txt
+echo $? >> _test.txt
+export lol
+export >> _test.txt
+echo $? >> _test.txt
+/bin/ls "libft; echo ciao"
+/bin/ls "libft;"
+/bin/ls "libft";
+"l""s"
+\
+echo \" pippo 'iao'\"
+env
+ciao=12
+echo $?
+ciao=12
+ciao + 12
+ciao = 12
+ciao =12
+ciao=12
+env
+echo c=23
+echo $c
+stat
+exit
+echo $c
+echo c=12
+echo $c
+ciao=23
+echo $c
+echo $as
+echo $P
+echo P
+echo $P
+env
+echo $P
+echo $PWD
+ciao=12
+echo $c
+echo $ciao
+echo $ciaop
+ciao=12
+echo $c
+echo $ciao
+echo $ciaop
+ciao=12
+echo $c
+echo $ciao
+echo $ciaop
+env
+ciao=34
+echo $ciao
+export
+export ciao
+export
+env
+ciao=99
+env
+env
+ciao=99
+env
+export ciao=123
+env
+ciao=12
+env
+exit
+env
+ciao=90
+env
+env
+ciao=12
+env
+export
+export ciao
+env
+export
+ciao=99
+env
+export
+unset ciao
+env
+export
+echo $P
+ciao=12
+env
+export
+export ciao
+env
+export
+unset ciao
+env
+export
+ciao=12 pippo=12
+env
+export
+export pippo ciao
+env
+export
+pippo=99
+env
+export
+v=
+export
+export v
+export
+env
+echo $PWD
+echo $OLDPWD
+echo $pippo
+echo $pippoqw
+env
+echo $v
+echo $pipp
+echo $pipp
+echo $pipp
+\
+echo $pipp\
+echo $pipp
+echo $pipp
+echo $pipp
+echo $pipp1
+echo $pipp12
+echo $pipp12
+echo $pipp12
+echo $pipp12'
+echo $pipp12'
+echo $pipp12'
+echo $pipp12
+hj
+'''
+\
+\
+'\
+\
+dgla
+er
+aer
+e5l
+hart
+hrsy
+j[dtu
+[kl676
+pik4]0gikaer\v[lzdf\[ l .v\b
+s/x
+\AAd
+[]ew;
+=slou
+=a4;f\[qeikg]-
+a456ly]eg4sry35k
+4dtu
+h5g
+q01DD]Q1728575
+y1 ee5t
+w4\t
+er;hx\fghln\x
+s
+weg
+kldjbfksdhfsfhsk  as f dz  ds g dfgdf d  dfg\fQA
+echo "$PWD"
+echo "tennis $PWD"
+echo 'tennis $PWD'
+/bin/ls
+cd ..
+/bin/ls
+cd minishell/libft
+/bin/ls
+cd
+/bin/ls
+cd 123
+cd .
+cd ...
+cd .
+pwd
+exit
+pw
+pwd
+cd ..
+./minishell/Make
+./minishell/minishell
+./minishell/minishell
+cd minishelll
+cd minishell
+cd libft
+../minishell
+ls
+wc
+awk
+aet
+unset PATH
+ls
+awk
+wc
+PATH=/bin/:/cavallo/:/bon
+ls
+export PATH
+ls
+env
+export
+echo 'caosioiccjasoichas \23\423\234\234\234'
+ls 'libft'
+cd ..
+ls 'libft'
+ls
+echo
+echo '$PWD     ;    culo '
+echo '$PWD     ;    culo '
+echo "ciao" > ciao.txt; cat ciao.txt
+echo "ciao" > ciao.txt > miao.txt; cat ciao.txt
+cat miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+cat miao.txt
+grep < miao.txt
+grep m < miao.txt
+exit
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+grep m < miao.txt
+cat miao.txt
+grep m < miao.txt
+echo "mammeta" > miao.txt
+grep m < miao.txt
+echo "papp" >> miao.txt
+cat miao.txt
+echo "papp" >> miao.txt >> ciao.txt >> cavallo
+cat cavallo
+cat miao.txt
+cat ciao.txt
+grep m < miao.txt < ciao.txt < cavallo
+grep p < miao.txt < ciao.txt < cavallo
+cat file | grep bla | more
+cat file | grep bla | more
+ls more
+ls | more
+yes | more
+ls
+ls -a
+ls -alt
+ls -alt | more
+ls -alt
+ls | grep m | grep mini
+cat miao.txt | grep p
+ls iisdfasdfbbsfbsdfy | brep bla
+ls iisdfasdfbbsfbsdfy | brep bla
+exit
+ls iisdfasdfbbsfbsdfy | brep bla
+ls iisdfasdfbbsfbsdfy | grep bla
+ls iisdfasdfbbsfbsdfy | | grep bla
+ls iisdfasdfbbsfbsdfy | brep bla
+ls iisdfasdfbbsfbsdfy | grep bla
+>ciao.txt | ls | grep m > ciao.txt; cat ciao.tx
+>ciao.txt | ls | grep m > ciao.txt; cat ciao.txt
+cat ciao.txt
+>ciao.txt | ls | grep m > ciao.txt < ciao.txt
+>ciao.txt | ls | grep m > ciao.txt; echo < ciao.txt
+>ciao.txt | ls | grep m > ciao.txt; grep . < ciao.txt
+>ciao.txt | ls | grep m > ciao.txt; cat ciao.tx
+ls iisdfasdfbbsfbsdfy | grep bla
+kdjfjngkljldfgkjdfg
+ls -la | grep m > ciao.txt >> miao.txt; cat miao.txt
+kdjfjngk     dfgkjdfg
+kdjfjngk     dfgkjdfg
+*/*
+ls */*
+ls *
+leaks minishell
+ls iisdfasdfbbsfbsdfy | grep bla
+ls iisdfasdfbbsfbsdfy | brep bla
+>ciao.txt | ls | grep m > ciao.txt; cat ciao.txt
+>ciao.txt | grep m > ciao.txt;
+grep m > ciao.txt;
+grep m > ciao.txt;
+>ciao.txt | grep m > ciao.txt;
+grep m > ciao.txt;
+grep m < ciao.txt;
+ls | grep m
+>ciao.txt
+ls > ciao.txt
+ls > ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+>ciao.txt | grep m > ciao.txt;
+> ciao.txt
+echo "ciao" > ciao.txt
+    > ciao.txt
+cat ciao.txt
+echo "ciao" > ciao.txt
+    > ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+echo pwppw > ciao.txt
+echo pwppw > ciao.txt
+> ciao.txt
+> ciao.txt
+> ciao.txt
+echo pwppw > ciao.txt
+echo pwppw > ciao.txt
+> ciao.txt
+echo pwppw > ciao.txt
+> ciao.txt
+echo pwppw > ciao.txt
+echo pwppw > ciao.txt
+> ciao.txt

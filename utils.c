@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmalori <dmalori@student.42.fr>            +#+  +:+       +#+        */
+/*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:06:57 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/16 14:08:26 by dmalori          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:32:08 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,19 @@ void	put_usrname(char *str, t_h *h)
 
 	if (h->error != 0)
 	{
-		ft_putstr(FRED);
+		ft_printf(FRED);
 		ft_printf("[%.3d]", h->error);
 	}
 	else
-		ft_putstr(FGREEN"[000]");
-	ft_putstr(NONE);
-	ft_putstr(FCYAN);
-	ft_putstr(str);
+		ft_printf("%s[000]", FGREEN);
+	ft_printf(NONE);
+	ft_printf(FCYAN);
+	ft_printf(str);
 	if (h->sw_dir > 0)
 	{
-		ft_putstr(FPURPLE);
-		ft_putstr(getcwd(directory, FT_PATH_MAX));
+		ft_printf(FPURPLE);
+		ft_printf(getcwd(directory, FT_PATH_MAX));
 	}
-	ft_putstr("> "NONE);
+	ft_printf("> %s", NONE);
 	h->error = 0;
 }

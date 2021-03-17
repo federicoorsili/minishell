@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:28:41 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 09:40:27 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:57:23 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 int			src_var(char **tmp, char *src)
 {
 	int		i;
+	int		k;
 
 	i = 0;
 	while (tmp[i])
 	{
-		if (!ft_strncmp(tmp[i], src, ft_strlen(src)))
+		k = 0;
+		while (tmp[i][k])
+		{
+			if (tmp[i][k + 1] == '=')
+				break ;
+			k++;
+		}
+		if (!ft_strncmp(tmp[i], src, k + 1) && (int)ft_strlen(src) == k + 1)
 			break ;
 		i++;
 	}

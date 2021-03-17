@@ -1,0 +1,122 @@
+OK - Execute a simple command with an absolute path like /bin/ls or any other command without options
+OK - How many global variable ? why ? concrete example of why it feels mandatory or logical.
+Yes
+Arguments
+OK - Execute a simple command with an absolute path like /bin/ls or any other command with arguments but without quotes
+and double quotes
+OK - Repeat multiple times with different commands and arguments
+ Yes
+echo
+OK - Execute the echo command with or without arguments or options
+OK - Repeat multiple times with different arguments
+Yes
+exit
+OK - Execute exit command with or without arguments
+OK - Repeat multiple times with different arguments
+OK - Don't forget to relaunch the minishell
+ Yes
+Return value of a process
+OK - Execute a simple command with absolute path like /bin/ls or any other command with arguments but without quotes and double quotes then execute echo $?
+OK - Check the printed value. You can repeat the same in bash and compare it.
+OK - Repeat multiple times with different commands and arguments, use some failing commands like '/bin/ls filethatdoesntexist'
+ Yes
+Semicolons
+OK - Execute multiple simple commands with absolute path with arguments but separate them with semicolons
+OK - Repeat multiple times with different commands and don't forget to try with or without whitespaces around the semicolons
+ Yes
+Signals
+OK - Try ctrl-C in an empty prompt
+OK - Try ctrl-\ in an empty prompt
+OK - Try ctrl-D in an empty prompt
+OK - Try ctrl-C in a prompt after you wrote some stuff
+OK - Try ctrl-D in a prompt after you wrote some stuff
+OK - Try ctrl-\ in a prompt after you wrote some stuff
+OK - Try ctrl-C after running a blocking command like cat or grep without arguments
+OK - Try ctrl-\ after running a blocking command like cat or grep without arguments
+OK - Try ctrl-D after running a blocking command like cat or grep without arguments
+OK - Repeat multiple times with different commands
+ Yes
+Double Quotes
+OK - Execute a simple command with absolute path with arguments but this time double quotes (you should include whitespaces and semicolons in the quotes)
+OK - Think about empty arguments or a weird use of '\'
+OK - Do not try multiline strings
+ Yes
+env
+OK - Check if env shows you the current environment variables
+ Yes
+export
+OK - Export environment variables, create new ones and replace old ones
+OK - Check them with env
+ Yes
+unset
+OK - Export environment variables, create new ones and replace old ones
+OK - Use unset to remove some of them
+OK - Check the result with env
+ Yes
+Environment Variables
+OK - Execute echo with some $ variables as arguments
+OK - Check if double quotes around $ variables is working correctly (like in bash)
+ Yes
+cd
+OK - Use the command cd to move the working directory and check if you are in the right directory with /bin/ls
+OK - Repeat multiple times with working and not working cd
+OK - try '.' '..' as arguments too
+ Yes
+pwd
+OK - Use the command pwd
+OK - Repeat multiple times in multiple directories
+ Yes
+Relative Path
+OK - Execute commands but this time use a relative path
+OK - Repeat multiple times in multiple directories with complex relative path (lots of ..)
+ Yes
+Environment Path
+OK - Execute commands but this time without any path. (ls, wc, awk etc...)
+OK - Unset the $PATH and check if it is not working anymore
+OK - Set the $PATH to a multiple directory value (directory1:directory2) and check that directories are checked in order from left to right
+ Yes
+Simple Quotes
+OK - Execute commands with simple quotes as argument
+OK - Try empty arguments
+OK - Try environment variables, whitespaces and semicolons in the simple quotes
+ Yes
+Redirection
+OK - Execute commands with redirections < and/or >
+OK - Repeat multiple times with different commands and arguments and sometimes change > with >>
+OK - Check if multiple of the same redirections fail
+ Yes
+Pipes
+OK - Execute commands with pipes like 'cat file | grep bla | more'
+OK - Repeat multiple times with different commands and arguments
+OK - Try some failing commands like 'ls filethatdoesntexist | grep bla | more'
+OK - Try to mix pipes and redirections.
+ Yes
+Go Crazy and history
+OK - Can we navigate through history with up and down and retry some command
+?? - Execute commands that should not work like 'dsbksdgbksdghsd' and check if the shell doesn't crash and prints an error
+OK - Try to execute a really really really long command with a ton of arguments
+OK - Have fun with that beautiful minishell and enjoy it
+ Yes
+Bonus
+We will look at your bonuses if and only if your mandatory part is excellent. This means that you must complete the mandatory part, beginning to end, and your error management must be flawless, even in cases of twisted or bad usage. So if you didn't score all the points on the mandatory part during this defence bonuses will be totally ignored.
+double left redirection
+NO - Check if << is working fine
+ No
+Line editing
+OK - Can we move the cursor left and right and edit the line by inserting or deleting characters at cursor location
+NO - Can we copy paste all/part of a line using a key sequence
+OK - Can we move word by word with ctrl+left or ctrl+right
+OK - Go directly to the beginning or the end of the line with home or end
+NO - Write and edit commands with multilines
+Rate it from 0 (failed) through 5 (excellent)
+3
+And, Or
+NO - Use &&, || and parenthesis with commands and check if it works like bash
+NO - For each working flag give 1 point
+NO - If all flags are working give 1 bonus point
+Rate it from 0 (failed) through 5 (excellent)
+0
+WildCard
+NO - Use wildcards in arguments
+NO - Try things like */*
+NO - Go crazy with wildcards

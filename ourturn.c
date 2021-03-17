@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/17 15:05:12 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 17:06:39 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static int	ourturn_father4(t_h *h, char *cmd, char **argv)
 	if ((ft_strncmp(argv[0], "exit", ft_strlen(argv[0])) == 0) &&
 	ft_strlen(argv[0]) == ft_strlen("exit"))
 	{
-		if (arr_len(argv) > 2)
-			free_exit(h, 255);
 		if (arr_len(argv) == 1)
 			free_exit(h, 0);
-		if (ft_strdigit(argv[1]))
+		else if (arr_len(argv) == 2 && ft_strdigit(argv[1]))
 			free_exit(h, ft_atoi(argv[1]));
+		else if (arr_len(argv) > 2 && ft_strdigit(argv[1]))
+			free_exit(h, 1);
 		else
 			free_exit(h, 255);
 	}
@@ -110,14 +110,16 @@ int			ourturn_father(t_h *h, char *cmd, char **argv)
 	}
 	if (argv[0][0] != '=' && ft_strnstr(argv[0], "=", ft_strlen(argv[0])))
 	{
-		i = 0;
-		while (argv[i] && argv[i][0] != '=' &&
+		i = -1;
+		while (argv[++i] && argv[i][0] != '=' &&
 		ft_strnstr(argv[i], "=", ft_strlen(argv[i])))
 		{
+			if (declarated(h->our_env, argv[i]) != arr_len(h->our_env))
+				h->our_env[declarated(h->our_env, argv[i])] =
+					ft_strdup(argv[i]);
 			h->tmp_env[declarated(h->tmp_env, argv[i])] = ft_strdup(argv[i]);
-			i++;
 		}
-		h->error = errno;
+		h->error = 0;
 		return (1);
 	}
 	return (ourturn_father2(h, cmd, argv));

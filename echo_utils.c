@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:20:43 by simonegiovo       #+#    #+#             */
-/*   Updated: 2021/03/17 15:42:54 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:47:46 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,20 @@ void	selective_print(char *s)
 int		echo_support(char **argv, int nflag)
 {
 	int i;
+	int magg;
 
 	i = 1;
-	nflag = 1;
+	magg = 1;
 	while (argv[i] && is_nflag(argv[i]))
 	{
 		i++;
 		nflag = i;
 	}
+	if (nflag > 0)
+		magg = nflag;
 	while (argv[i])
 	{
-		if (i > nflag)
+		if (i > magg)
 			ft_printf(" ");
 		ft_printf("%s", argv[i]);
 		i++;
