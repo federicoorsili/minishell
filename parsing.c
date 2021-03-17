@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 22:14:44 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 12:38:36 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:08:50 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ static char	*ft_loop_apix(char *str, int last_apix, int i, int j)
 		else
 			buff[j++] = str[i++];
 	}
-	buff[j] = 0;
-	if (j == 0)
-		return (ft_strdup(""));
-	return (ft_strdup(buff));
+	return (ret_loop_apix(j, buff));
 }
 
 char		*ft_trim_apx(char *str)
@@ -91,18 +88,16 @@ char		**trim_apx(char **argv, t_h *h)
 	return (argv);
 }
 
-int			parse_cmd(char **cmd, t_h *h)
+int			parse_cmd(char **cmd, t_h *h, int k)
 {
 	char	**arr;
 	char	**cmdarr;
 	int		i;
-	int		k;
 
 	save_str(h, *cmd);
 	cmdarr = ft_splitter(*cmd, ";", 0, h);
 	if (cmdarr == NULL)
 		return (0);
-	k = -1;
 	while (cmdarr[++k])
 	{
 		arr = ft_splitter(cmdarr[k], "<>|", 1, h);
@@ -110,6 +105,7 @@ int			parse_cmd(char **cmd, t_h *h)
 		arr = expand_var(h, arr);
 		while (arr[++i])
 			arr[i] = ft_strtrim(&arr[i], " \n", 1);
+		ft_swap_redir(&arr);
 		i = -1;
 		while (arr[++i])
 			gestor_cmd(arr, i, h);

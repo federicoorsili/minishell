@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 12:09:20 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 13:24:38 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:01:15 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,35 @@ void			write_file(t_h *h, int k)
 	write(h->fdred[k], 0, 1);
 }
 
+void			ft_stamp_export(char **env)
+{
+	int i;
+	int k;
+
+	i = 0;
+	while (env[i])
+	{
+		if (!ft_strnstr(env[i], "?=", ft_strlen("?=")))
+		{
+			ft_printf("declare -x ");
+			k = 0;
+			while (env[i][k])
+			{
+				if (k > 0 && env[i][k] == '=')
+					ft_printf("=\"");
+				else
+					ft_printf("%c", env[i][k]);
+				k++;
+			}
+			ft_printf("\"\n");
+		}
+		i++;
+	}
+}
+
 void			ft_print_sort_env(char **env)
 {
 	int		i;
-	int		k;
 	char	*tmp;
 
 	i = 0;
@@ -90,41 +115,5 @@ void			ft_print_sort_env(char **env)
 		}
 		i++;
 	}
-	i = 0;
-	while (env[i])
-	{
-		if (!ft_strnstr(env[i], "?=", ft_strlen("?=")))
-		{
-			ft_printf("declare -x ");
-			k = 0;
-			while (env[i][k])
-			{
-				if (k > 0 && env[i][k] == '=')
-				{
-					ft_printf("=\"");
-				}
-				else
-					ft_printf("%c", env[i][k]);
-				k++;
-			}
-			ft_printf("\"\n");
-			i++;
-		}
-		else
-			i++;
-	}
-}
-
-void			env_cpy(char **env)
-{
-	char	*env2[5000];
-	int		i;
-
-	i = 0;
-	while (env[i])
-	{
-		env2[i] = env[i];
-		i++;
-	}
-	ft_print_sort_env(env2);
+	ft_stamp_export(env);
 }

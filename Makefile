@@ -31,7 +31,9 @@ SRCS	=	minishell.c \
 			ft_cmd_readline_2.c \
 			pipe.c \
 			syscall.c \
-			double_redir_2.c
+			double_redir_2.c \
+			parsing_2.c \
+			ourturn5.c 
 
 OBJ		=	$(SRCS:.c=.o)
 

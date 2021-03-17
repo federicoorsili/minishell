@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:20:30 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 12:47:53 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:09:15 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
 int					is_line(char *str);
 int					get_next_line(const int fd, char **line);
-int					parse_cmd(char **cmd, t_h *h);
+int					parse_cmd(char **cmd, t_h *h, int k);
 char				**ft_split_cmd(char *str, char *charset);
 char				**ft_splitter(char *str, char *c, int mod, t_h *h);
 int					apix_gest(char *s, char c, int *i, int *sw, char *apx);
@@ -200,5 +200,8 @@ int					ft_get_pwd(void);
 int					ft_syscall(char **s, t_h *h, int k);
 void				env_cpy(char **env);
 int					pipe_before(char **tmpcmd, int k);
+void				ft_swap_redir(char ***m);
+void				ft_print_sort_env(char **env);
+char				*ret_loop_apix(int j, char buff[1000]);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:20:03 by forsili           #+#    #+#             */
-/*   Updated: 2021/03/17 12:10:55 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:03:44 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void		handlesignal(int signal)
 
 static char	*ft_read_test(int fd, t_h *h)
 {
-	char *str;
-	int	res;
+	char	*str;
+	int		res;
 
 	str = NULL;
 	res = ft_get_next_line(fd, &str);
@@ -44,21 +44,15 @@ static char	*ft_read_test(int fd, t_h *h)
 	return (str);
 }
 
-static int	main_loop(t_h *h, int argc, char **argv)
+static int	main_loop(t_h *h, int argc, int fd)
 {
 	char	*cmd;
-	int		fd;
 
-	ft_start();
-	h->sw_dir = 1;
-	if (argc == 2)
-		fd = open(argv[1], O_RDONLY);
 	while (1)
 	{
 		h->path = src_path(h->our_env);
-		if (signal(SIGINT, handlesignal) == SIG_ERR)
-			write(2, "Error catching signal C \r\n", 26);
-		if (signal(SIGQUIT, handlesignal) == SIG_ERR)
+		if (signal(SIGINT, handlesignal) == SIG_ERR ||
+			signal(SIGQUIT, handlesignal) == SIG_ERR)
 			write(2, "Error catching signal C \r\n", 26);
 		if (g_e.g_signalaction == 1)
 			g_e.g_signalaction = 0;
@@ -71,7 +65,7 @@ static int	main_loop(t_h *h, int argc, char **argv)
 		}
 		else
 			cmd = ft_read_test(fd, h);
-		parse_cmd(&cmd, h);
+		parse_cmd(&cmd, h, -1);
 		free(cmd);
 		free_arr(h->path, arr_len(h->path));
 	}
@@ -81,9 +75,9 @@ int			main(int argc, char **argv, char **env)
 {
 	t_h				h;
 	char			*tmp;
+	int				fd;
 
-	if (argc > 2)
-		exit(-1);
+	fd = -1;
 	g_e.g_signalaction = 0;
 	ft_memset(&h, 0, sizeof(t_h));
 	crt_env(env, &h);
@@ -96,6 +90,10 @@ int			main(int argc, char **argv, char **env)
 	free(tmp);
 	h.tmp_env = ft_calloc(ENV_SIZE, sizeof(char *));
 	ft_convert_history(&h);
-	main_loop(&h, argc, argv);
+	ft_start();
+	h.sw_dir = 1;
+	if (argc == 2)
+		fd = open(argv[1], O_RDONLY);
+	main_loop(&h, argc, fd);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: forsili <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:55:06 by sgiovo            #+#    #+#             */
-/*   Updated: 2021/03/17 13:29:24 by forsili          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:05:12 by forsili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	add_assign(t_h *h, char **argv)
+void		add_assign(t_h *h, char **argv)
 {
 	int i;
 
@@ -28,29 +28,6 @@ void	add_assign(t_h *h, char **argv)
 		h->error = errno;
 		return ;
 	}
-}
-
-int			ft_print_env(t_h *h, int mod)
-{
-	int		i;
-	char	**envmtrx;
-
-	i = 0;
-	envmtrx = h->our_env;
-	if (mod)
-	{
-		env_cpy(envmtrx);
-		return (0);
-	}
-	while (envmtrx[i])
-	{
-		if (!ft_strnstr(envmtrx[i], "?=", ft_strlen("?=")) &&
-			ft_strlen(envmtrx[i]) != 0)
-			ft_printf("%s\n", envmtrx[i++]);
-		else
-			i++;
-	}
-	return (0);
 }
 
 static int	ourturn_father4(t_h *h, char *cmd, char **argv)

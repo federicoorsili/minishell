@@ -20,7 +20,7 @@ echo \"ciao\" >> _test.txt
 echo $? >> _test.txt
 ls | grep mini > ciao.txt; cat ciao.txt >> _test.txt
 echo $? >> _test.txt
-#grep mi < ciao.txt >> ciao.txt >> _test.txt;
+grep mi < ciao.txt >> ciao.txt >> _test.txt;
 echo $? >> _test.txt
 cat ciao.txt >> _test.txt; rm ciao.txt;
 echo $? >> _test.txt
