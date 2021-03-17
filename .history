@@ -3380,3 +3380,32 @@ echo $? >> _test.txt
 export lol
 export >> _test.txt
 echo $? >> _test.txt
+yes
+exit
+/bin/ls
+/bin/pwd
+/bin/echo
+/bin/ls
+/bin/ls -la
+/bin/echo ciao mmmmmamma          cacca
+/bin/pwd qwqweqwe
+echo ciao
+echo ciao mamamamm           palla
+echo -n oko
+echo -nnnn oko
+echo -n oko
+echo -nnnnnnnn oko
+echo -n -n -n   -n oko
+echo -n ciao
+echo -nnnnnnn ciao
+echo -n ciao
+echo -n ciao
+echo -nnnnnnn ciao
+echo -n ciao
+echo -nnnn ciao
+echo -nnnnooo ciao
+echo -nnnnnnnn ciao
+echo -nnnnnnnno ciao
+echo -nnnnnnnno ciao
+echo -nnnnnnnn ciao
+echo -nnnnnnnn -n -nnnnn ciao
